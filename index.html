@@ -43,11 +43,11 @@
         </div>
         
         <nav class="flex-1 overflow-y-auto p-4 space-y-2">
-            <button onclick="showSection('anuncio')" class="w-full text-left p-3 font-bold text-indigo-300 hover:bg-indigo-800 rounded-lg transition border border-indigo-700">
+            <button onclick="showSection('anuncio')" class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-indigo-700">
                 📢 WILLKOMMEN
             </button>
 
-            <button onclick="showSection('encuesta')" class="w-full text-left p-3 font-bold text-indigo-300 hover:bg-indigo-800 rounded-lg transition border border-indigo-700">
+            <button onclick="showSection('encuesta')" class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-indigo-700">
                 📊 UMFRAGE
             </button>
 
@@ -58,24 +58,36 @@
                 </button>
                 
                 <div id="agenda-menu" class="submenu space-y-1 pl-2 bg-indigo-900/50 rounded-b-lg">
-                    <button onclick="showSection('session1')" class="w-full text-left p-3 text-sm text-indigo-100 hover:bg-indigo-800 rounded-lg transition flex justify-between items-center mt-1 border-l-2 border-indigo-500">
+                    <button onclick="showSection('session1')" class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center mt-1 border-l-2 border-indigo-500 bg-indigo-800/50">
                         <span>Sitzung 1</span>
-                        <span class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded">3 Std.</span>
+                        <span class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm">3 Std.</span>
                     </button>
-                    <button onclick="showSection('session2')" class="w-full text-left p-3 text-sm text-indigo-100 hover:bg-indigo-800 rounded-lg transition flex justify-between items-center border-l-2 border-indigo-700">
+                    <button onclick="showSection('session2')" class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center border-l-2 border-indigo-500 bg-indigo-800/50">
                         <span>Sitzung 2</span>
-                        <span class="text-[10px] bg-indigo-800 px-2 py-0.5 rounded">3 Std.</span>
+                        <span class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm">3 Std.</span>
                     </button>
-                    <button onclick="showSection('session3')" class="w-full text-left p-3 text-sm text-indigo-100 hover:bg-indigo-800 rounded-lg transition flex justify-between items-center border-l-2 border-indigo-700">
+                    <button onclick="showSection('session3')" class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center border-l-2 border-indigo-500 bg-indigo-800/50">
                         <span>Sitzung 3</span>
-                        <span class="text-[10px] bg-indigo-800 px-2 py-0.5 rounded">3 Std.</span>
+                        <span class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm">3 Std.</span>
                     </button>
                 </div>
             </div>
 
-            <button onclick="showSection('fuentes')" class="w-full text-left p-3 font-bold text-indigo-300 hover:bg-indigo-800 rounded-lg transition border border-indigo-700">
-                📚 QUELLEN
+            <button onclick="showSection('fuentes')" class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-indigo-700">
+                📚 RESSOURCEN
             </button>
+
+            <a href="https://www.linkedin.com/in/hectorupegui/" target="_blank" class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-white/20 flex justify-between items-center group bg-indigo-950/60 shadow-lg">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-red-500 filter drop-shadow-sm" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="tracking-wide">ÜBER MICH</span>
+                </div>
+                <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+            </a>
         </nav>
     </aside>
 
@@ -91,13 +103,12 @@
                 <h2 class="text-2xl md:text-3xl font-black mb-10 text-indigo-900 border-b-4 border-indigo-600 pb-2 uppercase tracking-tight">Willkommen</h2>
                 <div class="bg-blue-50 p-6 md:p-10 rounded-2xl md:rounded-3xl border border-blue-100 shadow-sm">
                     <p class="text-xl text-blue-900 font-medium italic mb-4">Willkommen zum 9-stündigen KI-Training für den Arbeitsalltag!</p>
-                    <p class="mt-4 text-blue-800 mb-6">Bitte nutzen Sie das Menü auf der linken Seite, um die Kursinhalte der einzelnen Sitzungen einzusehen.
-                    <br><br>
-                    In diesem Kurs lernen Sie, wie KI funktioniert und einige KI-Tools, die für den Büroalltag relevant sind, um Zeit zu sparen, 
-                        Prozesse zu optimieren und neue kreative Möglichkeiten zu erschließen. Hier erhalten Sie einen Praxisüberblick, 
-                    um Tools auszuwählen und besser in Ihrem Arbeitsalltag einzusetzen und reflektieren, 
-                    welche Datenschutz-Aspekte Sie dabei beachten sollten.
-                        <br><br>
+                    <p class="mt-4 text-blue-800 mb-6">Bitte nutzen Sie das Menü auf der linken Seite, um die Kursinhalte der einzelnen Sitzungen einzusehen.<br><br>
+                    
+                    In diesem Kurs lernen Sie die Funktionsweise und die Einsatzmöglichkeiten von 
+                    KI-Anwendungen im Büroalltag kennen. Sie erfahren, wie Sie passende Tools für Ihre Aufgaben 
+                    identifizieren, Arbeitsabläufe unterstützen und dabei die notwendigen 
+                    Datenschutz-Aspekte berücksichtigen.<br><br>
                     <strong>Hinweis zur Agenda: </strong> Die Kursinhalte werden wie beschrieben behandelt. Bitte beachten Sie jedoch, dass die 
                         Reihenfolge oder die zeitliche Gewichtung der 
                         Themen im Sinne des Lernerfolgs und aufgrund der dynamischen Entwicklung der KI-Tools leicht angepasst werden können </p>
@@ -107,7 +118,7 @@
 
             <article id="session1" class="content-section max-w-4xl mx-auto">
                 <div class="mb-10">
-                    <h2 class="text-3xl font-black text-indigo-950 uppercase tracking-tighter">Modul 1: Grundlagen & Die KI-Toolbox für den Beruf</h2>
+                    <h2 class="text-3xl font-black text-indigo-950 uppercase tracking-tighter">Modul 1: Grundlagen & Die KI-Anwendung im beruflichen Kontext</h2>
                     <div class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold">Dauer: 3 Stunden</div>
                 </div>
 
@@ -123,17 +134,17 @@
                         </summary>
                         
                         <div class="p-8 pt-4">
-                            <p class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4">In diesem ersten Abschnitt schaffen wir ein klares Verständnis für die Technologie und räumen mit gängigen Mythen auf. Ziel ist es, die KI als präzises Werkzeug für Ihren Arbeitsalltag zu begreifen.</p>
+                            <p class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4">Dieser Abschnitt vermittelt die technische Funktionsweise und dient der sachlichen Einordnung der Technologie in den Arbeitsalltag.</p>
                             
                             <div class="grid gap-8">
                                 <div class="flex gap-4">
                                     <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">1</div>
                                     <div>
-                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Die Evolution: Von der Informatik zur GenBizKI</h4>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Evolution & Funktionsweise</h4>
                                         <ul class="mt-2 space-y-2 text-slate-600">
-                                            <li>• <strong>Der technologische Sprung:</strong> Warum generative KI (GenAI) anders funktioniert als klassische Software.</li>
-                                            <li>• <strong>GenBizKI:</strong> Fokus auf den geschäftlichen Einsatz (Business-Logik, Sicherheit, Integration).</li>
-                                            <li>• <strong>Rollenverständnis:</strong> KI als „digitaler Sparringspartner“ und Produktivitätsverstärker.</li>
+                                            <li>• <strong>Technologischer Abgleich:</strong> Unterscheidung zwischen regelbasierter Software und generativer KI (GenAI).</li>
+                                            <li>• <strong>GenBizKI:</strong> Rahmenbedingungen für den Einsatz in Unternehmen (Datensicherheit und Infrastruktur).</li>
+                                            <li>• <strong>Rollenverständnis:</strong> Funktion der KI als unterstützendes Werkzeug in Arbeitsprozessen.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -141,10 +152,10 @@
                                 <div class="flex gap-4">
                                     <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">2</div>
                                     <div>
-                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Schlüsselbegriffe verstehen: LLM & LMM</h4>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Beschreibung: LLM & LMM</h4>
                                         <ul class="mt-2 space-y-2 text-slate-600">
-                                            <li>• <strong>LLM (Large Language Models):</strong> Wie Text-KI Sprache und Logik verarbeitet.</li>
-                                            <li>• <strong>LMM (Large Multimodal Models):</strong> Verarbeitung von Bildern, Dokumenten und Audio (z.B. Umwandlung von Whiteboard-Fotos).</li>
+                                            <li>• <strong>Large Language Models (LLM):</strong> Verarbeitung von textbasierten Informationen und Logikketten.</li>
+                                            <li>• <strong>Large Multimodal Models (LMM):</strong> Einbeziehung von Bild-, Dokumenten- und Audioformaten.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -152,21 +163,10 @@
                                 <div class="flex gap-4">
                                     <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">3</div>
                                     <div>
-                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Qualitätssicherung: Halluzinationen & Quellen</h4>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Validierung & Grenzen</h4>
                                         <ul class="mt-2 space-y-2 text-slate-600">
-                                            <li>• <strong>Das Wahrscheinlichkeitsprinzip:</strong> Warum KI manchmal Fakten erfindet und wie man dies erkennt.</li>
-                                            <li>• <strong>Quellenidentifizierung:</strong> Techniken zur Verifizierung mit Internetzugriff (Gemini, Copilot).</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="flex gap-4">
-                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">4</div>
-                                    <div>
-                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Die neue Art der Kommunikation: Prompting</h4>
-                                        <ul class="mt-2 space-y-2 text-slate-600">
-                                            <li>• <strong>Input-Output-Logik:</strong> Ergebnisse hängen von der Instruktionsqualität ab.</li>
-                                            <li>• <strong>Erste Schritte:</strong> Übergang von der Suche zur kontextbasierten Steuerung.</li>
+                                            <li>• <strong>Wahrscheinlichkeitsbasierte Ausgabe:</strong> Ursachen für unzutreffende Informationen (Halluzinationen) und deren Identifikation.</li>
+                                            <li>• <strong>Verifizierungsprozesse:</strong> Abgleich von KI-Ausgaben mit externen Quellen und Suchergebnissen.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -174,23 +174,276 @@
                         </div>
                     </details>
 
-                    <div class="p-6 bg-slate-50 border border-dashed border-slate-300 rounded-3xl text-center text-slate-400">
-                        Teil 2 & Teil 3 von Sitzung 1 werden hier ergänzt...
-                    </div>
+                    <details class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <h3 class="text-2xl font-bold text-indigo-900">Teil 2: Steuerung durch Instruktionen – Prompting (75 Min.)</h3>
+                            <span class="transition-transform duration-300 group-open:rotate-180">
+                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" class="text-indigo-900">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        
+                        <div class="p-8 pt-4">
+                            <p class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4">In diesem Modul wird der Übergang von der Suchlogik zur instruktionsbasierten Steuerung der KI behandelt.</p>
+                            
+                            <div class="grid gap-8">
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">4</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Methodik der Instruktion</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Input-Parameter:</strong> Abhängigkeit der Ausgabeformate von der Spezifikation der Anweisung.</li>
+                                            <li>• <strong>Kontextverwaltung:</strong> Technischer Umgang mit dem begrenzten Verarbeitungsvolumen (Kontextfenster).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">5</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Strukturierung (RTCF-Schema)</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Systematischer Aufbau:</strong> Anwendung der Parameter Rolle, Aufgabe, Kontext und Format (RTCF).</li>
+                                            <li>• <strong>Parametrisierung:</strong> Steuerung der Tonalität und Detailtiefe durch explizite Vorgaben.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">6</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Anpassung & Verfeinerung</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Iterative Prozesse:</strong> Modifikation bestehender Ausgaben durch ergänzende Parameter im Dialog.</li>
+                                            <li>• <strong>Logiksteuerung:</strong> Anwendung von Verfahren zur schrittweisen Herleitung von Ergebnissen (Chain-of-Thought).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <h3 class="text-2xl font-bold text-indigo-900">Teil 3: Anwendungsszenarien & Transfer (60 Min.)</h3>
+                            <span class="transition-transform duration-300 group-open:rotate-180">
+                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" class="text-indigo-900">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        
+                        <div class="p-8 pt-4">
+                            <p class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4">Anwendung der gelernten Methoden auf beispielhafte Aufgabenstellungen aus dem beruflichen Umfeld.</p>
+                            
+                            <div class="grid gap-8">
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">7</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Analyse gängiger Modelle</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Funktionsvergleich:</strong> Abgleich der Einsatzbereiche von Gemini und Copilot.</li>
+                                            <li>• <strong>Tool-Eignung:</strong> Auswahlkriterien basierend auf den Anforderungen der jeweiligen Aufgabe.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">8</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Textverarbeitung & Umwandlung</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Informationsverdichtung:</strong> Zusammenfassung und Extraktion wesentlicher Daten aus Quelldokumenten.</li>
+                                            <li>• <strong>Formattransfer:</strong> Überführung unstrukturierter Informationen in definierte geschäftliche Formate.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">9</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Abschluss & Dokumentation</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Standardisierung:</strong> Zusammenfassung technischer Leitplanken für die tägliche Anwendung.</li>
+                                            <li>• <strong>Ausblick:</strong> Einführung in die weiterführende Datenanalyse (Vorschau auf Modul 2).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             </article>
 
             <article id="session2" class="content-section max-w-4xl mx-auto">
-                <h2 class="text-3xl font-black text-indigo-900 uppercase">Sitzung 2: Fortgeschrittene Workflows</h2>
-                <div class="mt-8 p-10 bg-slate-50 rounded-3xl border border-slate-200">
-                    <p class="text-slate-500 italic text-center">Inhalt wird geladen – Fokus: Automatisierung & Dokumenten-Analyse.</p>
+                <div class="mb-10">
+                    <h2 class="text-3xl font-black text-indigo-950 uppercase tracking-tighter">Modul 2: Interaktive Bearbeitung & Wissensmanagement</h2>
+                    <div class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold">Dauer: 3 Stunden</div>
+                </div>
+
+                <div class="space-y-6">
+                    <details class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm" open>
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <h3 class="text-2xl font-bold text-indigo-900">Teil 1: Strukturierte Dokumentenarbeit (90 Min.)</h3>
+                            <span class="transition-transform duration-300 group-open:rotate-180">
+                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" class="text-indigo-900">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        
+                        <div class="p-8 pt-4">
+                            <p class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4">In diesem Abschnitt wird die Nutzung interaktiver Arbeitsumgebungen zur effizienten Erstellung und Überarbeitung komplexer Texte behandelt.</p>
+                            
+                            <div class="grid gap-8">
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">1</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Canvas & Side-by-Side Editing</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Funktionsweise:</strong> Parallele Bearbeitung von Entwürfen in Copilot und ChatGPT.</li>
+                                            <li>• <strong>Gezielte Modifikation:</strong> Überarbeitung spezifischer Textpassagen ohne Neuerstellung des Gesamtdokuments.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">2</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Formatierung & Struktur</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Strukturierung:</strong> Automatische Erstellung von Gliederungen, Tabellen und Code-Blöcken in der Arbeitsumgebung.</li>
+                                            <li>• <strong>Versionskontrolle:</strong> Verfolgung von Änderungen innerhalb des interaktiven Editors.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <h3 class="text-2xl font-bold text-indigo-900">Teil 2: Analyse eigener Datenbestände (90 Min.)</h3>
+                            <span class="transition-transform duration-300 group-open:rotate-180">
+                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" class="text-indigo-900">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        
+                        <div class="p-8 pt-4">
+                            <p class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4">Fokus auf die Arbeit mit Retrieval-Augmented Generation (RAG) zur sicheren Auswertung unternehmenseigener Informationen.</p>
+                            
+                            <div class="grid gap-8">
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">3</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">NotebookLM & Dokumentenfokus</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Informationsintegration:</strong> Hochladen und Verknüpfen von PDF-Dokumenten, Notizen und Quellen.</li>
+                                            <li>• <strong>Evidenzbasierte Antworten:</strong> Generierung von Inhalten ausschließlich auf Basis der hochgeladenen Primärquellen.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">4</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Extraktion & Synthese</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Wissenssynthese:</strong> Erstellung von Briefing-Docs, FAQ-Listen und Zusammenfassungen aus mehreren Quellen.</li>
+                                            <li>• <strong>Zitierweise:</strong> Überprüfung der KI-Aussagen durch direkte Verweise im Quelldokument.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             </article>
 
-            <article id="session3" class="content-section max-w-4xl mx-auto">
-                <h2 class="text-3xl font-black text-indigo-900 uppercase">Sitzung 3: Strategie & Ethik</h2>
-                <div class="mt-8 p-10 bg-slate-50 rounded-3xl border border-slate-200">
-                    <p class="text-slate-500 italic text-center">Inhalt wird geladen – Fokus: Sicherheit, Compliance und KI-Transformation.</p>
+           <article id="session3" class="content-section max-w-4xl mx-auto">
+            
+                <div class="mb-10">
+                    <h2 class="text-3xl font-black text-indigo-950 uppercase tracking-tighter">Modul 3: Spezialisierung & KI-Zukunft</h2>
+                    <div class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold">Dauer: 3 Stunden</div>
+                </div>
+
+                <div class="space-y-6">
+                    <details class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm" open>
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <h3 class="text-2xl font-bold text-indigo-900">Teil 1: Individuelle Experten-Gems (90 Min.)</h3>
+                            <span class="transition-transform duration-300 group-open:rotate-180">
+                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" class="text-indigo-900">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        
+                        <div class="p-8 pt-4">
+                            <p class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4">Konfiguration spezialisierter KI-Agenten zur Automatisierung komplexer Denkprozesse.</p>
+                            
+                            <div class="grid gap-8">
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">1</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Vom Prompt zum Protokoll</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>System-Instruktionen:</strong> Wie man einem Gem beibringt, Aufgaben in logischen Teilabschnitten (agentisch) abzuarbeiten.</li>
+                                            <li>• <strong>Rollen-Standardisierung:</strong> Erstellung eines Assistenten, der immer nach der gleichen Business-Logik reagiert.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">2</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Praxis: Der Multi-Report-Agent</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Eingabe & Analyse:</strong> Hochladen mehrerer Dokumente und automatisierte Erstellung eines synthetisierten Ergebnisberichts.</li>
+                                            <li>• <strong>Iterative Verfeinerung:</strong> Den Agenten im Dialog trainieren, um die Ausgabequalität zu stabilisieren.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <h3 class="text-2xl font-bold text-indigo-900">Teil 2: Multimodalität & Rahmenbedingungen (90 Min.)</h3>
+                            <span class="transition-transform duration-300 group-open:rotate-180">
+                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" class="text-indigo-900">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        
+                        <div class="p-8 pt-4">
+                            <p class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4">Abschluss des Kurses mit Fokus auf Bild/Audio-Daten und die sichere Anwendung im Unternehmen.</p>
+                            
+                            <div class="grid gap-8">
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">3</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Bilder, Dokumente & Audio</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Visuelle Analyse:</strong> KI zur Auswertung von Screenshots, Tabellenfotos oder Skizzen nutzen.</li>
+                                            <li>• <strong>Audio-Workflows:</strong> Meeting-Protokolle und Sprachmemos effizient verarbeiten.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md">4</div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-lg uppercase tracking-wide">Compliance & Roadmap</h4>
+                                        <ul class="mt-2 space-y-2 text-slate-600">
+                                            <li>• <strong>Sicherer Umgang:</strong> Datenschutz-Leitplanken und Vermeidung von KI-Bias im Berufsalltag.</li>
+                                            <li>• <strong>Transfer:</strong> Erstellung einer persönlichen Strategie für die nächsten Schritte nach dem Kurs.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
                 </div>
             </article>
 
@@ -210,14 +463,71 @@
                 </div>
             </article>
 
+           
+
             <article id="fuentes" class="content-section max-w-4xl mx-auto">
-                <h2 class="text-3xl font-black text-indigo-900 uppercase tracking-tighter">Quellen & Ressourcen</h2>
-                <ul class="mt-6 space-y-4">
-                    <li class="p-4 bg-indigo-50 rounded-xl border-l-4 border-indigo-600 font-bold">ChatGPT (OpenAI)</li>
-                    <li class="p-4 bg-indigo-50 rounded-xl border-l-4 border-indigo-600 font-bold">Claude (Anthropic)</li>
-                    <li class="p-4 bg-indigo-50 rounded-xl border-l-4 border-indigo-600 font-bold">Gemini (Google)</li>
-                </ul>
+                <h2 class="text-3xl font-black text-indigo-900 uppercase tracking-tighter">Ressourcen</h2>
+                
+                <div class="mt-6 p-6 bg-slate-100 border-l-4 border-slate-400 text-slate-700 text-sm shadow-sm">
+                    <p class="leading-relaxed">
+                        <strong>Hinweis:</strong> Da wir keinen Einfluss auf externe Webseiten haben, können wir nicht garantieren, dass diese dauerhaft erreichbar bleiben. Sollte ein Link nicht mehr funktionieren, empfehlen wir, den Namen der Quelle direkt in einer Suchmaschine einzugeben. Die Verlinkung bedeutet nicht, dass die Kursorganisatoren die Inhalte offiziell empfehlen; die Prüfung der Informationen für den eigenen Gebrauch liegt in der Verantwortung der Teilnehmenden.
+                    </p>
+                </div>
+
+                <div class="mt-8 space-y-4">
+                    <div class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md">
+                        <h4 class="font-bold text-indigo-900 text-lg">KI-Campus</h4>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                            Eine vom Bundesministerium für Bildung und Forschung (BMBF) geförderte Lernplattform. Sie bietet strukturierte Lernangebote zur Vermittlung von KI-Kompetenzen im akademischen und beruflichen Umfeld.
+                        </p>
+                        <a href="https://ki-campus.org/" target="_blank" class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline">
+                            ki-campus.org
+                        </a>
+                    </div>
+
+                    <div class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md">
+                        <h4 class="font-bold text-indigo-900 text-lg">Plattform Lernende Systeme</h4>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                            Ein Experten-Netzwerk zur Analyse der Potenziale und Herausforderungen künstlicher Intelligenz. Die Plattform veröffentlicht fachliche Szenarien und Leitlinien für den Einsatz in Wirtschaft und Gesellschaft.
+                        </p>
+                        <a href="https://www.plattform-lernende-systeme.de/" target="_blank" class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline">
+                            plattform-lernende-systeme.de
+                        </a>
+                    </div>
+
+                    <div class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md">
+                        <h4 class="font-bold text-indigo-900 text-lg">BSI - Künstliche Intelligenz</h4>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                            Das Bundesamt für Sicherheit in der Informationstechnik stellt technische Standards und Sicherheitsempfehlungen für die Anwendung von KI-Systemen in Unternehmen zur Verfügung.
+                        </p>
+                        <a href="https://www.bsi.bund.de/" target="_blank" class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline">
+                            bsi.bund.de
+                        </a>
+                    </div>
+
+                    <div class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md">
+                        <h4 class="font-bold text-indigo-900 text-lg">Bitkom Leitfäden</h4>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                            Der Digitalverband Bitkom publiziert praxisorientierte Leitfäden zu rechtlichen Rahmenbedingungen und zur organisatorischen Implementierung von KI-Technologien unter Berücksichtigung der DSGVO.
+                        </p>
+                        <a href="https://www.bitkom.org/" target="_blank" class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline">
+                            bitkom.org
+                        </a>
+                    </div>
+
+                    <div class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md">
+                        <h4 class="font-bold text-indigo-900 text-lg">Fraunhofer IAIS</h4>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                            Das Institut für Intelligente Analyse- und Informationssysteme ist eine Referenz für angewandte Forschung und Zertifizierungsprozesse im Bereich vertrauenswürdiger KI-Anwendungen.
+                        </p>
+                        <a href="https://www.iais.fraunhofer.de/" target="_blank" class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline">
+                            iais.fraunhofer.de
+                        </a>
+                    </div>
+                </div>
             </article>
+
+
 
         </main>
     </div>
