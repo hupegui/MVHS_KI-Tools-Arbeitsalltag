@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Kurs Dashboard - Berufsalltag</title>
+    <title>KI-Kurs Dashboard - Arbeitsalltag</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* SPA Logic: Sektionen verstecken */
@@ -77,17 +77,14 @@
                 📚 RESSOURCEN
             </button>
 
-            <a href="https://www.linkedin.com/in/hectorupegui/" target="_blank" class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-white/20 flex justify-between items-center group bg-indigo-950/60 shadow-lg">
+            <button onclick="showSection('sobre-mi')" class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-white/10 flex items-center group bg-indigo-950/40 shadow-sm">
                 <div class="flex items-center gap-3">
-                    <svg class="w-5 h-5 text-red-500 filter drop-shadow-sm" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-5 h-5 text-red-500 filter drop-shadow-[0_0_3px_rgba(239,68,68,0.5)]" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                     </svg>
-                    <span class="tracking-wide">ÜBER MICH</span>
+                    <span class="tracking-wide uppercase">Über mich</span>
                 </div>
-                <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                </svg>
-            </a>
+            </button>
         </nav>
     </aside>
 
@@ -528,9 +525,26 @@
             </article>
 
 
+            <div id="sobre-mi" class="content-section flex justify-center items-center min-h-[500px]">
+                <div class="badge-base LI-profile-badge" 
+                    data-locale="de_DE" 
+                    data-size="large" 
+                    data-theme="light" 
+                    data-type="VERTICAL" 
+                    data-vanity="hectorupegui" 
+                    data-version="v1">
+                    <a class="badge-base__link LI-simple-link" href="https://de.linkedin.com/in/hectorupegui?trk=profile-badge"></a>
+                </div>
+            </div>
+    </div>
+</section>
+
+
 
         </main>
     </div>
+
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
     <script>
         function toggleSubmenu(id) {
@@ -565,7 +579,11 @@
             if (window.innerWidth < 1024) toggleSidebar();
             document.querySelector('main').scrollTop = 0;
         }
+
+        
     </script>
+
+ 
 </body>
 
 </html>
