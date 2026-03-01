@@ -1715,6 +1715,8 @@
             </a>
           </div>
         </article>
+
+         
       </main>
     </div>
 
@@ -1833,6 +1835,35 @@
         frame.src = "";
         frame.srcdoc = ""; // Limpiamos ambos al cerrar
       }
+
+      async function updateVisitorCount() {
+        const display = document.getElementById('visitor-count');
+        
+        // PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT
+        const googleScriptURL = "https://script.google.com/macros/s/AKfycbyGRmYTlVgB9aNUceXbQIvsXYuMY7aLnwMctVP-tztY4O38oCQWwskchFzKnv3ws-s/exec";
+
+        try {
+          // Llamamos al script de Google de forma silenciosa (no-cors)
+          // Usamos 'mode: no-cors' porque solo queremos "avisar" a Google que sume 1
+          fetch(googleScriptURL, { mode: 'no-cors' });
+
+          // Si quieres que el número se vea, tendrías que hacer una configuración más avanzada,
+          // pero para registrar la visita en tu Excel de forma privada, esto es suficiente.
+          if(display) {
+            display.innerText = "Registrado"; 
+          }
+        } catch (error) {
+          console.log("Error al conectar con Google Sheets");
+        }
+      }
+      // Startet den Zähler beim Laden der Seite
+      updateVisitorCount();
+
+
     </script>
+   
+
+
   </body>
+ 
 </html>
