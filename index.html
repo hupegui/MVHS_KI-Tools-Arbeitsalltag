@@ -1219,7 +1219,8 @@
             Kursmaterialien
           </h2>
 
-          <div class="mt-6 p-6 bg-slate-100 border-l-4 border-slate-400 text-slate-700 text-sm shadow-sm"
+          <div
+            class="mt-6 p-6 bg-slate-100 border-l-4 border-slate-400 text-slate-700 text-sm shadow-sm"
           >
             <p class="leading-relaxed">
               Dieser Abschnitt enthält Materialien aus der Unterrichtseinheit
@@ -1228,14 +1229,16 @@
           </div>
 
           <div class="mt-8 space-y-4">
-            <div class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm"
+            <div
+              class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm"
             >
               <h4 class="font-bold text-indigo-900 text-lg mb-4">
                 Kursmaterial - 24. Feb. 2026
               </h4>
 
               <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm"
+                <div
+                  class="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm"
                 >
                   <h5 class="font-bold text-indigo-700 text-sm uppercase mb-2">
                     Am Tag geliefert
@@ -1254,7 +1257,8 @@
                   </ul>
                 </div>
 
-                <div class="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm"
+                <div
+                  class="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm"
                 >
                   <h5 class="font-bold text-indigo-700 text-sm uppercase mb-2">
                     Zusätzliche Übungen
@@ -1331,19 +1335,21 @@
                       margin-top: 0;
                     "
                   >
-                    Übung 1: Prompting-Anweisungen
+                    Übung: Prompting-Techniken (Datenanalyse)
                   </h3>
+
                   <p>
-                    <strong>Kontext:</strong>  
                     
-                    Stellen Sie sich vor, Sie haben eine Umfrage erstellt, 
-                    um den Wissensstand und die Tool-Nutzung der Teilnehmer eines KI-Kurses zu ermitteln. 
-                    Die Antworten liegen Ihnen nun vor und Sie möchten diese mithilfe einer Künstlichen Intelligenz analysieren.
-
-                    Wichtiger Hinweis: Die Daten sind vollständig anonymisiert. 
-                    Es gibt keine Möglichkeit, Antworten einzelnen Personen zuzuordnen, was für uns auch nicht relevant ist, 
-                    da wir uns auf die aggregierten Ergebnisse konzentrieren.
-
+                    Kontext: Stellen Sie sich vor, Sie haben eine Umfrage
+                    erstellt, um den Wissensstand und die Tool-Nutzung der
+                    Teilnehmer eines KI-Kurses zu ermitteln. Die Antworten
+                    liegen Ihnen nun vor und Sie möchten diese mithilfe einer
+                    Künstlichen Intelligenz analysieren. Wichtiger Hinweis: Die
+                    Daten sind vollständig anonymisiert. Es gibt keine
+                    Möglichkeit, Antworten einzelnen Personen zuzuordnen, was
+                    für uns auch nicht relevant ist, da wir uns auf die
+                    aggregierten Ergebnisse konzentrieren. 
+                  </p>
 
                   </p>
                   <div
@@ -1375,23 +1381,306 @@
                       
                     </ul>
                   </div>
-                  <p>
+
+                   <p>
                     <strong>Schritte:</strong>
 
                     <br>
 
-                        Schritt 1: Erstellen Sie Ihren eigenen Prompt und führen Sie die Aktivität aus. Analysieren Sie das Ergebnis.
+                        Schritt 1: Erstellen Sie Ihren eigenen Prompt und führen Sie die Aktivität aus. Analysieren Sie das Ergebnis.<BR>
 
                         Schritt 2 (Optional): Bitten Sie das KI-Modell (den Transformer),
                         Ihren ursprünglichen Prompt zu analysieren und zu verbessern, um ein noch präziseres Ergebnis zu erhalten.
 
                   </p>
-                
+
+                  <div
+                    style="
+                      background: #f8fafc;
+                      padding: 15px;
+                      border-radius: 10px;
+                      margin: 15px 0;
+                      border: 1px solid #e2e8f0;
+                      overflow-x: auto;
+                    "
+                  >
+                    <h4 style="margin-top: 0; color: #4338ca">
+                      Ergebnisse der Umfrage (Rohdaten)
+                    </h4>
+                    <table
+                      style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 11px;
+                        text-align: left;
+                      "
+                    >
+                      <thead>
+                        <tr style="background: #e2e8f0">
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Zeitstempel
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            KI-Anwendungen
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Gerät
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Nutzung
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Lernziele
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Zweck / Level
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Kommentare
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>11.2.2026, 16:20</td>
+                          <td>ChatGPT</td>
+                          <td>Mobile</td>
+                          <td>Search, Text-Gen</td>
+                          <td>search, review, summarize, protocolize</td>
+                          <td>Personal (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>11.2.2026, 16:34</td>
+                          <td>ChatGPT, Claude</td>
+                          <td>Desktop</td>
+                          <td>Search, Review, Text-Gen</td>
+                          <td>search, summarize, protocolize</td>
+                          <td>Personal (Level 3)</td>
+                          <td>Ich freue mich schon auf die Schulung!</td>
+                        </tr>
+                        <tr>
+                          <td>12.2.2026, 09:43</td>
+                          <td>Copilot, ChatGPT, Gemini</td>
+                          <td>Desktop</td>
+                          <td>Search, Review, Text-Gen, Summarize, Images</td>
+                          <td>summarize, protocolize, generate_images</td>
+                          <td>Work (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>19.2.2026, 14:54</td>
+                          <td>Copilot, ChatGPT</td>
+                          <td>Desktop</td>
+                          <td>Search, Review, Text-Gen</td>
+                          <td>use_o2 bis use_o7, Mistral, Gemini, Claude</td>
+                          <td>Work (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>20.2.2026, 16:28</td>
+                          <td>ChatGPT</td>
+                          <td>Desktop</td>
+                          <td>Search, Text-Gen, Summarize</td>
+                          <td>use_o5, use_o7, Other</td>
+                          <td>Work (Level 3)</td>
+                          <td>
+                            KI für Kalkulation von Tabellen und Präsentationen
+                            nutzen.
+                          </td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>22.2.2026, 15:11</td>
+                          <td>ChatGPT, Gemini</td>
+                          <td>Desktop</td>
+                          <td>Search, Text-Gen, Protocol</td>
+                          <td>-</td>
+                          <td>Work (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>23.2.2026, 16:14</td>
+                          <td>Copilot, ChatGPT</td>
+                          <td>Mobile</td>
+                          <td>Search, Other (Mail)</td>
+                          <td>use_o1 bis use_o4, Copilot, ChatGPT</td>
+                          <td>Personal (Level 2)</td>
+                          <td>
+                            Wäre es möglich zu lernen, wie man effektiv die
+                            Prompts stellt?
+                          </td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>23.2.2026, 16:55</td>
+                          <td>Copilot, ChatGPT, Gemini</td>
+                          <td>Desktop</td>
+                          <td>
+                            Search, Review, Text-Gen, Summarize, Protocol, Images
+                          </td>
+                          <td>use_o1 bis use_o7, Copilot</td>
+                          <td>Work (Level 3)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>23.2.2026, 22:37</td>
+                          <td>ChatGPT, Other (le chat)</td>
+                          <td>Tablet</td>
+                          <td>Search, Review, Text-Gen, Summarize, Protocol</td>
+                          <td>-</td>
+                          <td>Work (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>24.2.2026, 16:29</td>
+                          <td>ChatGPT</td>
+                          <td>Mobile</td>
+                          <td>Search, Text-Gen</td>
+                          <td>review, Mistral, Copilot, Gemini, Grok, Claude</td>
+                          <td>Personal (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                 
+
+                <div
+                  style="
+                    background: #f1f5f9;
+                    padding: 15px;
+                    border-radius: 10px;
+                    margin: 15px 0;
+                    border: 1px solid #e2e8f0;
+                  "
+                >
+                  <h4 style="margin-top: 0; color: #4338ca">
+                    Fragen der Umfrage
+                  </h4>
+
+
+                  <ol style="font-size: 13px; padding-left: 20px">
+                    <li>
+                    Welche generativen KI-Anwendungen nutzen Sie? (Mehrfachauswahl)
+                     Mistral
+
+                    Copilot
+
+                    ChatGPT
+
+                    Gemini
+
+                    Grok
+
+                    Claude
+
+                    Andere:
+
+                    Keine Angabe / Weiß nicht
+
+                    </li>
+                    <li>Auf welchem Gerät nutzen Sie diese Dienste am häufigsten? (Einfachauswahl)
+
+                    Desktop/Laptop-Computer
+
+                    Mobilgeräte (Smartphones)
+
+                    Mobilgeräte (Tablets/iPads)
+
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    Wofür nutzen Sie diese Dienste? (Mehrfachauswahl)
+
+                    Informationen suchen
+
+                    Eigene Texte prüfen
+
+                    Texte generieren
+
+                    Dokumente zusammenfassen
+
+                    Protokolle erstellen
+
+                    Programmierung / Debugging
+
+                    Bilder generieren
+
+                    Andere:
+
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    
+                    Möchten Sie mehr über diese Dienste erfahren? (Mehrfachauswahl)
+
+                    Informationen suchen
+
+                    Eigene Texte prüfen
+
+                    Texte generieren
+
+                    Dokumente zusammenfassen
+
+                    Protokolle erstellen
+
+                    Programmierung / Debugging
+
+                    Bilder generieren
+
+                    Andere:
+                    
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    Möchten Sie mehr über eine dieser generativen KI-Anwendungen erfahren?
+
+                    Mistral
+
+                    Copilot
+
+                    ChatGPT
+
+                    Gemini
+
+                    Grok
+
+                    Claude
+
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    Zu welchem Zweck nutzen Sie diese am häufigsten? (Einfachauswahl)
+
+                    Beruflich / Arbeit
+
+                    Privatleben
+
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    Wie bewerten Sie Ihre Kenntnisse im Umgang mit generativen KI-Anwendungen (z. B. Mistral, ChatGPT, Copilot, Gemini usw.)?
+
+                    Stufe 1: Anfänger – Keine Vorkenntnisse oder Erfahrung.
+
+                    Stufe 2: Einsteiger – Ich habe es ein paar Mal für einfache Abfragen ausprobiert.
+
+                    Stufe 3: Fortgeschritten – Ich nutze sie regelmäßig für Routineaufgaben wie E-Mails, Zusammenfassungen und allgemeine Texte
+
+                    Stufe 4: Experte – Ich kann präzise Anweisungen für komplexe Aufgaben geben, wie das Verfeinern von Ergebnissen, 
+                    das Analysieren von Informationen oder das Erstellen umfassender Dokumente und Berichte.
+                    
+                    </li>
+                    <li>
+                    Zusätzliche Kommentare (Optional)
+                    </li>
+                     
+                  </ol>
+                </div>
               </template>
             </div>
           </div>
         </article>
-
 
         <article id="sobre-mi" class="content-section max-w-4xl mx-auto">
           <div
@@ -1487,7 +1776,7 @@
         const title = container.querySelector("span");
 
         // 1. FORZAR RESET: Eliminamos rastro de srcdoc y src anterior
-        frame.removeAttribute('srcdoc'); 
+        frame.removeAttribute("srcdoc");
         frame.src = "about:blank";
 
         // 2. Títulos
@@ -1522,11 +1811,11 @@
         if (!template) return;
 
         // 1. FORZAR RESET
-        frame.removeAttribute('srcdoc');
+        frame.removeAttribute("srcdoc");
         frame.src = "about:blank";
 
         title.innerText = "Aufgabe: Prompting-Techniken";
-        
+
         // 2. Carga el texto
         setTimeout(() => {
           frame.srcdoc = template.innerHTML;
@@ -1544,10 +1833,6 @@
         frame.src = "";
         frame.srcdoc = ""; // Limpiamos ambos al cerrar
       }
-
-     
     </script>
   </body>
 </html>
-
-
