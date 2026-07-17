@@ -1,0 +1,2132 @@
+<!doctype html>
+<html lang="de">
+
+<!-- aqui empieza el head-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KI-Kurs Dashboard - Arbeitsalltag</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      // Verificamos si Tailwind se cargó correctamente
+      window.addEventListener('load', function() {
+        if (!window.tailwind) {
+          // Si no existe el objeto tailwind, mostramos un mensaje
+          const offlineMsg = document.createElement('div');
+          offlineMsg.style.position = 'fixed';
+          offlineMsg.style.top = '0';
+          offlineMsg.style.left = '0';
+          offlineMsg.style.width = '100%';
+          offlineMsg.style.backgroundColor = '#ef4444'; // Rojo
+          offlineMsg.style.color = 'white';
+          offlineMsg.style.textAlign = 'center';
+          offlineMsg.style.padding = '15px';
+          offlineMsg.style.zIndex = '9999';
+          offlineMsg.innerHTML = '<strong>⚠️ Offline-Modus:</strong> Diese Webiste funktioniert nur online. Bitte überprüfen Sie Ihre Internetverbindung für die volle Funktionalität.';
+          document.body.prepend(offlineMsg);
+        }
+      });
+    </script>
+    <style>
+      /* SPA Logic: Sektionen verstecken */
+      .content-section {
+        display: none;
+      }
+      .content-section.active {
+        display: block;
+        animation: fadeIn 0.3s ease-in;
+      }
+
+      /* Sidebar Submenü Animation */
+      .submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .submenu.open {
+        max-height: 500px;
+      }
+
+      /* Animation für Inhaltswechsel */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Custom Styling für Details/Summary (Akkordeon im Zentrum) */
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+      summary {
+        list-style: none;
+      }
+    </style>
+  </head>
+
+
+<!--aqui empieza el body-->  
+  <body class="flex h-screen bg-gray-50 text-gray-800"> 
+
+  <!-- aqui empieza la barra lateral este es el toggle -->
+    <div
+      id="overlay"
+      onclick="toggleSidebar()"
+      class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
+    ></div>
+
+  <!-- aqui empieza la barra lateral -->     
+    <aside
+      id="sidebar"
+      class="fixed inset-y-0 left-0 w-72 bg-indigo-900 text-white flex flex-col shadow-xl z-50 transition-transform -translate-x-full lg:translate-x-0 lg:static"
+    >
+      <button
+        id="openMobileMenu"
+        class="md:hidden fixed top-4 left-4 z-50 bg-indigo-600 text-white p-2 rounded-lg shadow-lg"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+
+      <div
+        class="p-6 border-b border-indigo-800 flex justify-between items-center"
+      >
+        <h1 class="font-bold text-lg leading-tight uppercase tracking-wider">
+          Online: Effiziente KI-Tools für Ihren Arbeitsalltag
+        </h1>
+        <button onclick="toggleSidebar()" class="lg:hidden text-white text-2xl">
+          ✕
+        </button>
+      </div>
+
+<!--Aquí empiezan los botones-->
+      <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+        <button
+          onclick="showSection('anuncio')"
+          class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-indigo-700"
+        >
+          📢 WILLKOMMEN
+        </button>
+
+        <button
+          onclick="showSection('encuesta')"
+          class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg 
+           transition border border-indigo-700"
+        >
+          📊 UMFRAGE
+        </button>
+
+        <div class="mb-4">
+          <button
+            onclick="toggleSubmenu('agenda-menu')"
+            class="w-full text-left p-3 font-bold text-white bg-indigo-700 hover:bg-indigo-600 rounded-lg 
+            transition flex justify-between items-center shadow-inner"
+          >
+            <span>📅 AGENDA</span>
+            <svg
+              id="icon-agenda-menu"
+              class="w-4 h-4 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <div
+            id="agenda-menu"
+            class="submenu space-y-1 pl-2 bg-indigo-900/50 rounded-b-lg"
+          >
+            <button
+              onclick="showSection('session1')"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg 
+              transition flex justify-between items-center mt-1 border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Sitzung 1</span>
+              <span
+                class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm"
+                >3 Std.</span
+              >
+            </button>
+            <button
+              onclick="showSection('session2')"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition 
+              flex justify-between items-center border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Sitzung 2</span>
+              <span
+                class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm"
+                >3 Std.</span
+              >
+            </button>
+            <button
+              onclick="showSection('session3')"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg 
+              transition flex justify-between items-center border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Sitzung 3</span>
+              <span
+                class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm"
+                >3 Std.</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <button
+            onclick="toggleSubmenu('ressourcen-menu')"
+            class="w-full text-left p-3 font-bold text-white bg-indigo-700 hover:bg-indigo-600 rounded-lg 
+            transition flex justify-between items-center shadow-inner"
+          >
+            <span>📚 RESSOURCEN</span>
+            <svg
+              id="icon-ressourcen-menu"
+              class="w-4 h-4 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <div
+            id="ressourcen-menu"
+            class="submenu space-y-1 pl-2 bg-indigo-900/50 rounded-b-lg"
+          >
+            <button
+              onclick="showSection('Quellen')"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center mt-1 border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Links: KI-Plattformen</span>
+            </button>
+
+            <button
+              onclick="showSection('Kursmaterial_All')"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Kursmaterialen</span>
+            </button>
+          </div>
+        </div>
+
+        <button
+          onclick="showSection('sobre-mi')"
+          class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg 
+          transition border border-white/10 flex items-center group bg-indigo-950/40 shadow-sm"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-5 h-5 text-red-500 filter drop-shadow-[0_0_3px_rgba(239,68,68,0.5)]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <span class="tracking-wide uppercase">Über mich</span>
+          </div>
+        </button>
+      </nav>
+    </aside>
+
+  <!-- aqui empiezan los contenidos dentro del frame interno : este framo toene header y main dentro del frame -->  
+    <div class="flex-1 flex flex-col h-screen overflow-hidden">
+     
+    <!--este solo se ve en celulares -->   
+      <header class="bg-indigo-900 text-white p-4 flex items-center lg:hidden">
+        <button onclick="toggleSidebar()" class="text-2xl mr-4">☰</button>
+        <span class="font-bold">KI-Kurs Dashboard</span>
+      </header>
+
+    <!-- MAIN aqui empiezan los contenidos dentro del frame interno se ve en todos los devices-->  
+      <main class="flex-1 overflow-y-auto p-6 md:p-12 bg-white">
+        
+      <!-- objeto willkommen -->  
+        <article id="anuncio"
+          class="content-section active max-w-4xl mx-auto px-4 sm:px-0"
+        >
+          <h2
+            class="text-2xl md:text-3xl font-black mb-10 text-indigo-900 border-b-4 border-indigo-600 pb-2 uppercase tracking-tight"
+          >
+            Willkommen
+          </h2>
+          <div
+            class="bg-blue-50 p-6 md:p-10 rounded-2xl md:rounded-3xl border border-blue-100 shadow-sm"
+          >
+            <p class="text-xl text-blue-900 font-medium italic mb-4">
+              Willkommen zum 9-stündigen KI-Training für den Arbeitsalltag!
+            </p>
+            <p class="mt-4 text-blue-800 mb-6">
+              Bitte nutzen Sie das Menü auf der linken Seite, um die Kursinhalte
+              der einzelnen Sitzungen einzusehen.<br /><br />
+
+              In diesem Kurs lernen Sie die Funktionsweise und die
+              Einsatzmöglichkeiten von KI-Anwendungen im Büroalltag kennen. Sie
+              erfahren, wie Sie passende Tools für Ihre Aufgaben identifizieren,
+              Arbeitsabläufe unterstützen und dabei die notwendigen
+              Datenschutz-Aspekte berücksichtigen.<br /><br />
+              <strong>Hinweis zur Agenda: </strong> Die Kursinhalte werden wie
+              beschrieben behandelt. Bitte beachten Sie jedoch, dass die
+              Reihenfolge oder die zeitliche Gewichtung der Themen im Sinne des
+              Lernerfolgs und aufgrund der dynamischen Entwicklung der KI-Tools
+              leicht angepasst werden können
+            </p>
+
+            <p>
+              Die Entwicklung im Bereich der Künstlichen Intelligenz ist jedoch
+              extrem dynamisch. Was gestern noch als Standard galt, kann heute
+              bereits durch neue Updates oder Tools überholt sein. Ich habe mein
+              Bestes gegeben, um alle Informationen so aktuell und präzise wie
+              möglich zu halten, übernehme jedoch keine Gewähr für die
+              dauerhafte Gültigkeit der gezeigten Funktionen oder
+              Rahmenbedingungen.
+            </p>
+          </div>
+        </article>
+
+      <!--objeto sitzung 1-->
+        <article id="session1" class="content-section max-w-4xl mx-auto">
+          <div class="mb-10">
+            <h2
+              class="text-3xl font-black text-indigo-950 uppercase tracking-tighter"
+            >
+              Sitzung 1: Grundlagen & Die KI-Anwendung im beruflichen Kontext
+            </h2>
+            <div
+              class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold"
+            >
+              Dauer: 3 Stunden
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+              open
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3 class="text-2xl font-bold text-indigo-900">
+                  Teil 1: Grundlagen & technischer Kontext (45 Min.)
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  Dieser Abschnitt vermittelt die technische Funktionsweise und
+                  dient der sachlichen Einordnung der Technologie in den
+                  Arbeitsalltag.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      1
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Evolution & Funktionsweise
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          •
+                          <strong>Technologischer Abgleich:</strong>
+                          Unterscheidung zwischen regelbasierter Software und
+                          generativer KI (GenAI).
+                        </li>
+                        <li>
+                          • <strong>GenBizKI:</strong> Rahmenbedingungen für den
+                          Einsatz in Unternehmen (Datensicherheit und
+                          Infrastruktur).
+                        </li>
+                        <li>
+                          • <strong>Rollenverständnis:</strong> Funktion der KI
+                          als unterstützendes Werkzeug in Arbeitsprozessen.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      2
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Beschreibung: LLM & LMM
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          •
+                          <strong>Large Language Models (LLM):</strong>
+                          Verarbeitung von textbasierten Informationen und
+                          Logikketten.
+                        </li>
+                        <li>
+                          •
+                          <strong>Large Multimodal Models (LMM):</strong>
+                          Einbeziehung von Bild-, Dokumenten- und Audioformaten.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      3
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Validierung & Grenzen
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          •
+                          <strong>Wahrscheinlichkeitsbasierte Ausgabe:</strong>
+                          Ursachen für unzutreffende Informationen
+                          (Halluzinationen) und deren Identifikation.
+                        </li>
+                        <li>
+                          • <strong>Verifizierungsprozesse:</strong> Abgleich
+                          von KI-Ausgaben mit externen Quellen und
+                          Suchergebnissen.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3 class="text-2xl font-bold text-indigo-900">
+                  Teil 2: Steuerung durch Instruktionen – Prompting (75 Min.)
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  In diesem Modul wird der Übergang von der Suchlogik zur
+                  instruktionsbasierten Steuerung der KI behandelt.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      4
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Methodik der Instruktion
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Input-Parameter:</strong> Abhängigkeit der
+                          Ausgabeformate von der Spezifikation der Anweisung.
+                        </li>
+                        <li>
+                          • <strong>Kontextverwaltung:</strong> Technischer
+                          Umgang mit dem begrenzten Verarbeitungsvolumen
+                          (Kontextfenster).
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      5
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Strukturierung (RTCF-Schema)
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Systematischer Aufbau:</strong> Anwendung
+                          der Parameter Rolle, Aufgabe, Kontext und Format
+                          (RTCF).
+                        </li>
+                        <li>
+                          • <strong>Parametrisierung:</strong> Steuerung der
+                          Tonalität und Detailtiefe durch explizite Vorgaben.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      6
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Anpassung & Verfeinerung
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Iterative Prozesse:</strong> Modifikation
+                          bestehender Ausgaben durch ergänzende Parameter im
+                          Dialog.
+                        </li>
+                        <li>
+                          • <strong>Logiksteuerung:</strong> Anwendung von
+                          Verfahren zur schrittweisen Herleitung von Ergebnissen
+                          (Chain-of-Thought).
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3 class="text-2xl font-bold text-indigo-900">
+                  Teil 3: Anwendungsszenarien & Transfer (60 Min.)
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  Anwendung der gelernten Methoden auf beispielhafte
+                  Aufgabenstellungen aus dem beruflichen Umfeld.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      7
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Analyse gängiger Modelle
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Funktionsvergleich:</strong> Abgleich der
+                          Einsatzbereiche von Gemini und Copilot.
+                        </li>
+                        <li>
+                          • <strong>Tool-Eignung:</strong> Auswahlkriterien
+                          basierend auf den Anforderungen der jeweiligen
+                          Aufgabe.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      8
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Textverarbeitung & Umwandlung
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          •
+                          <strong>Informationsverdichtung:</strong>
+                          Zusammenfassung und Extraktion wesentlicher Daten aus
+                          Quelldokumenten.
+                        </li>
+                        <li>
+                          • <strong>Formattransfer:</strong> Überführung
+                          unstrukturierter Informationen in definierte
+                          geschäftliche Formate.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      9
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Abschluss & Dokumentation
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Standardisierung:</strong> Zusammenfassung
+                          technischer Leitplanken für die tägliche Anwendung.
+                        </li>
+                        <li>
+                          • <strong>Ausblick:</strong> Einführung in die
+                          weiterführende Datenanalyse (Vorschau auf Sitzung 2).
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      <!-- objeto sitzung 2-->        
+        <article id="session2" class="content-section max-w-4xl mx-auto">
+          <div class="mb-10">
+            <h2
+              class="text-3xl font-black text-indigo-950 uppercase tracking-tighter"
+            >
+              Sitzung 2: Interaktive Bearbeitung & Wissensmanagement
+            </h2>
+            <div
+              class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold"
+            >
+              Dauer: 3 Stunden
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+              open
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3 class="text-2xl font-bold text-indigo-900">
+                  Teil 1: Strukturierte Dokumentenarbeit (90 Min.)
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  In diesem Abschnitt wird die Nutzung interaktiver
+                  Arbeitsumgebungen zur effizienten Erstellung und Überarbeitung
+                  komplexer Texte behandelt.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      1
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Canvas & Side-by-Side Editing
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Funktionsweise:</strong> Parallele
+                          Bearbeitung von Entwürfen in Copilot und ChatGPT.
+                        </li>
+                        <li>
+                          •
+                          <strong>Gezielte Modifikation:</strong> Überarbeitung
+                          spezifischer Textpassagen ohne Neuerstellung des
+                          Gesamtdokuments.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      2
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Formatierung & Struktur
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Strukturierung:</strong> Automatische
+                          Erstellung von Gliederungen, Tabellen und Code-Blöcken
+                          in der Arbeitsumgebung.
+                        </li>
+                        <li>
+                          • <strong>Versionskontrolle:</strong> Verfolgung von
+                          Änderungen innerhalb des interaktiven Editors.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3 class="text-2xl font-bold text-indigo-900">
+                  Teil 2: Analyse eigener Datenbestände (90 Min.)
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  Fokus auf die Arbeit mit Retrieval-Augmented Generation (RAG)
+                  zur sicheren Auswertung unternehmenseigener Informationen.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      3
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        NotebookLM & Dokumentenfokus
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Informationsintegration:</strong> Hochladen
+                          und Verknüpfen von PDF-Dokumenten, Notizen und
+                          Quellen.
+                        </li>
+                        <li>
+                          •
+                          <strong>Evidenzbasierte Antworten:</strong>
+                          Generierung von Inhalten ausschließlich auf Basis der
+                          hochgeladenen Primärquellen.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      4
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Extraktion & Synthese
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Wissenssynthese:</strong> Erstellung von
+                          Briefing-Docs, FAQ-Listen und Zusammenfassungen aus
+                          mehreren Quellen.
+                        </li>
+                        <li>
+                          • <strong>Zitierweise:</strong> Überprüfung der
+                          KI-Aussagen durch direkte Verweise im Quelldokument.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      <!-- objeto sitzung 3-->        
+        <article id="session3" class="content-section max-w-4xl mx-auto">
+          <div class="mb-10">
+            <h2
+              class="text-3xl font-black text-indigo-950 uppercase tracking-tighter"
+            >
+              Sitzung 3: Spezialisierung & KI-Zukunft
+            </h2>
+            <div
+              class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold"
+            >
+              Dauer: 3 Stunden
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+              open
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3 class="text-2xl font-bold text-indigo-900">
+                  Teil 1: Individuelle Experten-Gems (90 Min.)
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  Konfiguration spezialisierter KI-Agenten zur Automatisierung
+                  komplexer Denkprozesse.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      1
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Vom Prompt zum Protokoll
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>System-Instruktionen:</strong> Wie man einem
+                          Gem beibringt, Aufgaben in logischen Teilabschnitten
+                          (agentisch) abzuarbeiten.
+                        </li>
+                        <li>
+                          • <strong>Rollen-Standardisierung:</strong> Erstellung
+                          eines Assistenten, der immer nach der gleichen
+                          Business-Logik reagiert.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      2
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Praxis: Der Multi-Report-Agent
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Eingabe & Analyse:</strong> Hochladen
+                          mehrerer Dokumente und automatisierte Erstellung eines
+                          synthetisierten Ergebnisberichts.
+                        </li>
+                        <li>
+                          • <strong>Iterative Verfeinerung:</strong> Den Agenten
+                          im Dialog trainieren, um die Ausgabequalität zu
+                          stabilisieren.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3 class="text-2xl font-bold text-indigo-900">
+                  Teil 2: Multimodalität & Rahmenbedingungen (90 Min.)
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  Abschluss des Kurses mit Fokus auf Bild/Audio-Daten und die
+                  sichere Anwendung im Unternehmen.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      3
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Bilder, Dokumente 
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          • <strong>Visuelle Analyse:</strong> KI zur Auswertung
+                          von Screenshots, Tabellenfotos oder Skizzen nutzen.
+                        </li>
+                       <!-- <li>
+                          • <strong>Audio-Workflows:</strong> Meeting-Protokolle
+                          und Sprachmemos effizient verarbeiten.
+                        </li>-->
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      4
+                    </div>
+                    <div>
+                      <h4
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Compliance & Roadmap
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li>
+                          •
+                          <strong>Sicherer Umgang:</strong>
+                          Datenschutz-Leitplanken und Vermeidung von KI-Bias im
+                          Berufsalltag.
+                        </li>
+                        <li>
+                          • <strong>Transfer:</strong> Erstellung einer
+                          persönlichen Strategie für die nächsten Schritte nach
+                          dem Kurs.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      <!-- objeto encuesta que esta en otra pagina web-->
+        <article id="encuesta" class="content-section max-w-4xl mx-auto">
+          <h2 class="text-3xl font-black text-indigo-900 uppercase"></h2>
+          <p class="mt-4"></p>
+
+          <div id="survey-container" class="mt-6 w-full">
+            <iframe
+              id="survey-iframe"
+              src=""
+              width="100%"
+              height="600px"
+              frameborder="0"
+              class="rounded-lg shadow-lg border border-gray-200"
+            >
+            </iframe>
+          </div>
+        </article>
+
+      <!--Objeto Links -->
+        <article id="Quellen" class="content-section max-w-4xl mx-auto">
+          <h2
+            class="text-3xl font-black text-indigo-900 uppercase tracking-tighter"
+          >
+            Links
+          </h2>
+
+          <div
+            class="mt-6 p-6 bg-slate-100 border-l-4 border-slate-400 text-slate-700 text-sm shadow-sm"
+          >
+            <p class="leading-relaxed">
+              <strong>Hinweis:</strong> Da wir keinen Einfluss auf externe
+              Webseiten haben, können wir nicht garantieren, dass diese
+              dauerhaft erreichbar bleiben. Sollte ein Link nicht mehr
+              funktionieren, empfehlen wir, den Namen der Quelle direkt in einer
+              Suchmaschine einzugeben. Die Verlinkung bedeutet nicht, dass die
+              Kursorganisatoren die Inhalte offiziell empfehlen; die Prüfung der
+              Informationen für den eigenen Gebrauch liegt in der Verantwortung
+              der Teilnehmenden.
+            </p>
+          </div>
+          
+          <div class="mt-8 space-y-4">
+            <div
+              class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md"
+            >
+              <h4 class="font-bold text-indigo-900 text-lg">KI-Campus</h4>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                Eine vom Bundesministerium für Bildung und Forschung (BMBF)
+                geförderte Lernplattform. Sie bietet strukturierte Lernangebote
+                zur Vermittlung von KI-Kompetenzen im akademischen und
+                beruflichen Umfeld.
+              </p>
+              <a
+                href="https://ki-campus.org/"
+                target="_blank"
+                class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+              >
+                ki-campus.org
+              </a>
+            </div>
+
+            <div
+              class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md"
+            >
+              <h4 class="font-bold text-indigo-900 text-lg">
+                Plattform Lernende Systeme
+              </h4>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                Ein Experten-Netzwerk zur Analyse der Potenziale und
+                Herausforderungen künstlicher Intelligenz. Die Plattform
+                veröffentlicht fachliche Szenarien und Leitlinien für den
+                Einsatz in Wirtschaft und Gesellschaft.
+              </p>
+              <a
+                href="https://www.plattform-lernende-systeme.de/"
+                target="_blank"
+                class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+              >
+                plattform-lernende-systeme.de
+              </a>
+            </div>
+
+            <div
+              class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md"
+            >
+              <h4 class="font-bold text-indigo-900 text-lg">
+                BSI - Künstliche Intelligenz
+              </h4>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                Das Bundesamt für Sicherheit in der Informationstechnik stellt
+                technische Standards und Sicherheitsempfehlungen für die
+                Anwendung von KI-Systemen in Unternehmen zur Verfügung.
+              </p>
+              <a
+                href="https://www.bsi.bund.de/"
+                target="_blank"
+                class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+              >
+                bsi.bund.de
+              </a>
+            </div>
+
+            <div
+              class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md"
+            >
+              <h4 class="font-bold text-indigo-900 text-lg">
+                Bitkom Leitfäden
+              </h4>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                Der Digitalverband Bitkom publiziert praxisorientierte Leitfäden
+                zu rechtlichen Rahmenbedingungen und zur organisatorischen
+                Implementierung von KI-Technologien unter Berücksichtigung der
+                DSGVO.
+              </p>
+              <a
+                href="https://www.bitkom.org/"
+                target="_blank"
+                class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+              >
+                bitkom.org
+              </a>
+            </div>
+
+            <div
+              class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm transition-hover hover:shadow-md"
+            >
+              <h4 class="font-bold text-indigo-900 text-lg">Fraunhofer IAIS</h4>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                Das Institut für Intelligente Analyse- und Informationssysteme
+                ist eine Referenz für angewandte Forschung und
+                Zertifizierungsprozesse im Bereich vertrauenswürdiger
+                KI-Anwendungen.
+              </p>
+              <a
+                href="https://www.iais.fraunhofer.de/"
+                target="_blank"
+                class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+              >
+                iais.fraunhofer.de
+              </a>
+            </div>
+          </div>
+        </article>
+        
+
+<!--Objeto Kursmaterial.Todo lo que di en todas las 9 horas de  clases y ejercicios-->
+        <article id="Kursmaterial_All" class="content-section max-w-4xl mx-auto"> 
+
+          <!--Titulo Kursmaterialen, este es texto suelto-->
+          <h2 class="text-3xl font-black text-indigo-900 uppercase tracking-tighter"
+          >
+            Kursmaterialien
+          </h2>
+
+          <!--Contenedor con parrafo introductorio-->
+          <div class="mt-6 p-6 bg-slate-100 border-l-4 border-slate-400 text-slate-700 text-sm shadow-sm"
+          >
+            <p class="leading-relaxed">
+              Dieser Abschnitt enthält Materialien aus der Unterrichtseinheit
+              sowie Übungen...
+            </p>
+          </div> <!--cierre del Contenedor con parrafo introductorio-->
+
+           <!--cada vez que hay material de estudio y ejercicios se abre un contenedor horizontal cada uno con dos columnas
+            la columna 1 lo que se presento en clase, esto es un pdf, y una segunda columna para ejercicios con soluciones
+            a continuación cada sesion, cada curso dado-->
+
+<!--primer dia-->
+          
+          <!--contenedor del:contenedor horizontal con los dos contenedores que son las dos columnas y 
+          visor y los botones del primer dia de clase 3 horas Kursmaterial 24.feb.2026-->
+          <div class="mt-8 space-y-4">
+           
+            <!--contenedor de los dos contenedores del primer dia o sea del 24.feb-->
+            <div class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm"
+            >
+              <!--titulo del material del primer dia, o sea incluye fecha-->           
+              <h4 class="font-bold text-indigo-900 text-lg mb-4">
+                Kursmaterial - All content
+              </h4>
+
+              <!--contenedor horizontal de las dos columnas del material del primer dia esto es del 24 feb-->
+              <div class="grid md:grid-cols-2 gap-4">
+
+                <!--verdadero contenedor primera columna del material dia uno en este caso del 24 feb lo que se dio en clase-->
+                <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+                  
+                  <!--titulo de la primera columna del contenedor o sea am tag gelifert  -->
+                  <h5 class="font-bold text-emerald-700 text-sm uppercase mb-2">
+                    Inhalt geliefert
+                  </h5>
+                  
+                  <!--boton link para que se abra el visor del pdf (averiguar de nuevo que es ul class) -->
+                  <ul class="text-sm text-slate-600 space-y-1">
+                    <li>
+                      <button
+                        onclick="openMediaInline('Sitzung_1_3-Berufsalltag-MVHS.pdf', 'feb')"
+                        class="text-emerald-600 hover:text-emerald-800 underline flex items-center gap-2"
+                      >
+                        📄 Präsentationsfolien (PDF)
+                      </button>
+                    </li>
+                  </ul>
+                </div> <!--cierra el verdadero contenedor primera columna del material del 24 feb lo que se dio en clase-->
+
+                <!--verdadero contenedor segunda columna del material del primer dia o sea del 24 feb-->
+                <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+
+                  <!--titulo de la segunda columna "ejercicios adicionales"-->
+                  <h5 class="font-bold text-emerald-700 text-sm uppercase mb-2">
+                    Zusätzliche Übungen (freiwillig)
+                  </h5>
+
+                  <!--boton link para que se abra el visor del 1 ejercicios (averiguar de nuevo que es ul class) -->
+                  <ul class="text-sm text-slate-600 space-y-2">
+                    <li>
+                      <button
+                        onclick="openPromptTask('feb')"
+                        class="text-emerald-600 hover:text-emerald-800 underline flex items-center gap-2 font-semibold"
+                      >
+                        🧠 Prompting-Anweisungen
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onclick="openMediaInline('Compressed_Prompt.mp4', 'feb')"
+                        class="text-emerald-600 hover:text-emerald-800 underline flex items-center gap-2"
+                      >
+                        🎬 Prompting: Noch ein Beispiel
+                      </button>
+                    </li>
+                  </ul>
+                
+                </div>  <!-- cierra el verdadero contenedor de la segunda columna del primer dia --> 
+
+              
+              </div> <!-- este cierra el contenedor horizontal de las dos columnas del primer dia -->
+
+              <!--contenedor del visor de pdf para la columna dia uno esto es del 24 feb
+              este contenedor del visor de pdf tiene dos elementos un boton y el frame-->                            
+              <div id="pdf-container-feb"
+                class="hidden mt-6 bg-white rounded-xl shadow-inner border border-gray-200 overflow-hidden"
+              >
+                <!--contenedor del boton para cerrar el visor-->
+                <div class="flex justify-between items-center p-2 bg-gray-50 border-b">
+                  <span class="text-xs font-bold text-gray-500 uppercase px-2">Vorschau Feb</span>
+                  <button
+                    onclick="closePDF('feb')"
+                    class="text-gray-400 hover:text-red-500 p-1"
+                  >
+                    ✕
+                  </button>
+                </div> <!--este cierra el contenedor del boton para cerrar el visor-->
+
+                <!--frame o sea el visor de febrero-->
+                <iframe
+                  id="pdf-frame-feb"
+                  src=""
+                  class="w-full"
+                  style="height: 75vh; min-height: 500px;"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe><!--cierra frame o sea el visor de febrero-->
+
+              </div><!--cierra el contenedor del visor de pdf para la columna dia uno esto es del 24 feb-->
+            </div> <!-- este cierra el contenedor de los contenedores del primer dia o sea del 24.feb-->
+
+
+            <template id="template-prompt-task-de">
+                <div
+                  style="
+                    font-family: sans-serif;
+                    padding: 25px;
+                    color: #334155;
+                    line-height: 1.6;
+                  "
+                >
+                  <h3
+                    style="
+                      color: #312e81;
+                      border-bottom: 2px solid #e2e8f0;
+                      padding-bottom: 10px;
+                      margin-top: 0;
+                    "
+                  >
+                    Übung: Prompting-Techniken (Datenanalyse)
+                  </h3>
+
+                  <p>
+                    
+                    Kontext: Stellen Sie sich vor, Sie haben eine Umfrage
+                    erstellt, um den Wissensstand und die Tool-Nutzung der
+                    Teilnehmer eines KI-Kurses zu ermitteln. Die Antworten
+                    liegen Ihnen nun vor und Sie möchten diese mithilfe einer
+                    Künstlichen Intelligenz analysieren. Wichtiger Hinweis: Die
+                    Daten sind vollständig anonymisiert. Es gibt keine
+                    Möglichkeit, Antworten einzelnen Personen zuzuordnen, was
+                    für uns auch nicht relevant ist, da wir uns auf die
+                    aggregierten Ergebnisse konzentrieren. 
+                  </p>
+
+                  </p>
+                  <div
+                    style="
+                      background: #f1f5f9;
+                      padding: 15px;
+                      border-radius: 10px;
+                      margin: 15px 0;
+                      border: 1px solid #e2e8f0;
+                    "
+                  >
+                    <p style="margin-top: 0">
+                      <strong>Ihre Mission:</strong> 
+                    </p>
+                    <ul>
+                      <li>
+                        Nutzen Sie die KI, um folgende Aufgaben zu lösen:<br><br>
+
+                        <strong>PPT-Bericht erstellen:</strong><br>
+                        Generieren Sie eine Struktur für eine PowerPoint-Präsentation. 
+                        Diese soll eine einleitende Zusammenfassung der Ergebnisse enthalten und anschließend 
+                        für jede Frage eine passende grafische Darstellung (Vorschlag) sowie eine detaillierte Erläuterung bieten.
+                        <br><br>
+
+                         <strong>PDF-Bericht erstellen:</strong><br>
+                         Erstellen Sie basierend auf denselben Anweisungen ein zusammenfassendes PDF-Dokument.
+                        
+                      </li>
+                      
+                    </ul>
+                  </div>
+
+                   <p>
+                    <strong>Schritte:</strong>
+
+                    <br>
+
+                        Schritt 1: Erstellen Sie Ihren eigenen Prompt und führen Sie die Aktivität aus. Analysieren Sie das Ergebnis.<BR>
+
+                        Schritt 2 (Optional): Bitten Sie das KI-Modell (den Transformer),
+                        Ihren ursprünglichen Prompt zu analysieren und zu verbessern, um ein noch präziseres Ergebnis zu erhalten.
+
+                  </p>
+
+                  <div
+                    style="
+                      background: #f8fafc;
+                      padding: 15px;
+                      border-radius: 10px;
+                      margin: 15px 0;
+                      border: 1px solid #e2e8f0;
+                      overflow-x: auto;
+                    "
+                  >
+                    <h4 style="margin-top: 0; color: #4338ca">
+                      Ergebnisse der Umfrage (Rohdaten)
+                    </h4>
+                    <table
+                      style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 11px;
+                        text-align: left;
+                      "
+                    >
+                      <thead>
+                        <tr style="background: #e2e8f0">
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Zeitstempel
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            KI-Anwendungen
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Gerät
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Nutzung
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Lernziele
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Zweck / Level
+                          </th>
+                          <th style="padding: 8px; border: 1px solid #cbd5e1">
+                            Kommentare
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>11.2.2026, 16:20</td>
+                          <td>ChatGPT</td>
+                          <td>Mobile</td>
+                          <td>Search, Text-Gen</td>
+                          <td>search, review, summarize, protocolize</td>
+                          <td>Personal (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>11.2.2026, 16:34</td>
+                          <td>ChatGPT, Claude</td>
+                          <td>Desktop</td>
+                          <td>Search, Review, Text-Gen</td>
+                          <td>search, summarize, protocolize</td>
+                          <td>Personal (Level 3)</td>
+                          <td>Ich freue mich schon auf die Schulung!</td>
+                        </tr>
+                        <tr>
+                          <td>12.2.2026, 09:43</td>
+                          <td>Copilot, ChatGPT, Gemini</td>
+                          <td>Desktop</td>
+                          <td>Search, Review, Text-Gen, Summarize, Images</td>
+                          <td>summarize, protocolize, generate_images</td>
+                          <td>Work (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>19.2.2026, 14:54</td>
+                          <td>Copilot, ChatGPT</td>
+                          <td>Desktop</td>
+                          <td>Search, Review, Text-Gen</td>
+                          <td>use_o2 bis use_o7, Mistral, Gemini, Claude</td>
+                          <td>Work (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>20.2.2026, 16:28</td>
+                          <td>ChatGPT</td>
+                          <td>Desktop</td>
+                          <td>Search, Text-Gen, Summarize</td>
+                          <td>use_o5, use_o7, Other</td>
+                          <td>Work (Level 3)</td>
+                          <td>
+                            KI für Kalkulation von Tabellen und Präsentationen
+                            nutzen.
+                          </td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>22.2.2026, 15:11</td>
+                          <td>ChatGPT, Gemini</td>
+                          <td>Desktop</td>
+                          <td>Search, Text-Gen, Protocol</td>
+                          <td>-</td>
+                          <td>Work (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>23.2.2026, 16:14</td>
+                          <td>Copilot, ChatGPT</td>
+                          <td>Mobile</td>
+                          <td>Search, Other (Mail)</td>
+                          <td>use_o1 bis use_o4, Copilot, ChatGPT</td>
+                          <td>Personal (Level 2)</td>
+                          <td>
+                            Wäre es möglich zu lernen, wie man effektiv die
+                            Prompts stellt?
+                          </td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>23.2.2026, 16:55</td>
+                          <td>Copilot, ChatGPT, Gemini</td>
+                          <td>Desktop</td>
+                          <td>
+                            Search, Review, Text-Gen, Summarize, Protocol, Images
+                          </td>
+                          <td>use_o1 bis use_o7, Copilot</td>
+                          <td>Work (Level 3)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>23.2.2026, 22:37</td>
+                          <td>ChatGPT, Other (le chat)</td>
+                          <td>Tablet</td>
+                          <td>Search, Review, Text-Gen, Summarize, Protocol</td>
+                          <td>-</td>
+                          <td>Work (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                        <tr style="background: #f1f5f9">
+                          <td>24.2.2026, 16:29</td>
+                          <td>ChatGPT</td>
+                          <td>Mobile</td>
+                          <td>Search, Text-Gen</td>
+                          <td>review, Mistral, Copilot, Gemini, Grok, Claude</td>
+                          <td>Personal (Level 2)</td>
+                          <td>-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                 
+
+                <div
+                  style="
+                    background: #f1f5f9;
+                    padding: 15px;
+                    border-radius: 10px;
+                    margin: 15px 0;
+                    border: 1px solid #e2e8f0;
+                  "
+                >
+                  <h4 style="margin-top: 0; color: #4338ca">
+                    Fragen der Umfrage
+                  </h4>
+
+
+                  <ol style="font-size: 13px; padding-left: 20px">
+                    <li>
+                    Welche generativen KI-Anwendungen nutzen Sie? (Mehrfachauswahl)
+                     Mistral
+
+                    Copilot
+
+                    ChatGPT
+
+                    Gemini
+
+                    Grok
+
+                    Claude
+
+                    Andere:
+
+                    Keine Angabe / Weiß nicht
+
+                    </li>
+                    <li>Auf welchem Gerät nutzen Sie diese Dienste am häufigsten? (Einfachauswahl)
+
+                    Desktop/Laptop-Computer
+
+                    Mobilgeräte (Smartphones)
+
+                    Mobilgeräte (Tablets/iPads)
+
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    Wofür nutzen Sie diese Dienste? (Mehrfachauswahl)
+
+                    Informationen suchen
+
+                    Eigene Texte prüfen
+
+                    Texte generieren
+
+                    Dokumente zusammenfassen
+
+                    Protokolle erstellen
+
+                    Programmierung / Debugging
+
+                    Bilder generieren
+
+                    Andere:
+
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    
+                    Möchten Sie mehr über diese Dienste erfahren? (Mehrfachauswahl)
+
+                    Informationen suchen
+
+                    Eigene Texte prüfen
+
+                    Texte generieren
+
+                    Dokumente zusammenfassen
+
+                    Protokolle erstellen
+
+                    Programmierung / Debugging
+
+                    Bilder generieren
+
+                    Andere:
+                    
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    Möchten Sie mehr über eine dieser generativen KI-Anwendungen erfahren?
+
+                    Mistral
+
+                    Copilot
+
+                    ChatGPT
+
+                    Gemini
+
+                    Grok
+
+                    Claude
+
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    Zu welchem Zweck nutzen Sie diese am häufigsten? (Einfachauswahl)
+
+                    Beruflich / Arbeit
+
+                    Privatleben
+
+                    Keine Angabe / Weiß nicht
+                    </li>
+                    <li>
+                    Wie bewerten Sie Ihre Kenntnisse im Umgang mit generativen KI-Anwendungen (z. B. Mistral, ChatGPT, Copilot, Gemini usw.)?
+
+                    Stufe 1: Anfänger – Keine Vorkenntnisse oder Erfahrung.
+
+                    Stufe 2: Einsteiger – Ich habe es ein paar Mal für einfache Abfragen ausprobiert.
+
+                    Stufe 3: Fortgeschritten – Ich nutze sie regelmäßig für Routineaufgaben wie E-Mails, Zusammenfassungen und allgemeine Texte
+
+                    Stufe 4: Experte – Ich kann präzise Anweisungen für komplexe Aufgaben geben, wie das Verfeinern von Ergebnissen, 
+                    das Analysieren von Informationen oder das Erstellen umfassender Dokumente und Berichte.
+                    
+                    </li>
+                    <li>
+                    Zusätzliche Kommentare (Optional)
+                    </li>
+                     
+                  </ol>
+                </div>
+            </template>
+
+          </div> <!-- cierre del contenedor del: contenedor horizontal 
+                      con los dos contenedores que son las dos columnas y 
+                      visor y los botones del primer dia de clase 3 horas Kursmaterial 24.feb.2026-->
+
+<!--segundo dia-->           
+          <!--contenedor de los dos contenedores del SEGUNDO dia o sea del 3.Mar-->
+          <div class="p-6 bg-emerald-50 rounded-2xl border-l-4 border-emerald-600 shadow-sm">
+
+              <!--titulo del material del segundo dia, o sea incluye fecha-->
+              <h4 class="font-bold text-emerald-900 text-lg mb-4">
+                Zuzätzliche Übungen
+              </h4>
+
+              <!--contenedor horizontal de las dos columnas del material del segundo dia esto es del 3 Mar-->
+              <div class="grid md:grid-cols-2 gap-4">
+
+
+               
+                <!--Contenedor primera columna del segundo dia --> 
+                <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+                <!--  
+                  <!--titulo de la primera columna del contenedor o sea am tag gelifert  --> 
+                  <h5 class="font-bold text-emerald-700 text-sm uppercase mb-2">
+                    
+                  </h5><!--cierre del titulo de la primera columna del contenedor o sea am tag gelifert-->
+
+                  <!--boton link para que se abra el visor del pdf (averiguar de nuevo que es ul class) -->
+                  <ul class="text-sm text-slate-600 space-y-1">
+                    <li>
+                      <button
+                        onclick="openMediaInline('Bonus-personalisierter Agent.pdf', 'mar')"
+                        class="text-emerald-600 hover:text-emerald-800 underline flex items-center gap-2"
+                      >Bonus-personalisierter Agent (Prompt)
+                         
+                      </button>
+                    </li>
+                  </ul><!--cierre boton link para que se abra el visor del pdf (averiguar de nuevo que es ul class) -->
+                
+                </div><!--cierre Contenedor primera columna del segundo dia visor pdf --> 
+                
+
+
+                <!--Contenedor segunda columna del segundo dia --> 
+                <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+
+                  <!--titulo de la segunda columna del segundo dia-->
+                  <h5 class="font-bold text-emerald-700 text-sm uppercase mb-2">
+                    Zusätzliche Übungen (freiwillig)
+                  </h5> <!--cierre titulo de la segunda columna del segundo dia-->
+
+                  <!--boton link para que se abra el visor de las instrucciones (averiguar de nuevo que es ul class) -->
+                  <ul class="text-sm text-slate-600 space-y-2">
+                    <!--Übung Canvas & Co.-->
+                    <li>
+                      <button 
+                          onclick="openPromptTask('mar', 'template-prompt-task-03-03')" 
+                          class="text-emerald-600 hover:text-emerald-800 underline font-semibold">
+                          🧠 Multimodale Datenverarbeitung & Reporting
+                      </button>
+                    </li>
+
+                    <li>
+                      <button
+                        onclick="openMediaInline('Compressed_Bonus.mp4', 'mar')"
+                        class="text-emerald-600 hover:text-emerald-800 underline flex items-center gap-2"
+                      >
+                        🎬 Bonus-Personalisierter Agent
+                      </button>
+                    </li>
+                  </ul> <!-- Cierre -boton link para que se abra el visor de las instrucciones (averiguar de nuevo que es ul class) -->
+                </div><!--cierre Contenedor segunda columna del segundo dia --> 
+
+              </div><!--cierre del contenedor horizontal de las dos columnas del material del segundo dia esto es del 3 de mar-->
+
+              <!--contenedor del visor de pdf para la columna dia uno esto es del 03 mar
+              este contenedor del visor de pdf tiene dos elementos un boton y el frame-->
+              <div id="pdf-container-mar" class="hidden mt-6 bg-white rounded-xl shadow-inner border border-gray-200 overflow-hidden">
+                  
+                  <!--contenedor del boton para cerrar el visor-->
+                  <div class="flex justify-between items-center p-2 bg-gray-50 border-b">
+                      <span class="text-xs font-bold text-gray-500 uppercase px-2">Vorschau</span>
+                      <button 
+                        onclick="closePDF('mar')" 
+                        class="text-gray-400 hover:text-red-500"
+                      >
+                        ✕
+                      </button>
+                  </div><!--cierre del contendeor del boton para cierre del pdf del segundo dia-->
+
+                  <!--frame o sea el visor de 3.marzo-->
+                  <iframe 
+                    id="pdf-frame-mar" 
+                    class="w-full border-none"
+                    style="height: 75vh; min-height: 500px;"
+                    allowfullscreen>
+                  </iframe><!--cierra frame o sea el visor de 3.marzo-->
+
+              </div><!--cierre del contendeor para el visor del pdf del segundo dia-->
+          
+              <template id="template-prompt-task-03-03">
+
+                  <!--conteneder template-->
+                  <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; color: #1e293b; line-height: 1.6; max-width: 800px; margin: auto;">
+                      
+                      <!--conteneder titulo ejericio segunda plantilla-->
+                      <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px;">
+                          <h2 style="color: #312e81; margin-bottom: 10px;">Übung: Berichterstellung mit Gemini</h2>
+                          <p style="color: #64748b; font-size: 1.1em;">Multimodale Datenverarbeitung & Reporting</p>
+                      </div><!--cierre conteneder titulo ejericio segunda plantilla-->
+
+                      <p>Stellen Sie sich vor, Sie müssten einen Bericht aus 
+                        drei verschiedenen Dokumenten erstellen: einem PDF, einer 
+                        Excel-Tabelle und einer Grafik. In dieser Übung führen wir dies in zwei Schritten durch.</p>
+
+                      <h3 style="color: #4338ca; border-left: 4px solid #4338ca; padding-left: 15px; margin-top: 25px;">Übungsablauf</h3>
+                      
+                      <!--contenedor primer paso segunda plantilla-->
+                      <div style="margin-bottom: 20px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                          <h4 style="margin-top: 0; color: #0f172a;">1. Erstellung des PDFs</h4>
+                          <p>Erstellen Sie einen Prompt, der Gemini auffordert, ein PDF zu generieren.
+                             Das Dokument soll die <strong>Mission, Vision und Werte</strong> einer Bäckerei in Deutschland mit 3 Filialen beschreiben. Die Bäckerei verkauft verschiedene Brotsorten, Kuchen, Desserts sowie Kaffee (vor Ort, zum Mitnehmen und als Kaffeebohnen/gemahlenen Kaffee in Tüten).</p>
+                      </div><!--cierre conteneder primer paso segunda plantilla-->
+
+                      <!--contenedor segundo paso segunda plantilla-->
+                      <div style="margin-bottom: 20px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                          <h4 style="margin-top: 0; color: #0f172a;">2. Erstellung der Excel-Tabelle</h4>
+                          <p>Erstellen Sie einen Prompt für Gemini, um eine Excel-Datei mit fiktiven Verkaufszahlen zu generieren. Die Tabelle soll die monatlichen Gesamtumsätze von <strong>Juni bis Dezember</strong> nach Produkttyp (Brot, Kuchen, Desserts, Kaffee) aufschlüsseln.</p>
+                          <ul style="margin-bottom: 0;">
+                              <li><strong>Regel:</strong> Die Umsätze steigen monatlich um 3%, außer im September, wo sie um 4% sinken.</li>
+                              <li><strong>Hinweis:</strong> Der Verkauf von "Coffee to go" 
+                                (Kaffee zum Mitnehmen) soll stets Verluste ausweisen.</li>
+                          </ul>
+                      </div><!--cierre contenedor segundo paso segunda plantilla-->
+
+                      <!--contenedor tercer paso segunda plantilla-->
+                      <div style="margin-bottom: 20px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                          <h4 style="margin-top: 0; color: #0f172a;">3. Erstellung der Grafik</h4>
+                          <p>Erstellen Sie ein Kuchendiagramm (Pie Chart) mit folgenden fiktiven Daten zum deutschen Bäckereimarkt:</p>
+                          <ul style="list-style: none; padding-left: 0;">
+                              <li>📊 <strong>30%</strong> Reine Bäckereien</li>
+                              <li>📊 <strong>40%</strong> Bäckereien mit Verkauf von Kaffee und Kuchen</li>
+                              <li>📊 <strong>30%</strong> Bäckereien mit Verkauf von Kaffee, Kuchen und weiteren Produkten</li>
+                          </ul>
+                      </div><!--cierre contenedor tercer paso segunda plantilla-->
+
+                      
+                      <!--contenedor aviso paso segunda plantilla-->
+                      <div style="margin-bottom: 20px; background: #fff7ed; padding: 20px; border-radius: 12px; border: 1px solid #fdba74;">
+                          <h4 style="margin-top: 0; color: #9a3412;">*Vergiss nicht*</h4>
+                          <p 
+                          style="margin-bottom: 0;">
+                          Vergewissern Sie sich, dass alle Dateien generiert 
+                          wurden und auf Ihrem Computer gespeichert sind.</p>
+                      </div><!--cierre contenedor aviso paso segunda plantilla-->
+
+
+                      <!-- contenedor cuarto paso segunda plantilla-->
+                      <div style="margin-bottom: 20px; background: #f0f9ff; padding: 20px; border-radius: 12px; border: 1px solid #bae6fd;">
+                          <h4 style="margin-top: 0; color: #0369a1;">4. Generierung des Management-Berichts</h4>
+                          <p>Öffnen Sie einen neuen Chat in Gemini. Laden Sie das PDF, die Excel-Datei und die Grafik hoch. Geben Sie Gemini die Anweisung, einen <strong>Management-Bericht</strong> (maximal zwei Seiten) zu erstellen, der Folgendes enthält:</p>
+                          <ul>
+                              <li>Analyse der Umsatzentwicklung von Juni bis Dezember.</li>
+                              <li>Integration einer Projektionsgrafik.</li>
+                              <li>Einbindung der Marktanteils-Grafik des Bäckereisektors.</li>
+                              <li>Mögliche Erklärungen für die Geschäftsentwicklung.</li>
+                          </ul>
+                          <p><strong>Vorgehensweise:</strong> Lassen Sie Gemini zuerst einen Entwurf (Canvas) erstellen. Überprüfen Sie den Inhalt und lassen Sie erst nach Ihrer Zustimmung das finale PDF generieren.</p>
+                      </div><!-- cierre contenedor cuarto paso segunda plantilla-->
+
+                      <!-- contenedor aviso final paso segunda plantilla-->
+                      <div style="margin-top: 30px; padding: 15px; border-left: 5px solid #10b981; background: #ecfdf5; font-style: italic;">
+                          <strong style="color: #047857;">💡 Ein kleiner Tipp:</strong><br>
+                          Da Gemini ein integratives Tool ist, achtet darauf, dass ihr im letzten Schritt präzise seid: 
+                          <em>"Analysiere die hochgeladenen Daten und verbinde die Vision der Bäckerei aus dem PDF 
+                            mit den harten Zahlen aus der Excel-Tabelle."</em>
+                      </div><!-- cierre contenedor aviso final paso segunda plantilla-->
+
+                  </div><!-- cierre contenedor template-->
+
+              </template>
+
+          </div> <!--cierre del contenedor de los dos contenedores del SEGUNDO dia o sea del 3.Mar y su plantilla-->
+
+        </article>
+
+        
+
+<!--Objeto titulo de esta seccion: Sobre mi-->
+          
+        <article id="sobre-mi" class="content-section w-full">
+
+            <!--contenedor para Linkedin-->
+            <div class="max-w-4xl mx-auto px-4 py-10">
+                
+                <h2 class="text-3xl font-bold mb-10 text-center text-gray-800">Über mich</h2>
+
+                <!--contenedor grande para estilo propio de Linkedin-->
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+                    
+                    <!--contenedor de mas estilos de Linkedin-->
+                    <div style="margin: 0 auto; display: inline-block; min-width: 250px;">
+                        <div class="badge-base LI-profile-badge" 
+                            data-locale="de_DE" 
+                            data-size="large" 
+                            data-theme="light" 
+                            data-type="VERTICAL" 
+                            data-vanity="hectorupegui" 
+                            data-version="v1">
+                            <a class="badge-base__link LI-simple-link" href="https://de.linkedin.com/in/hectorupegui?trk=profile-badge"></a>
+                        </div><!--cierra contenedor de mas estilos de Linkedin-->
+
+                    </div><!--cierra contenedor para estilo propio de Linkedin-->
+
+                    <!--otro contenedor de mas estilos de Linkedin-->
+                    <div class="mt-8">
+                        <a href="https://www.linkedin.com/in/hectorupegui"
+                          target="_blank"
+                          class="inline-flex items-center gap-3 bg-[#0077b5] hover:bg-[#005a87] text-white px-10 py-4 rounded-full font-bold transition-all shadow-xl hover:scale-105">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            Mein LinkedIn Profil besuchen
+                        </a>
+                    </div> <!--cierra otro contenedor de mas estilos de Linkedin-->
+                    
+                </div><!--cierra el contenedor grande para estilo propio de Linkedin-->
+            </div><!--cierra contenedor para Linkedin-->
+        </article>
+      
+        <!-- Cierra MAIN de aqui empiezan los contenidos dentro del frame interno se ve en todos los devices--> 
+      </main>
+    </div> <!-- cierra aqui empiezan los contenidos dentro del frame interno : este framo toene header y main dentro del frame -->
+
+ <!-- aqui empiezan los scripts  -->  
+
+    <script
+      src="https://platform.linkedin.com/badges/js/profile.js"
+      async defer type="text/javascript"
+    ></script>
+
+    
+    <script>
+      // 1. INICIO: Esto "enciende" la sección principal al cargar la página
+      document.addEventListener("DOMContentLoaded", () => {
+        showSection('anuncio'); 
+      });
+
+      // 2. NAVEGACIÓN: Muestra secciones y oculta las demás
+      function showSection(id) {
+        // Cerramos visores de PDF/Video para que no sigan sonando o estorbando
+        closePDF('feb');
+        closePDF('mar');
+
+        // Quitar "active" de todas las secciones y ponerlo en la elegida
+        document.querySelectorAll(".content-section").forEach((s) => s.classList.remove("active"));
+        const target = document.getElementById(id);
+        if (target) {
+          target.classList.add("active");
+        }
+
+        // Carga dinámica de la encuesta (para que no consuma recursos si no se ve)
+        if (id === "encuesta") {
+          const iframe = document.getElementById("survey-iframe");
+          if (iframe && (iframe.src === "" || iframe.src === window.location.href)) {
+            iframe.src = "https://hupegui.github.io/AI_Survey/";
+          }
+        }
+
+        // En móviles: cerrar el menú lateral automáticamente al hacer click en una opción
+        if (window.innerWidth < 1024) {
+          const sidebar = document.getElementById("sidebar");
+          const overlay = document.getElementById("overlay");
+          if (sidebar) sidebar.classList.add("-translate-x-full");
+          if (overlay) overlay.classList.add("hidden");
+        }
+        
+        // Volver arriba suavemente al cambiar de sección
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // 3. MENÚS LATERALES: Abrir/Cerrar submenús y Sidebar
+      function toggleSubmenu(id) {
+        const menu = document.getElementById(id);
+        const icon = document.getElementById("icon-" + id);
+        if (menu) {
+          menu.classList.toggle("open");
+          if (icon) {
+            icon.style.transform = menu.classList.contains("open") ? "rotate(180deg)" : "rotate(0deg)";
+          }
+        }
+      }
+
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        if (sidebar) sidebar.classList.toggle("-translate-x-full");
+        if (overlay) overlay.classList.toggle("hidden");
+      }
+
+      // 4. VISOR DE MEDIOS: PDFs, Videos y Tareas
+      function openMediaInline(url, suffix = 'feb') {
+        const container = document.getElementById("pdf-container-" + suffix);
+        const frame = document.getElementById("pdf-frame-" + suffix);
+        if (!container || !frame) return;
+
+        const title = container.querySelector("span");
+        frame.removeAttribute("srcdoc");
+        frame.src = "about:blank";
+
+        if (title) {
+          title.innerText = (url.toLowerCase().endsWith(".mp4") || url.includes("youtube")) 
+            ? "Video-Vorschau" : "Dokument-Vorschau";
+        }
+
+        setTimeout(() => {
+          if (url.toLowerCase().endsWith(".mp4")) {
+            frame.srcdoc = `<body style="margin:0; background:black; display:flex; align-items:center; justify-content:center; height:100vh;">
+                <video controls autoplay style="max-width:100%; max-height:100%;"><source src="${url}" type="video/mp4"></video>
+              </body>`;
+          } else if (url.toLowerCase().endsWith(".pdf")) {
+            // En móviles (Handy) el iframe no tiene un visor de PDF nativo con paginación,
+            // por eso se abre pero no se pueden pasar las hojas.
+            // Usamos el visor PDF.js (funciona igual en escritorio y móvil, con scroll/paginación).
+            const absoluteUrl = new URL(url, window.location.href).href;
+            frame.src = "https://mozilla.github.io/pdf.js/web/viewer.html?file=" + encodeURIComponent(absoluteUrl);
+          } else {
+            frame.src = url;
+          }
+        }, 10);
+
+        container.classList.remove("hidden");
+        container.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      //5. 
+      function openPromptTask(suffix = 'feb', templateId = 'template-prompt-task-de') {
+        const container = document.getElementById("pdf-container-" + suffix);
+        const frame = document.getElementById("pdf-frame-" + suffix);
+        const template = document.getElementById(templateId); 
+        const title = container ? container.querySelector("span") : null;
+
+        if (!container || !frame || !template) return;
+
+        frame.removeAttribute("srcdoc");
+        frame.src = "about:blank";
+        
+        if (title) title.innerText = templateId.includes('mar') ? "Aufgabe: GenAI Bericht" : "Aufgabe: Prompting-Techniken";
+
+        setTimeout(() => {
+            frame.srcdoc = template.innerHTML;
+        }, 10);
+
+        container.classList.remove("hidden");
+        container.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      //6. Close pdf
+
+      function closePDF(suffix = 'feb') {
+        const container = document.getElementById("pdf-container-" + suffix);
+        const frame = document.getElementById("pdf-frame-" + suffix);
+        if (container) container.classList.add("hidden");
+        if (frame) {
+          frame.src = "";
+          frame.srcdoc = "";
+        }
+      }
+
+        
+      // --- CONTADOR DE VISITAS (OPCIONAL) ---
+      /*
+      async function updateVisitorCount() {
+        const googleScriptURL = "TU_URL_DE_GOOGLE_SCRIPT";
+        try {
+          fetch(googleScriptURL, { mode: 'no-cors' });
+        } catch (error) {
+          console.log("Error al registrar visita");
+        }
+      }
+      updateVisitorCount();
+      */
+    
+    </script>
+
+  </body>
+ 
+</html>
