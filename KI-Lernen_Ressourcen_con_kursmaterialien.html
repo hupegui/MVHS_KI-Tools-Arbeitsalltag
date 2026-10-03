@@ -1,0 +1,3791 @@
+<!doctype html>
+<html lang="de">
+  <!-- aqui empieza el head-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KI-Kurs Dashboard - Arbeitsalltag</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      // 1. EL DICCIONARIO (Global)
+      const translations = {
+        // 1. EL DICCIONARIO (Actualizado: 3 Sesiones x 3 Horas en 3 Idiomas)
+
+        de: {
+          page_title:
+            "Online: KI-Tools für Ihren Arbeitsalltag und Ihr Privatleben",
+          sider_title:
+            "Online: KI-Tools für Ihren Arbeitsalltag und Ihr Privatleben",
+          nav_welcome: "WILLKOMMEN",
+          nav_umfrage: "UMFRAGE",
+          nav_agenda: "📅 AGENDA",
+          nav_sitzung1: "Grundkenntnisse: Grundlagen  & Prompting",
+          nav_session2: "Mittelstufe: Werkzeuge in KI",
+          nav_session3: "Oberstufe: KI-Agenten",
+          //nav_resources: "📚 RESSOURCEN",
+          //nav_resources_subtitle1: "links: KI-Plattformen",
+          //nav_resources_subtitle2: "Kursmaterialien",
+          nav_about: "👤 ÜBER MICH",
+          sobre_mi_title: "Über mich",
+
+          welcome_intro: "Willkommen zum KI-Training für den Arbeitsalltag!",
+          welcome_description:
+            "Bitte nutzen Sie das Menü auf der linken Seite, um die Kursinhalte der einzelnen Sitzungen einzusehen.<br><br>" +
+            "In diesem Kurs lernen Sie die Funktionsweise und die Einsatzmöglichkeiten von KI-Anwendungen im Büroalltag kennen. Sie erfahren, wie Sie passende Tools" +
+            " für Ihre Aufgaben identifizieren, Arbeitsabläufe unterstützen und dabei die notwendigen Datenschutz-Aspekte berücksichtigen.<br><br>" +
+            "<strong>Hinweis zur Agenda:</strong> Die Kursinhalte, ihre Reihenfolge und der zeitliche Umfang werden wie beschrieben behandelt," +
+            "können jedoch an die Kursdynamik, den Gruppenfortschritt und die ständige Weiterentwicklung von KI-Tools angepasst werden," +
+            "um den Lernerfolg zu optimieren.",
+          welcome_disclaimer:
+            "Die Entwicklung im Bereich der Künstlichen Intelligenz ist jedoch extrem dynamisch. Was gestern noch als Standard galt," +
+            " kann heute bereits durch neue Updates oder Tools überholt sein. Ich habe mein Bestes gegeben, um alle Informationen" +
+            " so aktuell und präzise wie möglich zu halten; übernehme jedoch keine Gewähr" +
+            " für die dauerhafte Gültigkeit der gezeigten Funktionen oder Rahmenbedingungen.<br><br>" +
+            "Bei der Erstellung dieses Materials wurde KI eingesetzt," +
+            " um einen professionellen redaktionellen Ablauf zu gewährleisten." +
+            " Der Inhalt bleibt jedoch zu 100 % menschlich gesteuert und spiegelt" +
+            " die ursprüngliche Forschung und das pädagogische Design des Autors wider.",
+
+          // --- Grundkenntnisse: GRUNDLAGEN & PROMPTING  ---
+
+          sitzung1_title: "Grundkenntnisse: Grundlagen & Prompting",
+
+          sitzung1_title_description:
+            " Dieser Abschnitt vermittelt Grundlagen und präsentiert diese" +
+            " praxisnah. Am Ende dieser Sitzung wird der Teilnehmer Konzepte" +
+            " wie Machine Learning, Deep Learning, generative KI, GenBizKI sowie" +
+            " die gängige Terminologie der KI-Welt verstehen." +
+            " Diese Sitzung ist, wie alle anderen auch, für" +
+            " Personen ohne technisches Vorwissen oder Programmierkenntnisse konzipiert.",
+
+          // --- Nivel Básico: seccion 1 ---
+          sitzung1_teil1_title: "Teil 1: Grundlagen & Terminologie im Kontext",
+          sitzung1_teil1_thema1_title: "Technologische Entwicklung",
+          sitzung1_teil1_thema1_inhalteil1:
+            "<strong>Entwicklung:</strong> Unterscheidung zwischen" +
+            " regelbasierter Software und generativer KI (GenAI)",
+          sitzung1_teil1_thema1_inhalteil2:
+            "<strong>Embeddings & Vektoren:</strong> Wie die KI Konzepte mathematisch ordnet.",
+
+          sitzung1_teil1_thema2_title: "Modell-Typen",
+          sitzung1_teil1_thema2_inhalteil1:
+            "<strong>Large Language Models (LLM):</strong> Intelligente Textanalyse und kreative Texterstellung.",
+          sitzung1_teil1_thema2_inhalteil2:
+            "<strong>Large Multimodal Models:</strong> Einbeziehung von Bild-, Dokumenten- und Audioformaten.",
+
+          sitzung1_teil1_thema3_title: "KI-Landschaft im Überblick",
+
+          sitzung1_teil1_thema3_inhalteil1:
+            "<strong>Vielfalt der KI:</strong> Überblick über verschiedene" +
+            " Anbieter und deren Werkzeuge (MistralAI, OpenAI, Google, Microsoft, Anthropic).",
+
+          sitzung1_teil1_thema3_inhalteil2:
+            "<strong>Anwendungsgebiete:</strong> Von Textspezialisten (LLM)" +
+            " bis zu Allround-Assistenten im Alltag.",
+
+          // --- Nivel Básico: Teil 2 ---
+
+          sitzung1_teil2_title:
+            "Teil 2: Steuerung durch Instruktionen – Prompting",
+          sitzung1_teil2_title_description:
+            "In diesem Modul lernen Sie, wie Sie weg von der" +
+            " klassischen 'Suchmaschinen-Logik' hin zu einer" +
+            " ergebnisorientierten Instruktion gelangen." +
+            " Ziel ist es, die KI durch besseres Prompting als" +
+            " produktiven Assistenten im Arbeitsalltag einzusetzen.",
+
+          sitzung1_teil2_thema1_title: "Methodik der Instruktion",
+
+          sitzung1_teil2_thema1_inhalteil1:
+            "<strong>Vom Suchen zum Steuern:</strong> Warum die Qualität" +
+            " der Antwort direkt von der Spezifikation Ihrer Anweisung abhängt.",
+
+          sitzung1_teil2_thema1_inhalteil2:
+            "<strong>RTCF-Framework:</strong> Systematischer Aufbau von Prompts" +
+            " durch die Anwendung der Parameter Rolle, Aufgabe, Kontext und Format.",
+
+          sitzung1_teil2_thema1_inhalteil3:
+            "<strong>Prompting-Techniken:</strong> Wege zu besseren Ergebnissen –" +
+            " von der Direktanweisung (Zero-Shot) bis zum Chain-of-Verification (CoVe).",
+
+          sitzung1_teil2_thema1_inhalteil4:
+            "<strong>Steuerung der Ausgabe:</strong> Gezielte Beeinflussung von" +
+            " Tonalität, Zielgruppe und Detailtiefe durch explizite Vorgaben.",
+
+          sitzung1_teil2_thema1_inhalteil5:
+            "<strong>Halluzinationen & Faktencheck:</strong> Die Modelle lügen" +
+            " ab und zu. Halluzinationen verstehen und Informationen kritisch hinterfragen.",
+
+          //seccion 1 , Teil 3
+          sitzung1_teil3_title: "Teil 3: Anwendungsszenarien in KI - Beispiele",
+          sitzung1_teil3_title_description:
+            "In diesem Modul setzen wir das Gelernte in die Praxis um." +
+            " Wir entwickeln konkrete Lösungen für Alltag und Beruf" +
+            " und erstellen Ihre persönliche Werkzeugkiste für effizientes Prompting.",
+
+          sitzung1_teil3_thema1_title: "Deep Dive: Transformation & Struktur",
+
+          sitzung1_teil3_thema1_inhalteil1:
+            "<strong>Vom Chaos zur Ordnung:</strong> Anwendung des RTCF-Frameworks" +
+            " auf Praxis-Szenarien wie Reiseplanung, Mahnwesen und Protokollführung.",
+
+          sitzung1_teil3_thema1_inhalteil2:
+            "<strong>Stil-Adaption:</strong> Komplexe Inhalte zielgruppengerecht" +
+            " umformulieren – von technischem Fachjargon zu wertschätzender Kommunikation.",
+
+          sitzung1_teil3_thema2_title: "Die persönliche Prompt-Bibliothek",
+
+          sitzung1_teil3_thema2_inhalteil1:
+            "<strong>Standardisierung:</strong> Erstellung eines 'Master-Prompts'" +
+            " für wiederkehrende Aufgaben wie E-Mails, Zusammenfassungen oder Brainstorming.",
+
+          sitzung1_teil3_thema2_inhalteil2:
+            "<strong>Organisation & Speed:</strong> Tipps zur Speicherung" +
+            " und zum Schnellzugriff auf Ihre besten Prompts im Alltag.",
+
+          sitzung1_teil3_thema3_title: "Abschluss & Goldene Regeln",
+
+          sitzung1_teil3_thema3_inhalteil1:
+            "<strong>Checkliste:</strong> Zusammenfassung der wichtigsten" +
+            " Leitplanken für den täglichen Einsatz.",
+
+          sitzung1_teil3_thema3_inhalteil2:
+            "<strong>Transfer:</strong> Verteilung des Cheat-Sheets und praktische Tipps" +
+            " wie Sie die KI ab morgen in Ihren eigenen Arbeitsalltag integrieren.",
+
+          //Mittelstufe
+          sitzung2_title: "Mittelstufe: Werkzeuge in KI",
+
+          sitzung2_title_description:
+            "Am Ende dieser Sitzung werden die Teilnehmer in der Lage sein," +
+            " KI-Arbeitsumgebungen für die strukturierte Textbearbeitung zu" +
+            " nutzen und komplexe Dokumente sowie unternehmenseigene" +
+            " Daten mittels RAG-Technologie (wie Gemini Notebook)" +
+            " sicher zu analysieren, zusammenzufassen und korrekt zu zitieren.",
+
+          // Sitzung2, Teil 1
+          sitzung2_teil1_title: "Teil 1: Strukturierte Dokumentenarbeit",
+          sitzung2_teil1_description:
+            "In diesem Abschnitt wird die Nutzung interaktiver " +
+            "Arbeitsumgebungen zur effizienten Erstellung und Überarbeitung " +
+            "komplexer Texte behandelt.",
+
+          sitzung2_teil1_thema1_title: "Side-by-Side Editing",
+          sitzung2_teil1_thema1_inhalteil1:
+            "<strong>Funktionsweise:</strong> Parallele Bearbeitung von Entwürfen in" +
+            " verschiedenen KI-Interfaces (z. B. Gemini, Copilot und ChatGPT).",
+          sitzung2_teil1_thema1_inhalteil2:
+            "<strong>Gezielte Modifikation:</strong> Überarbeitung spezifischer Textpassagen," +
+            " ohne das gesamte Dokument neu generieren zu müssen.",
+
+          sitzung2_teil1_thema2_title: "Formatierung & Struktur",
+          sitzung2_teil1_title2_theme1:
+            "<strong>Strukturierung:</strong> Automatische Erstellung von Gliederungen," +
+            " Tabellen und Code-Blöcken in der Arbeitsumgebung.",
+          sitzung2_teil1_title2_theme2:
+            "<strong>Versionskontrolle:</strong> Verfolgung von Änderungen innerhalb des interaktiven Editors.",
+
+          // Mittelstufe, Teil 2
+          sitzung2_teil2_title: "Teil 2: Analyse eigener Dokumente & Daten",
+          sitzung2_teil2_description:
+            "Fokus auf die Arbeit mit Retrieval-Augmented Generation (RAG) " +
+            "zur sicheren Auswertung unternehmenseigener Informationen.",
+
+          sitzung2_teil2_thema3_title: "Gemini Notebook & Dokumentenfokus",
+          sitzung2_teil2_title3_theme1:
+            "<strong>Informationsintegration:</strong> Hochladen und" +
+            " Verknüpfen von PDF-Dokumenten, Notizen und Quellen.",
+          sitzung2_teil2_title3_theme2:
+            "<strong>Evidenzbasierte Antworten:</strong> Generierung von" +
+            " Inhalten ausschließlich auf Basis der hochgeladenen Primärquellen.",
+
+          sitzung2_teil2_thema4_title: "Extraktion & Synthese",
+          sitzung2_teil2_title4_theme1:
+            "<strong>Wissenssynthese:</strong> Erstellung von Briefing-Docs," +
+            " FAQ-Listen und Zusammenfassungen aus mehreren Quellen.",
+          sitzung2_teil2_title4_theme2:
+            "<strong>Zitierweise:</strong> Überprüfung der KI-Aussagen durch direkte Verweise im Quelldokument.",
+
+          // --- Oberstufe: SPEZIALISIERUNG & KI-ZUKUNFT ---
+
+          sitzung3_title: "Oberstufe: KI-Agenten",
+
+          sitzung3_title_description:
+            " Am Ende dieses Moduls werden die Teilnehmer in der Lage sein, eigene KI-Agenten zu konfigurieren," +
+            " die komplexe Denkprozesse selbstständig nach einer festen Business-Logik abarbeiten.",
+
+          // --- Oberstufe: Teil 1 ---
+          sitzung3_teil1_title: "Teil 1: KI-Agenten erstellen",
+          sitzung3_teil1_thema1_title:
+            "Vom Einmal-Prompt zum Prozess-Automaten",
+          sitzung3_p1_name: "Vom Chat zum Prozess-Automaten",
+
+          sitzung3_teil1_thema1_inhalteil1:
+            "<strong>Dauerhafte Anweisungen:</strong> Wie man einem Agenten" +
+            "(z.B. Gems, GPTs) beibringt, eine feste Rolle dauerhaft" +
+            " einzunehmen und Aufgaben in logischen Teilabschnitten" +
+            " autonom abzuarbeiten.",
+          sitzung3_teil1_thema1_inhalteil2:
+            "<strong>Schritt-für-Schritt-Logik:</strong>" +
+            " Den Agenten so einstellen, dass er Aufgaben " +
+            " eigenständig abarbeitet." +
+            " der immer nach der gleichen Business-Logik reagiert.",
+
+          sitzung3_teil1_thema2_title: "Praxis: Der Spezial-Agent",
+          sitzung3_teil1_thema2_inhalteil1:
+            "<strong>Wissensbasis:</strong> Dem Agenten eigene Dokumente bereitstellen, " +
+            "um Antworten auf Basis Ihres Fachwissens zu generieren.",
+          sitzung3_teil1_thema2_inhalteil2:
+            "<strong>Strukturierte Output-Steuerung:</strong> Ergebnisse direkt in fertigen" +
+            " Business-Formaten (z. B. Entscheidungsvorlagen) ausgeben.",
+
+          // --- Oberstufe: Teil 2 ---
+          sitzung3_teil2_title:
+            "Teil 2: Komplexe Aufgaben lösen & Sicher arbeiten",
+          sitzung3_teil2_title_description:
+            "In diesem Abschlussmodul betrachten wir die KI als strategischen Partner für komplexe Prozessgestaltung und sichere Anwendung.",
+
+          sitzung3_teil2_thema1_title: "Planung & Problemlösung mit KI",
+          sitzung3_teil2_thema1_inhalteil1:
+            "<strong>Prompt-Chaining & Logik:</strong> Komplexe Aufgaben in eine logische Kette von Schritten zerlegen" +
+            " für methodisches Denken.",
+          sitzung3_teil2_thema1_inhalteil2:
+            "<strong>Strategie-Hilfe:</strong> Partner für Roadmaps, SWOT-Analysen und Entscheidungsvorlagen.",
+
+          sitzung3_teil2_thema2_title: "Sicherheit & Der Weg nach vorn",
+          sitzung3_teil2_thema2_inhalteil1:
+            "<strong>Governance:</strong> Sicherer Betrieb, Datenschutz-Leitplanken und Vermeidung von KI-Bias im Berufsalltag.",
+          sitzung3_teil2_thema2_inhalteil2:
+            "<strong>KI-Roadmap:</strong> Erstellung eines persönlichen 30-Tage-Plans für den Transfer in den eigenen Arbeitsalltag.",
+
+          survey_main_title: "Umfrage: KI im Arbeitsalltag",
+          survey_main_desc:
+            "Bitte beantworten Sie die folgenden Fragen, um Ihre Vorkenntnisse einzuschätzen.",
+          survey_q1: "1. Wie oft nutzen Sie KI-Tools in Ihrem Arbeitsalltag?",
+          survey_q1_a1: "Noch nie / Fast nie",
+          survey_q1_a2: "Gelegentlich (1-2 Mal pro Monat)",
+          survey_q1_a3: "Regelmäßig (Mehrmals pro Woche)",
+          survey_q1_a4: "Täglich als fester Bestandteil",
+          survey_q2:
+            "2. Wie vertraut sind Sie mit der Formulierung von Prompts?",
+          survey_q2_a1: "Anfänger: Einfache Suchbegriffe oder Fragen.",
+          survey_q2_a2: "Fortgeschritten: Nutzung von Kontext und Rollen.",
+          survey_q2_a3: "Experte: Komplexe Frameworks und Prompt-Chaining.",
+          survey_q3: "3. Was ist Ihr Hauptziel für diesen Kurs?",
+          survey_q3_a1: "Grundlagen verstehen und erste Schritte wagen",
+          survey_q3_a2: "Dokumente und Daten effizient analysieren",
+          survey_q3_a3: "Eigene KI-Agenten und Prozesse erstellen",
+          survey_btn: "Ergebnis anzeigen",
+          survey_res_title: "Vielen Dank für Ihre Teilnahme!",
+          survey_result_r1:
+            "Empfehlung: Grundkenntnisse (Grundlagen & Prompting) wird Ihnen den besten Einstieg bieten!",
+          survey_result_r2:
+            "Empfehlung: Mittelstufe (Werkzeuge in KI & RAG) passt ideal zu Ihrem Wissensstand.",
+          survey_result_r3:
+            "Empfehlung: Sie sind bereit für Oberstufe (KI-Agenten & Prozessautomatisierung)!",
+        },
+
+        en: {
+          page_title: "Online: AI tools for your professional and daily life",
+          sider_title: "Online: AI tools for your professional and daily life",
+          nav_welcome: "WELCOME",
+          nav_umfrage: "SURVEY",
+          nav_agenda: "📅 AGENDA",
+          nav_sitzung1: "Basic Level: Fundamentals & Prompting",
+          nav_session2: "Intermediate Level: Tools in AI",
+          nav_session3: "Advanced Level: AI Agents",
+          //nav_resources: "📚 RESOURCES",
+          //nav_resources_subtitle1: "Links: AI Platforms",
+          //nav_resources_subtitle2: "Course Materials",
+          nav_about: "👤 ABOUT ME",
+          sobre_mi_title: "About me",
+
+          welcome_intro: "Welcome to AI training for daily work!",
+          welcome_description:
+            "Please use the menu on the left to view the course content for each session.<br><br>" +
+            "In this course, you will learn about the functionality" +
+            " and potential applications of AI tools in daily office work. You will discover how to identify suitable tools" +
+            " for your tasks, support workflows, and take the necessary data protection aspects into account.<br><br>" +
+            "<strong>Note on the Agenda:</strong> Course topics, schedule, and time allocation" +
+            " will follow the outlined schedule, but may be adapted based on course dynamics," +
+            " group progress, and the rapid evolution of AI tools to optimize learning outcomes.",
+          welcome_disclaimer:
+            "The development in the field of Artificial Intelligence is extremely dynamic. What was considered a standard yesterday" +
+            " may already be outdated today due to new updates or tools. I have done my best to keep all information" +
+            " as current and precise as possible; however, I cannot guarantee the permanent validity" +
+            " of the functions or conditions shown.<br><br>" +
+            "To create this material" +
+            " AI was used to guarantee" +
+            "a professional editorial flow, but the content remains 100% human-driven, reflecting" +
+            " the authors’ original research and pedagogical design.<br><br>",
+
+          // --- Basic Level: FUNDAMENTALS & PROMPTING  ---
+          sitzung1_title: "Basic level: Fundamentals & Prompting",
+
+          sitzung1_title_description:
+            "This section provides fundamentals and presents them in a practical" +
+            " manner. By the end of this session, participants will understand concepts" +
+            " such as Machine Learning, Deep Learning, Generative AI, GenBizAI, as well as" +
+            " the common terminology of the AI world." +
+            " This session, like all others, is designed for" +
+            " individuals without prior technical knowledge or programming skills.",
+
+          // --- Basic Level: Part 1 ---
+          sitzung1_teil1_title: "Part 1: Fundamentals & Terminology in Context",
+          sitzung1_teil1_thema1_title: "Technological Development",
+          sitzung1_teil1_thema1_inhalteil1:
+            "<strong>Development:</strong> Distinction between" +
+            " rule-based software and generative AI (GenAI)",
+          sitzung1_teil1_thema1_inhalteil2:
+            "<strong>Embeddings & Vectors:</strong> How AI mathematically organizes concepts.",
+
+          sitzung1_teil1_thema2_title: "Model Types",
+          sitzung1_teil1_thema2_inhalteil1:
+            "<strong>Large Language Models (LLM):</strong>" +
+            " Intelligent text analysis and creative text generation.",
+          sitzung1_teil1_thema2_inhalteil2:
+            "<strong>Large Multimodal Models:</strong> Inclusion of image, document, and audio formats.",
+
+          sitzung1_teil1_thema3_title: "AI Landscape Overview",
+          sitzung1_teil1_thema3_inhalteil1:
+            "<strong>AI Diversity:</strong> Overview of different" +
+            " providers and their tools (MistralAI, OpenAI, Google, Microsoft, Anthropic).",
+          sitzung1_teil1_thema3_inhalteil2:
+            "<strong>Application Areas:</strong> From text specialists (LLM)" +
+            " to all-round assistants in daily life.",
+
+          // --- Basic Level: Part 2 ---
+          sitzung1_teil2_title:
+            "Part 2: Control through Instructions – Prompting",
+          sitzung1_teil2_title_description:
+            "In this module, you will learn how to move away from the" +
+            " traditional 'search engine logic' toward" +
+            " results-oriented instruction." +
+            " The goal is to use AI through better prompting as a" +
+            " productive assistant in your daily work.",
+
+          sitzung1_teil2_thema1_title: "Instruction Methodology",
+          sitzung1_teil2_thema1_inhalteil1:
+            "<strong>From Searching to Controlling:</strong> Why the quality" +
+            " of the answer directly depends on the specification of your instruction.",
+          sitzung1_teil2_thema1_inhalteil2:
+            "<strong>RTCF Framework:</strong> Systematic structure of prompts" +
+            " by applying the parameters Role, Task, Context, and Format.",
+          sitzung1_teil2_thema1_inhalteil3:
+            "<strong>Prompting Techniques:</strong> Ways to better results –" +
+            " from direct instruction (Zero-Shot) to Chain-of-Verification (CoVe).",
+          sitzung1_teil2_thema1_inhalteil4:
+            "<strong>Output Control:</strong> Targeted influence of" +
+            " tonality, target audience, and level of detail through explicit specifications.",
+          sitzung1_teil2_thema1_inhalteil5:
+            "<strong>Hallucinations & Fact-Checking:</strong> Models lie occasionally. Understand hallucinations and critically question information.",
+
+          // --- Basic Level: Part 3 ---
+          sitzung1_teil3_title:
+            "Part 3: Application Scenarios in AI - Examples",
+          sitzung1_teil3_title_description:
+            "In this module, we put what we have learned into practice." +
+            " We develop concrete solutions for everyday life and work" +
+            " and create your personal toolbox for efficient prompting.",
+
+          sitzung1_teil3_thema1_title: "Deep Dive: Transformation & Structure",
+          sitzung1_teil3_thema1_inhalteil1:
+            "<strong>From Chaos to Order:</strong> Application of the RTCF framework" +
+            " to practical scenarios such as travel planning, dunning, and minutes-taking.",
+          sitzung1_teil3_thema1_inhalteil2:
+            "<strong>Style Adaptation:</strong> Reformulating complex content" +
+            " for target audiences – from technical jargon to appreciative communication.",
+
+          sitzung1_teil3_thema2_title: "The Personal Prompt Library",
+          sitzung1_teil3_thema2_inhalteil1:
+            "<strong>Standardization:</strong> Creation of a 'Master Prompt'" +
+            " for recurring tasks such as emails, summaries, or brainstorming.",
+          sitzung1_teil3_thema2_inhalteil2:
+            "<strong>Organization & Speed:</strong> Tips for saving" +
+            " and quickly accessing your best prompts in daily life.",
+
+          sitzung1_teil3_thema3_title: "Conclusion & Golden Rules",
+          sitzung1_teil3_thema3_inhalteil1:
+            "<strong>Checklist:</strong> Summary of the most important" +
+            " guidelines for daily use.",
+          sitzung1_teil3_thema3_inhalteil2:
+            "<strong>Transfer:</strong> Distribution of the cheat sheet and practical tips" +
+            " on how to integrate AI into your own daily work starting tomorrow.",
+
+          // Intermediate Level
+          sitzung2_title: "Intermediate Level: Tools in AI",
+
+          sitzung2_title_description:
+            "By the end of this session, participants will be able to" +
+            " utilize AI work environments for structured text editing" +
+            " and securely analyze complex documents and proprietary data" +
+            " using Retrieval-Augmented Generation (RAG) technology (like Gemini Notebook).",
+
+          // Intermediate Level, Part 1
+          sitzung2_teil1_title: "Part 1: Structured Document Work",
+          sitzung2_teil1_description:
+            "This section covers the use of interactive " +
+            "workspaces for the efficient creation and revision " +
+            "of complex texts.",
+
+          sitzung2_teil1_thema1_title: "Side-by-Side Editing",
+          sitzung2_teil1_thema1_inhalteil1:
+            "<strong>Functionality:</strong> Parallel editing of drafts within different" +
+            " AI interfaces (e.g., Gemini, Copilot, and ChatGPT).",
+          sitzung2_teil1_thema1_inhalteil2:
+            "<strong>Targeted Modification:</strong> Revising specific text" +
+            " passages without the need to re-generate the entire document.",
+
+          sitzung2_teil1_thema2_title: "Formatting & Structure",
+          sitzung2_teil1_title2_theme1:
+            "<strong>Structuring:</strong> Automatic creation of outlines, tables, and code blocks within the workspace.",
+          sitzung2_teil1_title2_theme2:
+            "<strong>Version Control:</strong> Tracking changes within the interactive editor.",
+
+          // Intermediate Level, Part 2
+          sitzung2_teil2_title: "Part 2: Analyzing Personal Documents & Data",
+          sitzung2_teil2_description:
+            "Focus on working with Retrieval-Augmented Generation (RAG) " +
+            "for the secure analysis of proprietary information.",
+
+          sitzung2_teil2_thema3_title: "Gemini Notebook & Document Focus",
+          sitzung2_teil2_title3_theme1:
+            "<strong>Information Integration:</strong> Uploading and linking PDF documents, notes, and sources.",
+          sitzung2_teil2_title3_theme2:
+            "<strong>Evidence-Based Answers:</strong> Generating content based exclusively on the uploaded primary sources.",
+
+          sitzung2_teil2_thema4_title: "Extraction & Synthesis",
+          sitzung2_teil2_title4_theme1:
+            "<strong>Knowledge Synthesis:</strong> Creating briefing docs, FAQ lists, and summaries from multiple sources.",
+          sitzung2_teil2_title4_theme2:
+            "<strong>Citations:</strong> Verifying AI statements through direct references in the source document.",
+
+          // --- Advanced Level: SPECIALIZATION & THE FUTURE OF AI ---
+
+          sitzung3_title: "Advanced Level: AI Agents",
+
+          sitzung3_title_description:
+            "By the end of this module, participants will be able to configure their own AI agents," +
+            " which independently handle complex thinking processes according to a fixed business logic.",
+
+          // --- Advanced Level: Part 1 ---
+          sitzung3_teil1_title: "Part 1: Creating AI Agents",
+          sitzung3_teil1_thema1_title:
+            "From One-Time Prompts to Process Automata",
+          sitzung3_p1_name: "From Chat to Process Automaton",
+
+          sitzung3_teil1_thema1_inhalteil1:
+            "<strong>Permanent Instructions:</strong> How to teach an agent" +
+            " (e.g. Gems, GPTs) to permanently adopt a fixed role" +
+            " and autonomously complete tasks in logical sub-sections.",
+          sitzung3_teil1_thema1_inhalteil2:
+            "<strong>Step-by-Step Logic:</strong>" +
+            " Setting up the agent to handle tasks " +
+            " independently. One that always reacts according to the same business logic.",
+
+          sitzung3_teil1_thema2_title: "Practice: The Special Agent",
+          sitzung3_teil1_thema2_inhalteil1:
+            "<strong>Knowledge Base:</strong> Providing the agent with your own documents, " +
+            "to generate answers based on your professional expertise.",
+          sitzung3_teil1_thema2_inhalteil2:
+            "<strong>Structured Output Control:</strong> Outputting results directly in finished" +
+            " business formats (e.g. decision templates).",
+
+          // --- Advanced Level: Part 2 ---
+          sitzung3_teil2_title:
+            "Part 2: Solving Complex Tasks & Working Safely",
+          sitzung3_teil2_title_description:
+            "In this final module, we consider AI as a strategic partner for complex process design and secure application.",
+
+          sitzung3_teil2_thema1_title: "Planning & Problem Solving with AI",
+          sitzung3_teil2_thema1_inhalteil1:
+            "<strong>Prompt-Chaining & Logic:</strong> Breaking down complex tasks into a logical chain of steps" +
+            " for methodical thinking.",
+          sitzung3_teil2_thema1_inhalteil2:
+            "<strong>Strategy Support:</strong> Partner for roadmaps, SWOT analyses and decision templates.",
+
+          sitzung3_teil2_thema2_title: "Security & The Way Forward",
+          sitzung3_teil2_thema2_inhalteil1:
+            "<strong>Governance:</strong> Secure operation, data protection guardrails and avoiding AI bias in daily professional life.",
+          sitzung3_teil2_thema2_inhalteil2:
+            "<strong>AI Roadmap:</strong> Creation of a personal 30-day plan for the transfer into your own daily work.",
+
+          survey_main_title: "Survey: AI in daily work",
+          survey_main_desc:
+            "Please answer the following questions to assess your prior knowledge and expectations.",
+          survey_q1:
+            "1. How often do you use AI tools (e.g. ChatGPT, Copilot) in your daily work?",
+          survey_q1_a1: "Never / Almost never",
+          survey_q1_a2: "Occasionally (1-2 times per month)",
+          survey_q1_a3: "Regularly (Several times a week)",
+          survey_q1_a4: "Daily, as a fixed part of my work",
+          survey_q2:
+            "2. How familiar are you with formulating prompts (instructions)?",
+          survey_q2_a1: "Beginner: I enter simple search terms or questions.",
+          survey_q2_a2: "Advanced: I provide context and roles.",
+          survey_q2_a3:
+            "Expert: I use complex frameworks (e.g. RTCF) and prompt chaining.",
+          survey_q3: "3. What is your main goal for this course?",
+          survey_q3_a1: "Understand the fundamentals and take the first steps",
+          survey_q3_a2: "Analyze documents and data efficiently with AI",
+          survey_q3_a3: "Create my own AI agents and automated processes",
+          survey_btn: "Show result",
+          survey_res_title: "Thank you very much for your participation!",
+          survey_result_r1:
+            "Recommendation: Basic Level (Fundamentals & Prompting) will give you the best start!",
+          survey_result_r2:
+            "Recommendation: Intermediate Level (Tools in AI & RAG) fits your knowledge level perfectly.",
+          survey_result_r3:
+            "Recommendation: You are ready for Advanced Level (AI Agents & Process Automation)!",
+        },
+
+        es: {
+          page_title:
+            "Online: Herramientas de IA para su entorno laboral y vida diaria",
+          sider_title:
+            "Online: Herramientas de IA para su entorno laboral y vida diaria",
+          nav_welcome: "BIENVENIDA",
+          nav_umfrage: "ENCUESTA",
+          nav_agenda: "📅 AGENDA",
+          nav_sitzung1: "Nivel Básico: Fundamentos y Prompting",
+          nav_session2: "Nivel Intermedio: Herramientas en IA",
+          nav_session3: "Nivel Avanzado: Agentes de IA",
+          //nav_resources: "📚 RECURSOS",
+          //nav_resources_subtitle1: "Enlaces: Plataformas de IA",
+          //nav_resources_subtitle2: "Materiales del curso",
+          nav_about: "👤 SOBRE MÍ",
+          sobre_mi_title: "Sobre mí",
+
+          welcome_intro:
+            "¡Bienvenido/a a la formación de IA para el trabajo y la vida diaria!",
+          welcome_description:
+            "Por favor, utilice el menú de la izquierda para ver los contenidos de cada sesión.<br><br>" +
+            "En este curso conocerá el funcionamiento y las posibilidades de aplicación de las herramientas de IA en la oficina y la vida diaria. Aprenderá a identificar las herramientas adecuadas" +
+            " para sus tareas, optimizar flujos de trabajo y tener en cuenta los aspectos necesarios de protección de datos.<br><br>" +
+            "<strong>Nota sobre la agenda:</strong> La secuencia, el peso temporal e incluso los contenidos del curso" +
+            " se tratarán según lo descrito, pero podrán adaptarse y ajustarse en función" +
+            " de la dinámica del curso, el avance del grupo y la evolución constante de las herramientas de IA, todo ello orientado a optimizar el aprendizaje.",
+          welcome_disclaimer:
+            "El desarrollo en el campo de la Inteligencia Artificial es extremadamente dinámico. Lo que ayer se consideraba" +
+            " un estándar, hoy puede haber quedado obsoleto debido a nuevas actualizaciones o herramientas. He hecho todo lo posible" +
+            " por mantener toda la información lo más actualizada y precisa posible; sin embargo, no asumo ninguna responsabilidad" +
+            " por la validez permanente de las funciones o condiciones mostradas.  <br><br>" +
+            "Para la creación de este material se utilizó IA" +
+            " con el fin de garantizar un flujo editorial profesional;" +
+            " sin embargo, el contenido sigue siendo 100% de autoría humana," +
+            " reflejando la investigación original y el diseño pedagógico del autor.",
+
+          // --- Nivel Básico: FUNDAMENTOS Y PROMPTING (3 HORAS) ---
+          sitzung1_title: "Nivel Básico: Fundamentos y Prompting",
+
+          sitzung1_title_description:
+            "Esta sección proporciona los fundamentos y los presenta de forma" +
+            " práctica. Al final de esta sesión, el participante comprenderá conceptos" +
+            " como Machine Learning, Deep Learning, IA generativa, GenBizKI, así como" +
+            " la terminología común del mundo de la IA." +
+            " Esta sesión, al igual que todas las demás, está diseñada para" +
+            " personas sin conocimientos técnicos previos ni experiencia en programación.",
+
+          // --- Nivel Básico: Parte 1 ---
+          sitzung1_teil1_title:
+            "Parte 1: Fundamentos y Terminología en Contexto",
+          sitzung1_teil1_thema1_title: "Desarrollo Tecnológico",
+          sitzung1_teil1_thema1_inhalteil1:
+            "<strong>Desarrollo:</strong> Distinción entre" +
+            " el software basado en reglas y la IA generativa (GenAI)",
+          sitzung1_teil1_thema1_inhalteil2:
+            "<strong>Embeddings y Vectores:</strong> Cómo la IA organiza los conceptos matemáticamente.",
+
+          sitzung1_teil1_thema2_title: "Tipos de Modelos",
+          sitzung1_teil1_thema2_inhalteil1:
+            "<strong>Large Language Models (LLM):</strong> Análisis inteligente de textos y creación creativa de contenidos.",
+          sitzung1_teil1_thema2_inhalteil2:
+            "<strong>Large Multimodal Models:</strong> Inclusión de formatos de imagen, documentos y audio.",
+
+          sitzung1_teil1_thema3_title: "Panorama de la IA en un vistazo",
+          sitzung1_teil1_thema3_inhalteil1:
+            "<strong>Diversidad de la IA:</strong> Resumen de diferentes" +
+            " proveedores y sus herramientas (MistralAI, OpenAI, Google, Microsoft, Anthropic).",
+          sitzung1_teil1_thema3_inhalteil2:
+            "<strong>Áreas de Aplicación:</strong> Desde especialistas en texto (LLM)" +
+            " hasta asistentes todoterreno en el día a día.",
+
+          // --- Nivel Básico: Parte 2 ---
+          sitzung1_teil2_title:
+            "Parte 2: Control mediante instrucciones – Prompting",
+          sitzung1_teil2_title_description:
+            "En este módulo, aprenderá a alejarse de la" +
+            " clásica 'lógica de buscador' para avanzar hacia una" +
+            " instrucción orientada a resultados." +
+            " El objetivo es utilizar la IA, mediante un mejor prompting, como un" +
+            " asistente productivo en el día a día laboral.",
+
+          sitzung1_teil2_thema1_title: "Metodología de la Instrucción",
+          sitzung1_teil2_thema1_inhalteil1:
+            "<strong>Del buscar al controlar:</strong> Por qué la calidad" +
+            " de la respuesta depende directamente de la especificación de su instrucción.",
+          sitzung1_teil2_thema1_inhalteil2:
+            "<strong>Framework RTCF:</strong> Estructura sistemática de prompts" +
+            " mediante la aplicación de los parámetros Rol, Tarea, Contexto y Formato.",
+          sitzung1_teil2_thema1_inhalteil3:
+            "<strong>Técnicas de Prompting:</strong> Caminos hacia mejores resultados –" +
+            " desde la instrucción directa (Zero-Shot) hasta el Chain-of-Verification (CoVe), tambien denominado autoverificación.",
+          sitzung1_teil2_thema1_inhalteil4:
+            "<strong>Control de la salida:</strong> Influencia dirigida en la" +
+            " tonalidad, el público objetivo y el Nivel de detalle mediante especificaciones explícitas.",
+          sitzung1_teil2_thema1_inhalteil5:
+            "<strong>Alucinaciones y verificación de hechos:</strong> Los modelos mienten de vez en cuando. Entender las alucinaciones y cuestionar críticamente la información.",
+
+          // --- Nivel Básico: Parte 3 ---
+          sitzung1_teil3_title:
+            "Parte 3: Escenarios de Aplicación de la IA - Ejemplos",
+          sitzung1_teil3_title_description:
+            "En este módulo ponemos en práctica lo aprendido." +
+            " Desarrollamos soluciones concretas para el día a día y el trabajo" +
+            " y creamos su caja de herramientas personal para un prompting eficiente.",
+
+          sitzung1_teil3_thema1_title: "Deep Dive: Transformación y Estructura",
+          sitzung1_teil3_thema1_inhalteil1:
+            "<strong>Del caos al orden:</strong> Aplicación del framework RTCF" +
+            " a escenarios prácticos como planificación de viajes, reclamación de pagos y redacción de actas.",
+          sitzung1_teil3_thema1_inhalteil2:
+            "<strong>Adaptación de estilo:</strong> Reformular contenidos complejos" +
+            " para públicos específicos: del lenguaje técnico a una comunicación apreciativa.",
+
+          sitzung1_teil3_thema2_title: "La biblioteca personal de prompts",
+          sitzung1_teil3_thema2_inhalteil1:
+            "<strong>Estandarización:</strong> Creación de un 'Master Prompt'" +
+            " para tareas recurrentes como correos electrónicos, resúmenes o lluvia de ideas.",
+          sitzung1_teil3_thema2_inhalteil2:
+            "<strong>Organización y Velocidad:</strong> Consejos para guardar" +
+            " y acceder rápidamente a sus mejores prompts en el día a día.",
+
+          sitzung1_teil3_thema3_title: "Cierre y Reglas de Oro",
+          sitzung1_teil3_thema3_inhalteil1:
+            "<strong>Checklist:</strong> Resumen de las directrices" +
+            " más importantes para el uso diario.",
+          sitzung1_teil3_thema3_inhalteil2:
+            "<strong>Transferencia:</strong> Distribución de la hoja de trucos (cheat-sheet) y consejos prácticos" +
+            " sobre cómo integrar la IA en su propio trabajo diario a partir de mañana.",
+
+          // Nivel Intermedio
+          sitzung2_title: "Nivel Intermedio: Herramientas en IA",
+
+          sitzung2_title_description:
+            "Al final de esta sesión, los participantes podrán utilizar" +
+            " entornos de trabajo de IA para la edición estructurada de textos complejos " +
+            "y el análisis seguro de documentos y datos propios mediante tecnología" +
+            " de Generación Aumentada por Recuperación (RAG).",
+
+          // Nivel Intermedio, Parte 1
+          sitzung2_teil1_title: "Parte 1: Trabajo estructurado con documentos",
+          sitzung2_teil1_description:
+            "En esta sección se aborda el uso de entornos de " +
+            "trabajo interactivos para la creación y revisión eficiente " +
+            "de textos complejos.",
+
+          sitzung2_teil1_thema1_title: "Edición Lado-a-Lado (Side-by-Side)",
+          sitzung2_teil1_thema1_inhalteil1:
+            "<strong>Funcionamiento:</strong> Edición paralela de borradores" +
+            " en diferentes interfaces de IA (p. ej., Gemini, Copilot y ChatGPT).",
+          sitzung2_teil1_thema1_inhalteil2:
+            "<strong>Modificación Focalizada:</strong> Revisión de pasajes" +
+            " de texto específicos sin necesidad de regenerar todo el documento.",
+
+          sitzung2_teil1_thema2_title: "Formato y estructura",
+          sitzung2_teil1_title2_theme1:
+            "<strong>Estructuración:</strong> Creación automática de esquemas, tablas y bloques de código en el entorno de trabajo.",
+          sitzung2_teil1_title2_theme2:
+            "<strong>Control de versiones:</strong> Seguimiento de cambios dentro del editor interactivo.",
+
+          // Nivel Intermedio, Parte 2
+          sitzung2_teil2_title:
+            "Parte 2: Análisis de Documentos y datos propios",
+          sitzung2_teil2_description:
+            "Enfoque en el trabajo con Generación Aumentada por Recuperación (RAG) " +
+            "para el análisis seguro de información corporativa.",
+
+          sitzung2_teil2_thema3_title:
+            "Gemini Notebook y enfoque en documentos",
+          sitzung2_teil2_title3_theme1:
+            "<strong>Integración de información:</strong> Carga y vinculación de documentos PDF, notas y fuentes.",
+          sitzung2_teil2_title3_theme2:
+            "<strong>Respuestas basadas en evidencia:</strong> Generación de contenido basado exclusivamente en las fuentes primarias cargadas.",
+
+          sitzung2_teil2_thema4_title: "Extracción y síntesis",
+          sitzung2_teil2_title4_theme1:
+            "<strong>Síntesis del conocimiento:</strong> Creación de documentos de información (briefing), listas de FAQ y resúmenes de múltiples fuentes.",
+          sitzung2_teil2_title4_theme2:
+            "<strong>Citación:</strong> Verificación de las afirmaciones de la IA mediante referencias directas en el documento de origen.",
+
+          // --- Nivel Avanzado: ESPECIALIZACIÓN Y EL FUTURO DE LA IA  ---
+
+          sitzung3_title: "Nivel Avanzado: Agentes de IA",
+
+          sitzung3_title_description:
+            "Al finalizar este módulo, los participantes podrán configurar sus propios agentes de IA," +
+            " que procesen de forma autónoma tareas de pensamiento complejo bajo una lógica de negocio fija.",
+
+          // --- Nivel Avanzado: Parte 1 ---
+          sitzung3_teil1_title: "Parte 1: Creación de agentes de IA",
+          sitzung3_teil1_thema1_title:
+            "Del prompt único al autómata de procesos",
+          sitzung3_p1_name: "Del chat al autómata de procesos",
+
+          sitzung3_teil1_thema1_inhalteil1:
+            "<strong>Instrucciones permanentes:</strong> Cómo enseñar a un agente" +
+            " (p.ej. Gems, GPTs) a adoptar un rol fijo de forma permanente" +
+            " y a completar tareas de forma autónoma en secciones lógicas.",
+          sitzung3_teil1_thema1_inhalteil2:
+            "<strong>Lógica paso a paso:</strong>" +
+            " Configurar al agente para que realice tareas " +
+            " de forma independiente. Uno que reaccione siempre bajo la misma lógica de negocio.",
+
+          sitzung3_teil1_thema2_title: "Práctica: El agente especializado",
+          sitzung3_teil1_thema2_inhalteil1:
+            "<strong>Base de conocimientos:</strong> Proporcionar documentos propios al agente, " +
+            "para generar respuestas basadas en su conocimiento especializado.",
+          sitzung3_teil1_thema2_inhalteil2:
+            "<strong>Control de salida estructurado:</strong> Generar resultados directamente en" +
+            " formatos de negocio terminados (p. ej. plantillas de decisión).",
+
+          // --- Nivel Avanzado: Parte 2 ---
+          sitzung3_teil2_title:
+            "Parte 2: Resolución de tareas complejas y trabajo seguro",
+          sitzung3_teil2_title_description:
+            "En este módulo de cierre, consideramos a la IA como un socio estratégico para el diseño de procesos complejos y su aplicación segura.",
+
+          sitzung3_teil2_thema1_title:
+            "Planificación y resolución de problemas con IA",
+          sitzung3_teil2_thema1_inhalteil1:
+            "<strong>Encadenamiento de prompts y lógica:</strong> Dividir tareas complejas en una cadena lógica de pasos" +
+            " para un pensamiento metódico.",
+          sitzung3_teil2_thema1_inhalteil2:
+            "<strong>Apoyo estratégico:</strong> Socio para hojas de ruta, análisis DAFO y plantillas de decisión.",
+
+          sitzung3_teil2_thema2_title: "Seguridad y el camino a seguir",
+          sitzung3_teil2_thema2_inhalteil1:
+            "<strong>Gobernanza:</strong> Operación segura, límites de protección de datos y prevención de sesgos de IA en el entorno laboral.",
+          sitzung3_teil2_thema2_inhalteil2:
+            "<strong>Hoja de ruta de IA:</strong> Creación de un plan personal de 30 días para la transferencia al trabajo diario.",
+
+          survey_main_title: "Encuesta: IA en el trabajo diario",
+          survey_main_desc:
+            "Por favor, responda las siguientes preguntas para evaluar sus conocimientos previos.",
+          survey_q1:
+            "1. ¿Con qué frecuencia utiliza herramientas de IA en su trabajo?",
+          survey_q1_a1: "Nunca / Casi nunca",
+          survey_q1_a2: "Ocasionalmente (1-2 veces al mes)",
+          survey_q1_a3: "Con regularidad (Varias veces por semana)",
+          survey_q1_a4: "Diariamente como parte fija de mi trabajo",
+          survey_q2:
+            "2. ¿Qué tan familiarizado está con la formulación de prompts?",
+          survey_q2_a1:
+            "Principiante: Términos de búsqueda o preguntas simples.",
+          survey_q2_a2: "Avanzado: Uso de contexto y roles.",
+          survey_q2_a3:
+            "Experto: Frameworks complejos y encadenamiento de prompts.",
+          survey_q3: "3. ¿Cuál es su objetivo principal para este curso?",
+          survey_q3_a1: "Comprender los fundamentos y dar los primeros pasos",
+          survey_q3_a2: "Analizar documentos y datos de manera eficiente",
+          survey_q3_a3: "Crear propios agentes de IA y procesos automáticos",
+          survey_btn: "Mostrar resultado",
+          survey_res_title: "¡Muchas gracias por su participación!",
+          survey_result_r1:
+            "Recomendación: la Nivel Básico (Fundamentos y Prompting) le dará el mejor punto de partida.",
+          survey_result_r2:
+            "Recomendación: la Nivel Intermedio (Herramientas de IA y RAG) encaja idealmente con su Nivel de conocimientos.",
+          survey_result_r3:
+            "Recomendación: ¡está listo/a para la Nivel Avanzado (Agentes de IA y automatización de procesos)!",
+        },
+      };
+
+      // 2. FUNCIÓN DE CAMBIO DE IDIOMA
+      function changeLanguage(lang) {
+        // Guardar preferencia
+        localStorage.setItem("preferredLang", lang);
+        document.documentElement.lang = lang;
+
+        // 1. Sincronizar el selector de la barra lateral
+        const selector = document.getElementById("langSelector");
+        if (selector) selector.value = lang;
+
+        // 2. Cambiar título de la pestaña del navegador
+        if (translations[lang] && translations[lang]["page_title"]) {
+          document.title = translations[lang]["page_title"];
+        }
+
+        // 3. Traducir todos los elementos marcados con data-i18n
+        const elements = document.querySelectorAll("[data-i18n]");
+        elements.forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+
+        // 4. Sincronizar el idioma del cuestionario integrado (encuesta)
+        // El cuestionario soporta es/de/en/fr; la SPA principal solo de/en/es,
+        // así que solo lo sincronizamos cuando el idioma existe en ambos sistemas.
+        if (
+          ["es", "de", "en"].includes(lang) &&
+          typeof updateSurveyUI === "function"
+        ) {
+          const surveySelector = document.getElementById("surveyLangSelect");
+          if (surveySelector) surveySelector.value = lang;
+          updateSurveyUI(lang);
+        }
+      }
+
+      // 3. INICIALIZACIÓN (Un solo listener)
+      window.addEventListener("load", function () {
+        // Verificamos si Tailwind se cargó
+        if (!window.tailwind) {
+          const offlineMsg = document.createElement("div");
+          offlineMsg.style =
+            "position:fixed;top:0;left:0;width:100%;background:#ef4444;color:white;text-align:center;padding:15px;z-index:9999;";
+          offlineMsg.innerHTML =
+            "<strong>⚠️ Offline-Modus:</strong> Diese Website funktioniert nur online. Bitte überprüfen Sie Ihre Internetverbindung.";
+          document.body.prepend(offlineMsg);
+        }
+
+        // Aplicamos el idioma guardado
+        const savedLang = localStorage.getItem("preferredLang") || "de";
+        changeLanguage(savedLang);
+      });
+    </script>
+
+    <style>
+      /* SPA Logic: Sektionen verstecken */
+      .content-section {
+        display: none;
+      }
+      .content-section.active {
+        display: block;
+        animation: fadeIn 0.3s ease-in;
+      }
+
+      /* Sidebar Submenü Animation */
+      .submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .submenu.open {
+        max-height: 500px;
+      }
+
+      /* Animation für Inhaltswechsel */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Custom Styling für Details/Summary (Akkordeon im Zentrum) */
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+      summary {
+        list-style: none;
+      }
+
+      /* Estilos de impresión del cuestionario integrado */
+      @media print {
+        /* Ocultar elementos de navegación y controles */
+        .no-print,
+        #confirmModal,
+        #surveyLangSelect,
+        #sidebar,
+        #overlay,
+        header {
+          display: none !important;
+        }
+
+        /* El layout normal usa h-screen + overflow-y-auto.
+           En impresión eso recorta el contenido al alto de la ventana.
+           Lo convertimos en un documento de altura automática para que
+           el cuestionario completo pueda paginarse. */
+        html,
+        body {
+          height: auto !important;
+          min-height: 0 !important;
+          overflow: visible !important;
+        }
+
+        body {
+          display: block !important;
+          background: white !important;
+        }
+
+        body > div.flex-1.flex.flex-col.h-screen.overflow-hidden {
+          display: block !important;
+          width: 100% !important;
+          height: auto !important;
+          min-height: 0 !important;
+          overflow: visible !important;
+        }
+
+        main {
+          display: block !important;
+          width: 100% !important;
+          height: auto !important;
+          min-height: 0 !important;
+          max-height: none !important;
+          overflow: visible !important;
+          padding: 0 !important;
+        }
+
+        /* Solo se imprime la sección actualmente seleccionada (la encuesta
+           cuando se pulsa Imprimir desde el resultado del cuestionario). */
+        .content-section:not(.active) {
+          display: none !important;
+        }
+
+        .content-section.active {
+          display: block !important;
+          height: auto !important;
+          max-height: none !important;
+          overflow: visible !important;
+        }
+
+        .survey-container {
+          border: none !important;
+          box-shadow: none !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          max-height: none !important;
+          overflow: visible !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        /* Evita que las tablas/filas del diagnóstico se corten entre páginas
+           cuando el navegador pueda mantenerlas juntas. */
+        table {
+          width: 100% !important;
+          break-inside: auto;
+        }
+
+        tr {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        section {
+          break-inside: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <!--aqui empieza el body-->
+  <body class="flex h-screen bg-gray-50 text-gray-800">
+    <!-- aqui empieza la barra lateral este es el toggle -->
+    <div
+      id="overlay"
+      onclick="toggleSidebar()"
+      class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"
+    ></div>
+
+    <!-- aqui empieza la barra lateral -->
+    <aside
+      id="sidebar"
+      class="fixed inset-y-0 left-0 w-72 bg-indigo-900 text-white flex flex-col shadow-xl z-50 transition-transform -translate-x-full lg:translate-x-0 lg:static"
+    >
+      <div
+        class="p-6 border-b border-indigo-800 flex justify-between items-start"
+      >
+        <h1
+          data-i18n="sider_title"
+          class="font-bold text-lg leading-tight uppercase tracking-wider mt-12"
+        >
+          Online: KI-Tools für Ihren Arbeitsalltag
+        </h1>
+        <button
+          onclick="toggleSidebar()"
+          class="lg:hidden text-white text-2xl mt-2"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!--Aquí empiezanel selector de idiomas-->
+      <div class="mt-auto p-4 border-t border-indigo-800">
+        <label
+          for="langSelector"
+          class="block text-[10px] text-indigo-400 uppercase tracking-wider mb-2"
+          >Sprache / Language</label
+        >
+        <select
+          id="langSelector"
+          onchange="changeLanguage(this.value)"
+          class="w-full bg-indigo-900 text-white text-sm rounded-lg border border-indigo-700 focus:ring-indigo-500 focus:border-indigo-500 block p-2.5 cursor-pointer hover:bg-indigo-800 transition"
+        >
+          <option value="de">🇩🇪 Deutsch</option>
+          <!--  <option value="en">🇺🇸 English</option>
+          <option value="es">🇪🇸 Español</option>-->
+        </select>
+      </div>
+
+      <!--Aquí empiezan los botones-->
+      <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+        <button
+          onclick="showSection('anuncio')"
+          data-i18n="nav_welcome"
+          class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-indigo-700"
+        >
+          📢 WILLKOMMEN
+        </button>
+
+        <button
+          onclick="showSection('encuesta')"
+          data-i18n="nav_umfrage"
+          class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-indigo-700"
+        >
+          📊 UMFRAGE
+        </button>
+
+        <div class="mb-4">
+          <button
+            onclick="toggleSubmenu('agenda-menu')"
+            data-i18n="nav_agenda"
+            class="w-full text-left p-3 font-bold text-white bg-indigo-700 hover:bg-indigo-600 rounded-lg transition flex justify-between items-center shadow-inner"
+          >
+            <span>📅 AGENDA</span>
+            <svg
+              id="icon-agenda-menu"
+              class="w-4 h-4 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <div
+            id="agenda-menu"
+            class="submenu space-y-1 pl-2 bg-indigo-900/50 rounded-b-lg"
+          >
+            <button
+              onclick="showSection('sitzung1')"
+              data-i18n="nav_sitzung1"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center mt-1 border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Grundkenntnisse: Grundlagen & Prompting</span>
+              <span
+                class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm"
+                >3 Std.</span
+              >
+            </button>
+            <button
+              onclick="showSection('session2')"
+              data-i18n="nav_session2"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Mittelstufe: Werkzeuge in KI</span>
+              <span
+                class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm"
+                >3 Std.</span
+              >
+            </button>
+            <button
+              onclick="showSection('session3')"
+              data-i18n="nav_session3"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Oberstufe: KI-Agenten </span>
+              <span
+                class="text-[10px] bg-indigo-600 px-2 py-0.5 rounded shadow-sm"
+                >3 Std.</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <button
+            onclick="toggleSubmenu('ressourcen-menu')"
+            data-i18n="nav_resources"
+            class="w-full text-left p-3 font-bold text-white bg-indigo-700 hover:bg-indigo-600 rounded-lg transition flex justify-between items-center shadow-inner"
+          >
+            <span>📚 RESSOURCEN</span>
+            <svg
+              id="icon-ressourcen-menu"
+              class="w-4 h-4 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          <div
+            id="ressourcen-menu"
+            class="submenu space-y-1 pl-2 bg-indigo-900/50 rounded-b-lg"
+          >
+            <button
+              onclick="showSection('ressourcen')"
+              data-i18n="nav_resources_links"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center mt-1 border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Links: KI-Plattformen</span>
+            </button>
+            <button
+              onclick="showSection('kursmaterialien')"
+              data-view="kursmaterialien"
+              data-i18n="nav_resources_materials"
+              class="w-full text-left p-3 text-sm text-white hover:bg-indigo-800 rounded-lg transition flex justify-between items-center border-l-2 border-indigo-500 bg-indigo-800/50"
+            >
+              <span>Kursmaterialien</span>
+            </button>
+          </div>
+        </div>
+
+        <button
+          onclick="showSection('sobre-mi')"
+          data-i18n="nav_about"
+          class="w-full text-left p-3 font-bold text-white hover:bg-indigo-800 rounded-lg transition border border-white/10 flex items-center group bg-indigo-950/40 shadow-sm"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-5 h-5 text-red-500 filter drop-shadow-[0_0_3px_rgba(239,68,68,0.5)]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <span class="tracking-wide uppercase">Über mich</span>
+          </div>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- aqui empiezan los contenidos dentro del frame interno : este framo toene header y main dentro del frame -->
+    <div class="flex-1 flex flex-col h-screen overflow-hidden">
+      <!--este solo se ve en celulares -->
+      <header class="bg-indigo-900 text-white p-4 flex items-center lg:hidden">
+        <button onclick="toggleSidebar()" class="text-2xl mr-4">☰</button>
+        <span class="font-bold">KI-Kurs Dashboard</span>
+      </header>
+
+      <!-- MAIN aqui empiezan los contenidos dentro del frame interno se ve en todos los devices-->
+      <main class="flex-1 overflow-y-auto p-6 md:p-12 bg-white">
+        <!-- objeto willkommen -->
+        <article
+          id="anuncio"
+          class="content-section active max-w-4xl mx-auto px-4 sm:px-0"
+        >
+          <h2
+            data-i18n="nav_welcome"
+            class="text-2xl md:text-3xl font-black mb-10 text-indigo-900 border-b-4 border-indigo-600 pb-2 uppercase tracking-tight"
+          >
+            Willkommen
+          </h2>
+          <div
+            class="bg-blue-50 p-6 md:p-10 rounded-2xl md:rounded-3xl border border-blue-100 shadow-sm"
+          >
+            <p
+              data-i18n="welcome_intro"
+              class="text-xl text-blue-900 font-medium italic mb-4"
+            >
+              Willkommen zum KI-Training für den Arbeitsalltag!
+            </p>
+            <p
+              data-i18n="welcome_description"
+              class="mt-4 text-lg text-blue-800 mb-6"
+            >
+              Bitte nutzen Sie das Menü auf der linken Seite, um die Kursinhalte
+              der einzelnen Sitzungen einzusehen.<br /><br />
+
+              In diesem Kurs lernen Sie die Funktionsweise und die
+              Einsatzmöglichkeiten von KI-Anwendungen im Büroalltag kennen. Sie
+              erfahren, wie Sie passende Tools für Ihre Aufgaben identifizieren,
+              Arbeitsabläufe unterstützen und dabei die notwendigen
+              Datenschutz-Aspekte berücksichtigen.<br /><br />
+              <strong>Hinweis zur Agenda: </strong> Die Kursinhalte werden wie
+              beschrieben behandelt. Bitte beachten Sie jedoch, dass die
+              Reihenfolge oder die zeitliche Gewichtung der Themen im Sinne des
+              Lernerfolgs und aufgrund der dynamischen Entwicklung der KI-Tools
+              leicht angepasst werden können
+            </p>
+
+            <p
+              data-i18n="welcome_disclaimer"
+              class="mt-6 text-lg italic text-blue-800"
+            >
+              Die Entwicklung im Bereich der Künstlichen Intelligenz ist jedoch
+              extrem dynamisch. Was gestern noch als Standard galt, kann heute
+              bereits durch neue Updates oder Tools überholt sein. Ich habe mein
+              Bestes gegeben, um alle Informationen so aktuell und präzise wie
+              möglich zu halten; übernehme jedoch keine Gewähr für die
+              dauerhafte Gültigkeit der gezeigten Funktionen oder
+              Rahmenbedingungen.<br /><br />
+
+              Dieses Material ist das Ergebnis einer Zusammenarbeit zwischen
+              Mensch und KI. KI wurde eingesetzt, um einen professionellen
+              redaktionellen Fluss zu gewährleisten; die Inhalte bleiben jedoch
+              zu 100 % von Menschen geprüft und spiegeln die eigene Recherche,
+              das kritische Denken und das inhaltliche Konzept der Autoren
+              wider.
+            </p>
+          </div>
+        </article>
+
+        <!--objeto Grundkenntnisse-->
+        <article id="sitzung1" class="content-section max-w-4xl mx-auto">
+          <div class="mb-10">
+            <h2
+              data-i18n="sitzung1_title"
+              class="text-3xl font-black text-indigo-950 uppercase tracking-tighter"
+            >
+              Grundkenntnisse: Grundlagen & Prompting
+            </h2>
+
+            <div
+              data-i18n="sitzung1_duration"
+              class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold"
+            ></div>
+
+            <p
+              data-i18n="sitzung1_title_description"
+              class="mt-6 text-lg text-slate-600 italic border-l-4 border-indigo-400 pl-4"
+            >
+              Dieser Abschnitt vermittelt Grundlagen und präsentiert diese
+              praxisnah. Am Ende dieser Sitzung wird der Teilnehmer Konzepte wie
+              Machine Learning, Deep Learning, generative KI, GenBizKI sowie die
+              gängige Terminologie der KI-Welt verstehen. Diese Sitzung ist, wie
+              alle anderen auch, für Personen ohne technisches Vorwissen oder
+              Programmierkenntnisse konzipiert.
+            </p>
+          </div>
+
+          <!--Titulo de Teil 1 o sea Sitzung1/teil 1 -->
+          <div class="space-y-6">
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+              open
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3
+                  data-i18n="sitzung1_teil1_title"
+                  class="text-2xl font-bold text-indigo-900"
+                >
+                  Teil 1: Grundlagen & Terminologie im Kontext.
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <!--aqui empieza el contenido del primer Tema del Teil1 (o sea Sitzung1/Teil1/Thema1)-->
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      1
+                    </div>
+
+                    <div>
+                      <h4
+                        data-i18n="sitzung1_teil1_thema1_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Technologische Entwicklung
+                      </h4>
+
+                      <!-- aqui empieza sitzung1,teil1,thema1, inhalteil1-->
+                      <ul
+                        class="mt-2 space-y-2 text-slate-600 list-disc list-outside ml-5"
+                      >
+                        <li data-i18n="sitzung1_teil1_thema1_inhalteil1">
+                          <strong>Entwicklung:</strong>
+                          Unterscheidung zwischen regelbasierter Software und
+                          generativer KI (GenAI).
+                        </li>
+
+                        <!-- aqui empieza sitzung1,teil1,thema1,inhalteil2-->
+                        <li data-i18n="sitzung1_teil1_thema1_inhalteil2">
+                          <strong>Embeddings & Vektoren:</strong>
+                          Wie die KI Konzepte mathematisch ordnet.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- aqui empieza sitzung1,teil1,thema2-->
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      2
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung1_teil1_thema2_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Modell-Typen
+                      </h4>
+                      <ul
+                        class="mt-2 space-y-2 text-slate-600 list-disc list-outside ml-5"
+                      >
+                        <li data-i18n="sitzung1_teil1_thema2_inhalteil1">
+                          <strong>Large Language Models (LLM):</strong>
+                          Intelligente Textanalyse und kreative Texterstellung
+                        </li>
+
+                        <li data-i18n="sitzung1_teil1_thema2_inhalteil2">
+                          <strong>Large Multimodal Models (LMM):</strong>
+                          Einbeziehung von Bild-, Dokumenten- und Audioformaten.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- aqui empieza sitzung1,teil1,thema3-->
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      3
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung1_teil1_thema3_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        KI-Landschaft im Überblick
+                      </h4>
+
+                      <ul
+                        class="mt-2 space-y-2 text-slate-600 list-disc list-outside ml-5"
+                      >
+                        <li data-i18n="sitzung1_teil1_thema3_inhalteil1">
+                          <strong>Vielfalt der KI:</strong> Überblick über
+                          verschiedene Anbieter und deren Werkzeuge (MistralAI,
+                          OpenAI, Google, Microsoft, Anthropic).
+                        </li>
+
+                        <li data-i18n="sitzung1_teil1_thema3_inhalteil2">
+                          <strong>Anwendungsgebiete:</strong> Von
+                          Textspezialisten (LLM) bis zu Allround-Assistenten im
+                          Alltag.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3
+                  data-i18n="sitzung1_teil2_title"
+                  class="text-2xl font-bold text-indigo-900"
+                >
+                  Teil 2: Steuerung durch Instruktionen – Prompting
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  data-i18n="sitzung1_teil2_title_description"
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  In diesem Modul lernen Sie, wie Sie weg von der klassischen
+                  "Suchmaschinen-Logik" hin zu einer ergebnisorientierten
+                  Instruktion gelangen. Ziel ist es, die KI durch besseres
+                  Prompting als produktiven Assistenten im Arbeitsalltag
+                  einzusetzen.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      4
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung1_teil2_thema1_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Methodik der Instruktion
+                      </h4>
+                      <ul
+                        class="mt-2 space-y-2 text-slate-600 list-disc list-outside ml-5"
+                      >
+                        <li data-i18n="sitzung1_teil2_thema1_inhalteil1">
+                          <strong>Vom Suchen zum Steuern:</strong>
+                          Warum die Qualität der Antwort direkt von der
+                          Spezifikation Ihrer Anweisung abhängt.
+                        </li>
+
+                        <li data-i18n="sitzung1_teil2_thema1_inhalteil2">
+                          <strong>RTCF-Framework:</strong>
+                          Systematischer Aufbau von Prompts durch die Parameter
+                          Rolle, Aufgabe, Kontext und Format.
+                        </li>
+
+                        <li data-i18n="sitzung1_teil2_thema1_inhalteil3">
+                          <strong>Prompting-Techniken:</strong>
+                          Wege zu besseren Ergebnissen – von der Direktanweisung
+                          (Zero-Shot) bis zum Lernen durch Beispiele (Few-Shot).
+                        </li>
+
+                        <li data-i18n="sitzung1_teil2_thema1_inhalteil4">
+                          <strong>Steuerung der Ausgabe:</strong> Gezielte
+                          Beeinflussung von Tonalität, Zielgruppe und
+                          Detailtiefe durch explizite Vorgaben.
+                        </li>
+
+                        <li data-i18n="sitzung1_teil2_thema1_inhalteil5">
+                          <strong>Halluzinationen & Faktencheck:</strong> Die
+                          Modelle lügen ab und zu. Halluzinationen verstehen und
+                          Informationen kritisch hinterfragen.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- aqui empieza sitzung1,teil3-->
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3
+                  data-i18n="sitzung1_teil3_title"
+                  class="text-2xl font-bold text-indigo-900"
+                >
+                  Teil 3: Anwendungsszenarien & Transfer
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  data-i18n="sitzung1_teil3_title_description"
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  In diesem Modul setzen wir das Gelernte in die Praxis um. Wir
+                  entwickeln konkrete Lösungen für Alltag und Beruf und
+                  erstellen Ihre persönliche Werkzeugkiste für effizientes
+                  Prompting. Anwendung der gelernten Methoden auf praxisnahe
+                  Szenarien: Vom strukturierten Alltag bis zur effizienten
+                  Büroorganisation.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      5
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung1_teil3_thema1_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Deep Dive: Transformation & Struktur
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li data-i18n="sitzung1_teil3_thema1_inhalteil1">
+                          • <strong>Vom Chaos zur Ordnung:</strong>
+                          Anwendung des RTCF-Frameworks auf Praxis-Szenarien wie
+                          Reiseplanung, Mahnwesen und Protokollführung
+                        </li>
+                        <li data-i18n="sitzung1_teil3_thema1_inhalteil2">
+                          • <strong>Stil-Adaption:</strong>
+                          Komplexe Inhalte zielgruppengerecht umformulieren –
+                          von technischem Fachjargon zu wertschätzender
+                          Kommunikation.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      6
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung1_teil3_thema2_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Die persönliche Prompt-Bibliothek
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li data-i18n="sitzung1_teil3_thema2_inhalteil1">
+                          • <strong>Standardisierung:</strong> Erstellung eines
+                          "Master-Prompts" für wiederkehrende Aufgaben wie
+                          E-Mails oder Brainstorming.
+                        </li>
+                        <li data-i18n="sitzung1_teil3_thema2_inhalteil2">
+                          • <strong>Organisation:</strong>
+                          Tipps zur Speicherung und zum Schnellzugriff auf Ihre
+                          besten Prompts im Alltag.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      7
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung1_teil3_thema3_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Abschluss & Goldene Regeln
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li data-i18n="sitzung1_teil3_thema3_inhalteil1">
+                          • <strong>Checkliste:</strong> Zusammenfassung der
+                          wichtigsten Leitplanken für den täglichen Einsatz.
+                        </li>
+
+                        <li data-i18n="sitzung1_teil3_thema3_inhalteil2">
+                          • <strong>Transfer:</strong>
+
+                          Verteilung des Cheat-Sheets und praktische Tipps, wie
+                          Sie die KI ab morgen in Ihren eigenen Arbeitsalltag
+                          integrieren.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- objeto Mittelstufe-->
+        <article id="session2" class="content-section max-w-4xl mx-auto">
+          <div class="mb-10">
+            <h2
+              data-i18n="sitzung2_title"
+              class="text-3xl font-black text-indigo-950 uppercase tracking-tighter"
+            >
+              Mittelstufe: Werkzeuge in KI
+            </h2>
+            <div
+              data-i18n="sitzung2_duration"
+              class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold"
+            >
+              Dauer: 3 Stunden
+            </div>
+
+            <p
+              data-i18n="sitzung2_title_description"
+              class="mt-6 text-lg text-slate-600 italic border-l-4 border-indigo-400 pl-4"
+            >
+              Am Ende dieser Sitzung werden die Teilnehmer in der Lage sein,
+              KI-Arbeitsumgebungen für die strukturierte Textbearbeitung zu
+              nutzen und komplexe Dokumente sowie unternehmenseigene Daten
+              mittels RAG-Technologie (wie Gemini Notebook) sicher zu
+              analysieren, zusammenzufassen und korrekt zu zitieren.
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+              open
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3
+                  data-i18n="sitzung2_teil1_title"
+                  class="text-2xl font-bold text-indigo-900"
+                >
+                  Teil 1: Strukturierte Dokumentenarbeit
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  data-i18n="sitzung2_teil1_description"
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  In diesem Abschnitt wird die Nutzung interaktiver
+                  Arbeitsumgebungen zur effizienten Erstellung und Überarbeitung
+                  komplexer Texte behandelt.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      1
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung2_teil1_thema1_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Side-by-Side Editing
+                      </h4>
+                      <ul
+                        class="mt-2 space-y-2 text-slate-600 list-disc list-outside ml-5"
+                      >
+                        <li data-i18n="sitzung2_teil1_thema1_inhalteil1">
+                          <strong>Funktionsweise:</strong> Parallele Bearbeitung
+                          von Entwürfen in verschiedenen KI-Interfaces (z. B.
+                          Gemini, Copilot und ChatGPT).
+                        </li>
+                        <li data-i18n="sitzung2_teil1_thema1_inhalteil2">
+                          <strong>Gezielte Modifikation:</strong> Überarbeitung
+                          spezifischer Textpassagen, ohne das gesamte Dokument
+                          neu generieren zu müssen.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      2
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung2_teil1_thema2_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Formatierung & Struktur
+                      </h4>
+                      <ul
+                        class="mt-2 space-y-2 text-slate-600 list-disc list-outside ml-5"
+                      >
+                        <li data-i18n="sitzung2_teil1_title2_theme1">
+                          <strong>Strukturierung:</strong> Automatische
+                          Erstellung von Gliederungen, Tabellen und Code-Blöcken
+                          in der Arbeitsumgebung.
+                        </li>
+                        <li data-i18n="sitzung2_teil1_title2_theme2">
+                          <strong>Versionskontrolle:</strong> Verfolgung von
+                          Änderungen innerhalb des interaktiven Editors.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3
+                  data-i18n="sitzung2_teil2_title"
+                  class="text-2xl font-bold text-indigo-900"
+                >
+                  Teil 2: Analyse eigener Dokumente & Daten
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <p
+                  data-i18n="sitzung2_teil2_description"
+                  class="text-lg text-slate-600 mb-8 italic border-l-4 border-indigo-400 pl-4"
+                >
+                  Fokus auf die Arbeit mit Retrieval-Augmented Generation (RAG)
+                  zur sicheren Auswertung unternehmenseigener Informationen.
+                </p>
+
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      3
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung2_teil2_thema3_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Gemini Notebook & Dokumentenfokus
+                      </h4>
+                      <ul
+                        class="mt-2 space-y-2 text-slate-600 list-disc list-outside ml-5"
+                      >
+                        <li data-i18n="sitzung2_teil2_title3_theme1">
+                          <strong>Informationsintegration:</strong> Hochladen
+                          und Verknüpfen von PDF-Dokumenten, Notizen und
+                          Quellen.
+                        </li>
+                        <li data-i18n="sitzung2_teil2_title3_theme2">
+                          <strong>Evidenzbasierte Antworten:</strong>
+                          Generierung von Inhalten ausschließlich auf Basis der
+                          hochgeladenen Primärquellen.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      4
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung2_teil2_thema4_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Extraktion & Synthese
+                      </h4>
+                      <ul
+                        class="mt-2 space-y-2 text-slate-600 list-disc list-outside ml-5"
+                      >
+                        <li data-i18n="sitzung2_teil2_title4_theme1">
+                          <strong>Wissenssynthese:</strong> Erstellung von
+                          Briefing-Docs, FAQ-Listen und Zusammenfassungen aus
+                          mehreren Quellen.
+                        </li>
+                        <li data-i18n="sitzung2_teil2_title4_theme2">
+                          <strong>Zitierweise:</strong> Überprüfung der
+                          KI-Aussagen durch direkte Verweise im Quelldokument.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- objeto Oberstufe-->
+        <article id="session3" class="content-section max-w-4xl mx-auto">
+          <div class="mb-10">
+            <h2
+              data-i18n="sitzung3_title"
+              class="text-3xl font-black text-indigo-950 uppercase tracking-tighter"
+            >
+              Oberstufe: KI-Agenten
+            </h2>
+            <div
+              data-i18n="sitzung3_duration"
+              class="mt-2 inline-block bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full font-bold"
+            >
+              Dauer: 3 Stunden
+            </div>
+            <p
+              data-i18n="sitzung3_title_description"
+              class="mt-6 text-lg text-slate-600 italic border-l-4 border-indigo-400 pl-4"
+            >
+              Am Ende dieses Moduls werden die Teilnehmer in der Lage sein,
+              eigene KI-Agenten zu konfigurieren, die komplexe Denkprozesse
+              selbstständig nach einer festen Business-Logik abarbeiten."
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+              open
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3
+                  data-i18n="sitzung3_teil1_title"
+                  class="text-2xl font-bold text-indigo-900"
+                >
+                  Teil 1: KI-Agenten erstellen
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      1
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung3_p1_name"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Vom Chat zum Prozess-Automaten
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li data-i18n="sitzung3_teil1_thema1_inhalteil1">
+                          <strong>Dauerhafte Anweisungen:</strong> Wie man einem
+                          Agenten (z. B. Gems, GPTs) beibringt, eine feste Rolle
+                          dauerhaft einzunehmen und Aufgaben in logischen
+                          Teilabschnitten autonom abzuarbeiten.
+                        </li>
+
+                        <li data-i18n="sitzung3_teil1_thema1_inhalteil2">
+                          <strong>Schritt-für-Schritt-Logik:</strong>
+                          Den Agenten so einstellen, dass er Aufgaben
+                          eigenständig abarbeitet.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      2
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung3_teil1_thema2_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Praxis: Der Spezial-Agent
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li data-i18n="sitzung3_teil1_thema2_inhalteil1">
+                          <strong>Wissensbasis:</strong> Dem Agenten eigene
+                          Dokumente bereitstellen, um Antworten auf Basis Ihres
+                          Fachwissens zu generieren.
+                        </li>
+
+                        <li data-i18n="sitzung3_teil1_thema2_inhalteil2">
+                          <strong>Strukturierte Output-Steuerung:</strong>
+                          Ergebnisse direkt in fertigen Business-Formaten (z. B.
+                          Entscheidungsvorlagen) ausgeben.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details
+              class="group bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer list-none bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                <h3
+                  data-i18n="sitzung3_teil2_title"
+                  class="text-2xl font-bold text-indigo-900"
+                >
+                  Teil 2: Komplexe Aufgaben lösen & Sicher arbeiten
+                </h3>
+                <span
+                  class="transition-transform duration-300 group-open:rotate-180"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    class="text-indigo-900"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+
+              <div class="p-8 pt-4">
+                <div class="grid gap-8">
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      3
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung3_teil2_thema1_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Planung & Problemlösung mit KI
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li data-i18n="sitzung3_teil2_thema1_inhalteil1">
+                          <strong>Prompt-Chaining & Logik:</strong>
+                          Komplexe Aufgaben in eine logische Kette von Schritten
+                          zerlegen für methodisches Denken.
+                        </li>
+
+                        <li data-i18n="sitzung3_teil2_thema1_inhalteil2">
+                          <strong>Strategie-Hilfe:</strong>
+                          Partner für Roadmaps, SWOT-Analysen und
+                          Entscheidungsvorlagen.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold shadow-md"
+                    >
+                      4
+                    </div>
+                    <div>
+                      <h4
+                        data-i18n="sitzung3_teil2_thema2_title"
+                        class="font-black text-slate-800 text-lg uppercase tracking-wide"
+                      >
+                        Sicherheit & Der Weg nach vorn
+                      </h4>
+                      <ul class="mt-2 space-y-2 text-slate-600">
+                        <li data-i18n="sitzung3_teil2_thema2_inhalteil1">
+                          <strong>Datenschutz im Alltag:</strong> Umgang mit
+                          sensiblen Daten und KI-Fehler erkennen.
+                        </li>
+                        <li data-i18n="sitzung3_teil2_thema2_inhalteil2">
+                          <strong>Mein 30-Tage-Plan:</strong> Persönlicher Plan
+                          für den Transfer in den Arbeitsalltag.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- objeto encuesta (Cuestionario diagnóstico completo integrado) -->
+        <article id="encuesta" class="content-section">
+          <div
+            id="survey-app"
+            class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-6 sm:p-10 survey-container border border-gray-100"
+          >
+            <header class="mb-8 border-b border-indigo-100 pb-6">
+              <div
+                class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+              >
+                <h1
+                  class="text-3xl font-extrabold text-indigo-800"
+                  data-i18n="title"
+                >
+                  Generative AI Applications Survey & Diagnostic
+                </h1>
+                <select
+                  id="surveyLangSelect"
+                  class="p-2 border border-indigo-200 rounded-lg text-sm bg-white outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <!--  <option value="es">Español</option>-->
+                  <option value="de">Deutsch</option>
+                  <!-- <option value="en" selected>English</option>
+                  <option value="fr">Français</option>-->
+                </select>
+              </div>
+              <div
+                class="mt-4 p-4 bg-indigo-50 rounded-lg text-sm text-indigo-900 leading-relaxed space-y-2"
+              >
+                <p data-i18n="disclaimer">
+                  Participation in this survey is strictly voluntary and
+                  anonymous. Data is collected for academic purposes only.
+                </p>
+                <p class="font-medium" data-i18n="diag_instructions">
+                  Diagnostic Instructions: Respond without consulting materials
+                  or AI assistants. Choose the option that best reflects your
+                  knowledge. Estimated time: 10-15 minutes.
+                </p>
+              </div>
+            </header>
+
+            <form id="surveyForm" class="space-y-12">
+              <!-- SECCIÓN 1: USO Y PERCEPCIÓN PREVIA -->
+              <div class="space-y-8 border-b border-gray-200 pb-8">
+                <h2
+                  class="text-2xl font-bold text-indigo-900"
+                  data-i18n="part1_title"
+                >
+                  Part 1: AI Usage & Profile
+                </h2>
+
+                <section>
+                  <label
+                    class="block text-lg font-bold text-gray-800 mb-4"
+                    data-i18n="q1"
+                    >1. Which of the following Generative AI Applications do you
+                    use? (Select one or more)</label
+                  >
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="services"
+                        value="Mistral"
+                        class="w-5 h-5 text-indigo-600"
+                      /><span>Mistral</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="services"
+                        value="Copilot"
+                        class="w-5 h-5 text-indigo-600"
+                      /><span>Copilot</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="services"
+                        value="ChatGPT"
+                        class="w-5 h-5 text-indigo-600"
+                      /><span>ChatGPT</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="services"
+                        value="Gemini"
+                        class="w-5 h-5 text-indigo-600"
+                      /><span>Gemini</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="services"
+                        value="Grok"
+                        class="w-5 h-5 text-indigo-600"
+                      /><span>Grok</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="services"
+                        value="Claude"
+                        class="w-5 h-5 text-indigo-600"
+                      /><span>Claude</span></label
+                    >
+                  </div>
+                  <div class="mt-4 space-y-3">
+                    <div class="flex items-center space-x-3">
+                      <input
+                        type="checkbox"
+                        name="services"
+                        value="Other"
+                        class="w-5 h-5"
+                      />
+                      <span data-i18n="other">Other(s):</span>
+                      <input
+                        type="text"
+                        name="other_service_details"
+                        class="border-b border-gray-300 outline-none flex-1 px-2"
+                      />
+                    </div>
+                    <label
+                      class="flex items-center space-x-3 text-gray-500 italic"
+                    >
+                      <input
+                        type="checkbox"
+                        name="services"
+                        value="N/A"
+                        class="w-5 h-5"
+                      />
+                      <span data-i18n="prefer_not"
+                        >Prefer not to say / Don't know</span
+                      >
+                    </label>
+                  </div>
+                </section>
+
+                <section>
+                  <label
+                    class="block text-lg font-bold text-gray-800 mb-4"
+                    data-i18n="q2"
+                    >2. On which type of device do you use these services most
+                    frequently? (Select one)</label
+                  >
+                  <div class="space-y-3">
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="radio"
+                        name="device"
+                        value="Desktop"
+                        class="w-5 h-5"
+                      /><span data-i18n="q2_o1"
+                        >Desktop/Laptop computers</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="radio"
+                        name="device"
+                        value="Mobile Phone"
+                        class="w-5 h-5"
+                      /><span data-i18n="q2_o2"
+                        >Mobile devices (Smartphones)</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="radio"
+                        name="device"
+                        value="Tablet"
+                        class="w-5 h-5"
+                      /><span data-i18n="q2_o3"
+                        >Mobile devices (Tablets/iPads)</span
+                      ></label
+                    >
+                    <label
+                      class="flex items-center space-x-3 text-gray-500 italic"
+                      ><input
+                        type="radio"
+                        name="device"
+                        value="N/A"
+                        class="w-5 h-5"
+                      /><span data-i18n="prefer_not"
+                        >Prefer not to say / Don't know</span
+                      ></label
+                    >
+                  </div>
+                </section>
+
+                <section>
+                  <label
+                    class="block text-lg font-bold text-gray-800 mb-4"
+                    data-i18n="q3"
+                    >3. What for do you use any of these services? (Select one
+                    or more)</label
+                  >
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="usage"
+                        value="Search"
+                        class="w-4 h-4"
+                      /><span data-i18n="search"
+                        >Search for information</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="usage"
+                        value="Review"
+                        class="w-4 h-4"
+                      /><span data-i18n="review"
+                        >Review text written by you</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="usage"
+                        value="Generate Text"
+                        class="w-4 h-4"
+                      /><span data-i18n="generate_text"
+                        >Generate text</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="usage"
+                        value="Summarize"
+                        class="w-4 h-4"
+                      /><span data-i18n="summarize"
+                        >Summarize documents</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="usage"
+                        value="Protocol"
+                        class="w-4 h-4"
+                      /><span data-i18n="protocolize"
+                        >Protocolize meetings</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="usage"
+                        value="Coding"
+                        class="w-4 h-4"
+                      /><span data-i18n="coding"
+                        >Help with coding / debugging</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="usage"
+                        value="Images"
+                        class="w-4 h-4"
+                      /><span data-i18n="generate_images"
+                        >Generate images</span
+                      ></label
+                    >
+                    <div class="flex items-center space-x-3">
+                      <input
+                        type="checkbox"
+                        name="usage"
+                        value="Other"
+                        class="w-4 h-4"
+                      />
+                      <span data-i18n="other">Other(s):</span>
+                      <input
+                        type="text"
+                        name="other_usage_details"
+                        class="border-b border-gray-300 w-24 outline-none px-1"
+                      />
+                    </div>
+                    <label
+                      class="flex items-center space-x-3 text-gray-500 italic"
+                      ><input
+                        type="checkbox"
+                        name="usage"
+                        value="N/A"
+                        class="w-4 h-4"
+                      /><span data-i18n="prefer_not"
+                        >Prefer not to say / Don't know</span
+                      ></label
+                    >
+                  </div>
+                </section>
+
+                <section>
+                  <label
+                    class="block text-lg font-bold text-gray-800 mb-4"
+                    data-i18n="q4"
+                    >4. Are you interested in knowing more about any of these
+                    services? (Select one or more)</label
+                  >
+                  <div
+                    id="q4_options"
+                    class="grid grid-cols-1 md:grid-cols-2 gap-3"
+                  ></div>
+                </section>
+
+                <section>
+                  <label
+                    class="block text-lg font-bold text-gray-800 mb-4"
+                    data-i18n="q5"
+                    >5. Are you interested in knowing more about any of these
+                    Generative AI Applications?</label
+                  >
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="interest_apps"
+                        value="Mistral"
+                        class="w-4 h-4"
+                      /><span>Mistral</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="interest_apps"
+                        value="Copilot"
+                        class="w-4 h-4"
+                      /><span>Copilot</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="interest_apps"
+                        value="ChatGPT"
+                        class="w-4 h-4"
+                      /><span>ChatGPT</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="interest_apps"
+                        value="Gemini"
+                        class="w-4 h-4"
+                      /><span>Gemini</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="interest_apps"
+                        value="Grok"
+                        class="w-4 h-4"
+                      /><span>Grok</span></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="checkbox"
+                        name="interest_apps"
+                        value="Claude"
+                        class="w-4 h-4"
+                      /><span>Claude</span></label
+                    >
+                  </div>
+                  <label
+                    class="flex items-center space-x-3 mt-3 text-gray-500 italic"
+                    ><input
+                      type="checkbox"
+                      name="interest_apps"
+                      value="N/A"
+                      class="w-4 h-4"
+                    /><span data-i18n="prefer_not"
+                      >Prefer not to say / Don't know</span
+                    ></label
+                  >
+                </section>
+
+                <section>
+                  <label
+                    class="block text-lg font-bold text-gray-800 mb-4"
+                    data-i18n="q6"
+                    >6. For what purpose do you use them most frequently?
+                    (Select one)</label
+                  >
+                  <div class="space-y-3">
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="radio"
+                        name="intent"
+                        value="Work"
+                        class="w-5 h-5"
+                      /><span data-i18n="q6_o1"
+                        >Work / Professional</span
+                      ></label
+                    >
+                    <label class="flex items-center space-x-3"
+                      ><input
+                        type="radio"
+                        name="intent"
+                        value="Personal"
+                        class="w-5 h-5"
+                      /><span data-i18n="q6_o2">Personal life</span></label
+                    >
+                    <label
+                      class="flex items-center space-x-3 text-gray-500 italic"
+                      ><input
+                        type="radio"
+                        name="intent"
+                        value="N/A"
+                        class="w-5 h-5"
+                      /><span data-i18n="prefer_not"
+                        >Prefer not to say / Don't know</span
+                      ></label
+                    >
+                  </div>
+                </section>
+              </div>
+
+              <!-- SECCIÓN 2: CUESTIONARIO DIAGNÓSTICO DE IA -->
+              <div class="space-y-10">
+                <div>
+                  <h2
+                    class="text-2xl font-bold text-indigo-900"
+                    data-i18n="diag_title"
+                  >
+                    Part 2: AI Diagnostic Questionnaire
+                  </h2>
+                  <p
+                    class="text-sm text-gray-600 mt-1"
+                    data-i18n="diag_subtitle"
+                  >
+                    Rate your level of agreement with the following statements.
+                  </p>
+                </div>
+
+                <!-- SECCIÓN A -->
+                <section class="space-y-4">
+                  <h3
+                    class="text-lg font-bold text-indigo-800 border-b border-indigo-100 pb-2"
+                    data-i18n="sec_a_title"
+                  >
+                    A. Basic AI Terminology
+                  </h3>
+                  <div class="overflow-x-auto">
+                    <table
+                      class="w-full text-sm text-left text-gray-700 border-collapse"
+                    >
+                      <thead>
+                        <tr
+                          class="bg-indigo-50/50 text-xs uppercase text-indigo-900 border-b border-indigo-100"
+                        >
+                          <th
+                            class="p-3 font-semibold min-w-[250px]"
+                            data-i18n="th_statement"
+                          >
+                            Statement
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_1">
+                            Strongly Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_2">
+                            Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_3">
+                            Neutral / Unsure
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_4">
+                            Agree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_5">
+                            Strongly Agree
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="divide-y divide-gray-100"
+                        id="likert_sec_a"
+                      ></tbody>
+                    </table>
+                  </div>
+                </section>
+
+                <!-- SECCIÓN B -->
+                <section class="space-y-4">
+                  <h3
+                    class="text-lg font-bold text-indigo-800 border-b border-indigo-100 pb-2"
+                    data-i18n="sec_b_title"
+                  >
+                    B. LLM, LMM, SLM and Industry Perspective
+                  </h3>
+                  <div class="overflow-x-auto">
+                    <table
+                      class="w-full text-sm text-left text-gray-700 border-collapse"
+                    >
+                      <thead>
+                        <tr
+                          class="bg-indigo-50/50 text-xs uppercase text-indigo-900 border-b border-indigo-100"
+                        >
+                          <th
+                            class="p-3 font-semibold min-w-[250px]"
+                            data-i18n="th_statement"
+                          >
+                            Statement
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_1">
+                            Strongly Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_2">
+                            Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_3">
+                            Neutral / Unsure
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_4">
+                            Agree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_5">
+                            Strongly Agree
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="divide-y divide-gray-100"
+                        id="likert_sec_b"
+                      ></tbody>
+                    </table>
+                  </div>
+                </section>
+
+                <!-- SECCIÓN C -->
+                <section class="space-y-4">
+                  <h3
+                    class="text-lg font-bold text-indigo-800 border-b border-indigo-100 pb-2"
+                    data-i18n="sec_c_title"
+                  >
+                    C. Prompting Techniques
+                  </h3>
+                  <div class="overflow-x-auto">
+                    <table
+                      class="w-full text-sm text-left text-gray-700 border-collapse"
+                    >
+                      <thead>
+                        <tr
+                          class="bg-indigo-50/50 text-xs uppercase text-indigo-900 border-b border-indigo-100"
+                        >
+                          <th
+                            class="p-3 font-semibold min-w-[250px]"
+                            data-i18n="th_statement"
+                          >
+                            Statement
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_1">
+                            Strongly Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_2">
+                            Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_3">
+                            Neutral / Unsure
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_4">
+                            Agree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_5">
+                            Strongly Agree
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="divide-y divide-gray-100"
+                        id="likert_sec_c"
+                      ></tbody>
+                    </table>
+                  </div>
+                </section>
+
+                <!-- SECCIÓN D -->
+                <section class="space-y-4">
+                  <h3
+                    class="text-lg font-bold text-indigo-800 border-b border-indigo-100 pb-2"
+                    data-i18n="sec_d_title"
+                  >
+                    D. Hallucinations
+                  </h3>
+                  <div class="overflow-x-auto">
+                    <table
+                      class="w-full text-sm text-left text-gray-700 border-collapse"
+                    >
+                      <thead>
+                        <tr
+                          class="bg-indigo-50/50 text-xs uppercase text-indigo-900 border-b border-indigo-100"
+                        >
+                          <th
+                            class="p-3 font-semibold min-w-[250px]"
+                            data-i18n="th_statement"
+                          >
+                            Statement
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_1">
+                            Strongly Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_2">
+                            Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_3">
+                            Neutral / Unsure
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_4">
+                            Agree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_5">
+                            Strongly Agree
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="divide-y divide-gray-100"
+                        id="likert_sec_d"
+                      ></tbody>
+                    </table>
+                  </div>
+                </section>
+
+                <!-- SECCIÓN E -->
+                <section class="space-y-4">
+                  <h3
+                    class="text-lg font-bold text-indigo-800 border-b border-indigo-100 pb-2"
+                    data-i18n="sec_e_title"
+                  >
+                    E. Self-Assessment (Non-scoring)
+                  </h3>
+                  <div class="overflow-x-auto">
+                    <table
+                      class="w-full text-sm text-left text-gray-700 border-collapse"
+                    >
+                      <thead>
+                        <tr
+                          class="bg-indigo-50/50 text-xs uppercase text-indigo-900 border-b border-indigo-100"
+                        >
+                          <th
+                            class="p-3 font-semibold min-w-[250px]"
+                            data-i18n="th_statement"
+                          >
+                            Statement
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_1">
+                            Strongly Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_2">
+                            Disagree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_3">
+                            Neutral / Unsure
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_4">
+                            Agree
+                          </th>
+                          <th class="p-2 text-center" data-i18n="likert_5">
+                            Strongly Agree
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="divide-y divide-gray-100"
+                        id="likert_sec_e"
+                      ></tbody>
+                    </table>
+                  </div>
+                </section>
+
+                <section>
+                  <label
+                    class="block text-lg font-bold text-gray-800 mb-4"
+                    data-i18n="q8"
+                    >7. Additional comments (Optional)</label
+                  >
+                  <textarea
+                    name="comments"
+                    rows="3"
+                    class="w-full p-4 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500"
+                  ></textarea>
+                </section>
+              </div>
+
+              <div class="flex gap-4 pt-8 no-print border-t border-gray-200">
+                <button
+                  type="reset"
+                  class="flex-1 bg-gray-100 text-gray-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-200"
+                  data-i18n="btn_clear"
+                >
+                  Clear Form
+                </button>
+                <button
+                  type="button"
+                  id="openModalBtn"
+                  class="flex-1 bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700"
+                  data-i18n="btn_submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </article>
+
+        <!-- MODAL CONFIRMACIÓN -->
+        <div
+          id="confirmModal"
+          class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50"
+        >
+          <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl">
+            <div id="modalConfirmState">
+              <h3
+                class="text-xl font-bold text-gray-900 mb-4 text-center"
+                data-i18n="m1_t"
+              >
+                Anonymous Submission
+              </h3>
+              <div
+                id="diagnosticResult"
+                class="hidden mb-6 rounded-2xl bg-indigo-50 border border-indigo-100 p-5 text-center"
+              >
+                <p
+                  class="text-sm font-bold text-indigo-700 mb-2"
+                  data-i18n="result_title"
+                >
+                  Diagnostic Result
+                </p>
+                <p
+                  id="diagnosticLevel"
+                  class="text-2xl font-extrabold text-gray-900 mb-1"
+                ></p>
+                <p id="diagnosticScore" class="text-sm text-gray-600"></p>
+                <p id="diagnosticPercentage" class="text-sm text-gray-600"></p>
+              </div>
+              <p
+                class="text-sm text-gray-600 mb-6 leading-relaxed"
+                data-i18n="m1_c"
+              >
+                This information is sent to an anonymous repository where it is
+                collected along with other surveys. No personal data or
+                identification is saved.
+              </p>
+              <div class="flex gap-3">
+                <button
+                  id="closeModalBtn"
+                  class="flex-1 py-3 bg-gray-100 text-gray-600 rounded-xl font-bold"
+                  data-i18n="btn_cancel"
+                >
+                  Cancel
+                </button>
+                <button
+                  id="confirmSendBtn"
+                  class="flex-1 py-3 bg-indigo-600 text-white rounded-xl font-bold"
+                  data-i18n="btn_send"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+            <div id="modalSuccessState" class="hidden text-center">
+              <div class="mb-4 text-green-500 text-6xl">✓</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="m2_t">
+                Survey sent correctly!
+              </h3>
+              <p class="text-gray-600 mb-6 text-sm" data-i18n="m2_c">
+                Before you go, would you like to print or save a PDF copy of
+                your answers?
+              </p>
+              <div class="flex flex-col gap-3">
+                <button
+                  onclick="
+                    window.print();
+                    setTimeout(() => {
+                      location.reload();
+                    }, 500);
+                  "
+                  class="w-full py-3 bg-slate-800 text-white rounded-xl font-bold"
+                  data-i18n="btn_pdf"
+                >
+                  Yes, Print / Save PDF
+                </button>
+                <button
+                  onclick="location.reload()"
+                  class="w-full py-3 bg-gray-100 text-gray-600 rounded-xl font-bold"
+                  data-i18n="btn_close"
+                >
+                  No, just Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          const surveyTranslations = {
+            es: {
+              title: "Encuesta y Cuestionario Diagnóstico de IA Generativa",
+              disclaimer:
+                "Anuncio: La participación en esta encuesta es estrictamente voluntaria y anónima. Los datos se recopilan únicamente con fines académicos.",
+              diag_instructions:
+                "Instrucciones del diagnóstico: Responda sin consultar material o asistentes de IA. Seleccione la opción que mejor refleje su conocimiento. Tiempo estimado: 10-15 minutos.",
+              part1_title: "Parte 1: Uso y Perfil de IA",
+              q1: "1. ¿Cuáles de las siguientes Aplicaciones de IA Generativa utiliza? (Seleccione una o más)",
+              q2: "2. ¿En qué tipo de dispositivo utiliza estos servicios con más frecuencia? (Seleccione uno)",
+              q2_o1: "Ordenadores de sobremesa/portátiles",
+              q2_o2: "Dispositivos móviles (Smartphones)",
+              q2_o3: "Dispositivos móviles (Tablets/iPads)",
+              q3: "3. ¿Para qué utiliza alguno de estos servicios? (Seleccione uno o más)",
+              search: "Buscar información",
+              review: "Revisar texto escrito por usted",
+              generate_text: "Generar texto",
+              summarize: "Resumir documentos",
+              protocolize: "Protocolizar reuniones",
+              coding: "Ayuda con programación / depuración",
+              generate_images: "Generar imágenes",
+              q4: "4. ¿Le interesa conocer más sobre alguno de estos servicios? (Seleccione uno o más)",
+              q5: "5. ¿Le interesa conocer más sobre alguna de estas Aplicaciones de IA Generativa?",
+              q6: "6. ¿Con qué propósito los utiliza con más frecuencia? (Seleccione uno)",
+              q6_o1: "Trabajo / Profesional",
+              q6_o2: "Vida personal",
+              q8: "7. Comentarios adicionales (Opcional)",
+              other: "Otro(s):",
+              prefer_not: "Prefiero no decir / No lo sé",
+              diag_title: "Parte 2: Cuestionario Diagnóstico de IA",
+              diag_subtitle:
+                "Evalúe su Nivel de acuerdo con las siguientes afirmaciones.",
+              sec_a_title: "A. Terminología básica de IA",
+              sec_b_title: "B. LLM, LMM, SLM y perspectiva en mi industria",
+              sec_c_title: "C. Técnicas de prompt",
+              sec_d_title: "D. Alucinaciones",
+              sec_e_title: "E. Autoevaluación (No puntúa)",
+              th_statement: "Afirmación",
+              likert_1: "Desconozco el tema",
+              likert_2: "He oído hablar de ello",
+              likert_3: "Entiendo el concepto general",
+              likert_4: "Comprendo sus detalles y uso",
+              likert_5: "Lo domino con claridad",
+              btn_clear: "Borrar Formulario",
+              btn_submit: "Enviar",
+              sending: "Enviando...",
+              btn_cancel: "Cancelar",
+              btn_send: "Enviar",
+              btn_pdf: "Sí, Imprimir / Guardar PDF",
+              btn_close: "No, solo Cerrar",
+              result_title: "Resultado del diagnóstico",
+              m1_t: "Envío Anónimo",
+              m1_c: "Esta información se envía a un repositorio anónimo. No se guarda ningún dato personal.",
+              m2_t: "¡Encuesta enviada correctamente!",
+              m2_c: "¿Le gustaría imprimir o guardar una copia en PDF de sus respuestas?",
+              diag_questions: {
+                a: [
+                  "Puedo definir qué es la inteligencia artificial con mis propias palabras.",
+                  "Diferencio entre IA basada en reglas e IA que aprende de datos.",
+                  "Entiendo la diferencia entre machine learning y deep learning.",
+                  "Puedo explicar qué es la IA generativa y dar un ejemplo concreto.",
+                ],
+                b: [
+                  "Sé qué es un LLM (Large Language Model) y para qué sirve.",
+                  "Entiendo la diferencia entre LLM y LMM (multimodal).",
+                  "Conozco qué es un SLM y en qué contexto sería preferible a un LLM.",
+                  "Puedo mencionar al menos una aplicación de LLMs en el ámbito de mi industria.",
+                  "Puedo mencionar algunas limitaciones de los LLMs en contextos concretos.",
+                ],
+                c: [
+                  "Sé qué es un prompt y cómo influye en la respuesta de un modelo.",
+                  "Conozco al menos una técnica de prompt engineering (ej. few-shot, role prompting).",
+                  "Puedo estructurar un prompt efectivo para obtener una respuesta útil de un LLM.",
+                ],
+                d: [
+                  "Entiendo por qué las alucinaciones son un riesgo en mi industria.",
+                  "Entiendo algunas técnicas para disminuir las alucinaciones.",
+                ],
+                e: [
+                  "Uso herramientas de IA generativa (ChatGPT, Gemini, Copilot...)",
+                  "Uso herramientas de IA generativa para el trabajo.",
+                  "Me considero de Nivel básico.",
+                  "Me considero de Nivel intermedio.",
+                  "Me considero de Nivel avanzado.",
+                ],
+              },
+            },
+            en: {
+              title: "Generative AI Survey & Diagnostic Questionnaire",
+              disclaimer:
+                "Announcement: Participation in this survey is strictly voluntary and anonymous. Data is collected for academic purposes only.",
+              diag_instructions:
+                "Diagnostic Instructions: Respond without consulting materials or AI assistants. Choose the option that best reflects your knowledge. Estimated time: 10-15 minutes.",
+              part1_title: "Part 1: AI Usage & Profile",
+              q1: "1. Which of the following Generative AI Applications do you use? (Select one or more)",
+              q2: "2. On which type of device do you use these services most frequently? (Select one)",
+              q2_o1: "Desktop/Laptop computers",
+              q2_o2: "Mobile devices (Smartphones)",
+              q2_o3: "Mobile devices (Tablets/iPads)",
+              q3: "3. What for do you use any of these services? (Select one or more)",
+              search: "Search for information",
+              review: "Review text written by you",
+              generate_text: "Generate text",
+              summarize: "Summarize documents",
+              protocolize: "Protocolize meetings",
+              coding: "Help with coding / debugging",
+              generate_images: "Generate images",
+              q4: "4. Are you interested in knowing more about any of these services? (Select one or more)",
+              q5: "5. Are you interested in knowing more about any of these Generative AI Applications?",
+              q6: "6. For what purpose do you use them most frequently? (Select one)",
+              q6_o1: "Work / Professional",
+              q6_o2: "Personal life",
+              q8: "7. Additional comments (Optional)",
+              other: "Other(s):",
+              prefer_not: "Prefer not to say / Don't know",
+              diag_title: "Part 2: AI Diagnostic Questionnaire",
+              diag_subtitle:
+                "Rate your level of agreement with the following statements.",
+              sec_a_title: "A. Basic AI Terminology",
+              sec_b_title: "B. LLM, LMM, SLM and Industry Perspective",
+              sec_c_title: "C. Prompting Techniques",
+              sec_d_title: "D. Hallucinations",
+              sec_e_title: "E. Self-Assessment (Non-scoring)",
+              th_statement: "Statement",
+              likert_1: "Unfamiliar with the topic",
+              likert_2: "Have heard of it",
+              likert_3: "Understand the core concept",
+              likert_4: "Understand details & usage",
+              likert_5: "Fully master the concept",
+              btn_clear: "Clear Form",
+              btn_submit: "Submit",
+              sending: "Sending...",
+              btn_cancel: "Cancel",
+              btn_send: "Send",
+              btn_pdf: "Yes, Print / Save PDF",
+              btn_close: "No, just Close",
+              result_title: "Diagnostic Result",
+              m1_t: "Anonymous Submission",
+              m1_c: "This information is sent to an anonymous repository. No personal data is saved.",
+              m2_t: "Survey sent correctly!",
+              m2_c: "Before you go, would you like to print or save a PDF copy of your answers?",
+              diag_questions: {
+                a: [
+                  "I can define what artificial intelligence is in my own words.",
+                  "I differentiate between rule-based AI and AI that learns from data.",
+                  "I understand the difference between machine learning and deep learning.",
+                  "I can explain what generative AI is and give a concrete example.",
+                ],
+                b: [
+                  "I know what an LLM (Large Language Model) is and what it is used for.",
+                  "I understand the difference between LLM and LMM (multimodal).",
+                  "I know what an SLM is and in what context it would be preferable to an LLM.",
+                  "I can mention at least one application of LLMs in my industry.",
+                  "I can mention some limitations of LLMs in specific contexts.",
+                ],
+                c: [
+                  "I know what a prompt is and how it influences the model's response.",
+                  "I know at least one prompt engineering technique (e.g. few-shot, role prompting).",
+                  "I can structure an effective prompt to get a useful response from an LLM.",
+                ],
+                d: [
+                  "I understand why hallucinations are a particular risk in my industry.",
+                  "I understand some techniques to reduce hallucinations.",
+                ],
+                e: [
+                  "I use generative AI tools (ChatGPT, Gemini, Copilot...)",
+                  "I use generative AI tools for work.",
+                  "I consider myself at a basic level.",
+                  "I consider myself at an intermediate level.",
+                  "I consider myself at an advanced level.",
+                ],
+              },
+            },
+            de: {
+              title: "Umfrage und Diagnosefragebogen zu generativer KI",
+              disclaimer:
+                "Ankündigung: Die Teilnahme ist freiwillig und anonym. Daten werden nur für akademische Zwecke erhoben.",
+              diag_instructions:
+                "Diagnoseanleitung: Antworten Sie ohne Hilfsmittel oder KI. Wählen Sie die Option, die Ihren Kenntnissen entspricht. Dauer: 10-15 Min.",
+              part1_title: "Teil 1: KI-Nutzung & Profil",
+              q1: "1. Welche der folgenden generativen KI-Anwendungen nutzen Sie? (Mehrfachauswahl)",
+              q2: "2. Auf welchem Gerät nutzen Sie diese Dienste am häufigsten?",
+              q2_o1: "Desktop/Laptop-Computer",
+              q2_o2: "Mobilgeräte (Smartphones)",
+              q2_o3: "Mobilgeräte (Tablets/iPads)",
+              q3: "3. Wofür nutzen Sie diese Dienste? (Mehrfachauswahl)",
+              search: "Informationen suchen",
+              review: "Eigene Texte prüfen",
+              generate_text: "Texte generieren",
+              summarize: "Dokumente zusammenfassen",
+              protocolize: "Protokolle erstellen",
+              coding: "Programmierung / Debugging",
+              generate_images: "Bilder generieren",
+              q4: "4. Möchten Sie mehr über diese Dienste erfahren?",
+              q5: "5. Möchten Sie mehr über eine dieser Anwendungen erfahren?",
+              q6: "6. Zu welchem Zweck nutzen Sie diese am häufigsten?",
+              q6_o1: "Beruflich / Arbeit",
+              q6_o2: "Privatleben",
+              q8: "7. Zusätzliche Kommentare (Optional)",
+              other: "Andere:",
+              prefer_not: "Keine Angabe / Weiß nicht",
+              diag_title: "Teil 2: KI-Diagnosefragebogen",
+              diag_subtitle:
+                "Bewerten Sie den Grad Ihrer Zustimmung zu den folgenden Aussagen.",
+              sec_a_title: "A. Grundlegende KI-Terminologie",
+              sec_b_title:
+                "B. LLM, LMM, SLM und Perspektive in meinem Industrie-Bereich",
+              sec_c_title: "C. Prompting-Techniken",
+              sec_d_title: "D. Halluzinationen",
+              sec_e_title: "E. Selbsteinschätzung (Ohne Bewertung)",
+              th_statement: "Aussage",
+              likert_1: "Thema ist mir unbekannt",
+              likert_2: "Davon gehört",
+              likert_3: "Grundkonzept verstanden",
+              likert_4: "Details und Anwendung verstanden",
+              likert_5: "Vollständig beherrscht",
+              btn_clear: "Löschen",
+              btn_submit: "Absenden",
+              sending: "Wird gesendet...",
+              btn_cancel: "Abbrechen",
+              btn_send: "Senden",
+              btn_pdf: "Ja, Drucken / PDF",
+              btn_close: "Nein, schließen",
+              result_title: "Diagnoseergebnis",
+              m1_t: "Anonyme Übermittlung",
+              m1_c: "Diese Informationen werden anonym übermittelt. Es werden keine persönlichen Daten gespeichert.",
+              m2_t: "Erfolgreich gesendet!",
+              m2_c: "Möchten Sie eine PDF-Kopie Ihrer Antworten drucken oder speichern?",
+              diag_questions: {
+                a: [
+                  "Ich kann in eigenen Worten definieren, was künstliche Intelligenz ist.",
+                  "Ich unterscheide zwischen regelbasierter KI und KI, die aus Daten lernt.",
+                  "Ich verstehe den Unterschied zwischen Machine Learning und Deep Learning.",
+                  "Ich kann erklären, was generative KI ist, und ein konkretes Beispiel nennen.",
+                ],
+                b: [
+                  "Ich weiß, was ein LLM (Large Language Model) ist und wozu es dient.",
+                  "Ich verstehe den Unterschied zwischen LLM und LMM (multimodal).",
+                  "Ich weiß, was ein SLM ist und wann es einem LLM vorzuziehen wäre.",
+                  "Ich kann mindestens eine Anwendung von LLMs in meinem Industrie-Bereich nennen.",
+                  "Ich kann einige Grenzen von LLMs in konkreten Kontexten nennen.",
+                ],
+                c: [
+                  "Ich weiß, was ein Prompt ist und wie er die Antwort eines Modells beeinflusst.",
+                  "Ich kenne mindestens eine Prompt-Engineering-Technik (z.B. Few-Shot, Role-Prompting).",
+                  "Ich kann einen effektiven Prompt strukturieren, um eine nützliche Antwort zu erhalten.",
+                ],
+                d: [
+                  "Ich verstehe, warum Halluzinationen in meinem Industrie-Bereich ein Risiko darstellen.",
+                  "Ich kenne einige Techniken zur Reduzierung von Halluzinationen.",
+                ],
+                e: [
+                  "Ich nutze generative KI-Tools (ChatGPT, Gemini, Copilot...)",
+                  "Ich nutze generative KI-Tools für die Arbeit.",
+                  "Ich schätze mich auf Anfängerniveau ein.",
+                  "Ich schätze mich auf mittlerem Niveau ein.",
+                  "Ich schätze mich auf fortgeschrittenem Niveau ein.",
+                ],
+              },
+            },
+            fr: {
+              title: "Enquête et Questionnaire Diagnostic IA Générative",
+              disclaimer:
+                "Annonce: La participation est strictly volontaire et anonyme. Les données sont collectées à des fins académiques.",
+              diag_instructions:
+                "Instructions de diagnostic: Répondez sans consulter de documents ou d'IA. Choisissez l'option qui reflète le mieux vos connaissances. Durée: 10-15 min.",
+              part1_title: "Partie 1: Utilisation et Profil IA",
+              q1: "1. Lesquelles de ces applications d'IA générative utilisez-vous ? (Plusieurs choix)",
+              q2: "2. Sur quel appareil utilisez-vous ces services le plus souvent ?",
+              q2_o1: "Ordinateurs (Bureau/Portable)",
+              q2_o2: "Smartphones",
+              q2_o3: "Tablettes/iPads",
+              q3: "3. Pourquoi utilisez-vous ces services ? (Plusieurs choix)",
+              search: "Rechercher des informations",
+              review: "Réviser vos textes",
+              generate_text: "Générer du texte",
+              summarize: "Résumer des documents",
+              protocolize: "Protocoliser des réunions",
+              coding: "Aide au codage / débogage",
+              generate_images: "Générer des images",
+              q4: "4. Souhaitez-vous en savoir plus sur l'un de ces services ?",
+              q5: "5. Souhaitez-vous en savoir plus sur l'une de ces applications ?",
+              q6: "6. À quelle fin les utilisez-vous le plus fréquemment ?",
+              q6_o1: "Travail / Professionnel",
+              q6_o2: "Vie privée",
+              q8: "7. Commentaires (Optionnel)",
+              other: "Autre(s) :",
+              prefer_not: "Préfère ne pas répondre",
+              diag_title: "Partie 2: Questionnaire Diagnostic IA",
+              diag_subtitle:
+                "Évaluez votre degré d'accord avec les affirmations suivantes.",
+              sec_a_title: "A. Terminologie de base de l'IA",
+              sec_b_title: "B. LLM, LMM, SLM et perspective en santé",
+              sec_c_title: "C. Techniques de Prompting",
+              sec_d_title: "D. Hallucinations",
+              sec_e_title: "E. Auto-évaluation (Sans notation)",
+              th_statement: "Affirmation",
+              likert_1: "Je ne connais pas el sujet",
+              likert_2: "J'en ai entendu parler",
+              likert_3: "Je comprends le concept général",
+              likert_4: "Je comprends les détails et l'usage",
+              likert_5: "Je maîtrise parfaitement le concept",
+              btn_clear: "Effacer",
+              btn_submit: "Soumettre",
+              sending: "Envoi en cours...",
+              btn_cancel: "Annuler",
+              btn_send: "Envoyer",
+              btn_pdf: "Oui, Imprimer / PDF",
+              btn_close: "Non, fermer",
+              result_title: "Résultat du diagnostic",
+              m1_t: "Soumission anonyme",
+              m1_c: "Ces informations sont envoyées de manière anonyme. Aucune donnée personnelle n'est enregistrée.",
+              m2_t: "Envoyé avec succès !",
+              m2_c: "Voulez-vous imprimer ou sauvegarder une copie PDF ?",
+              diag_questions: {
+                a: [
+                  "Je peux définir ce qu'est l'intelligence artificielle dans mes propres mots.",
+                  "Je fais la différence entre l'IA basée sur des règles et l'IA apprenant des données.",
+                  "Je comprends la différence entre le machine learning et le deep learning.",
+                  "Je peux expliquer ce qu'est l'IA générative et donner un exemple concret.",
+                ],
+                b: [
+                  "Je sais ce qu'est un LLM (Large Language Model) et à quoi il sert.",
+                  "Je comprends la différence entre LLM et LMM (multimodal).",
+                  "Je sais ce qu'est un SLM et dans quel contexte il serait préférable à un LLM.",
+                  "Je peux citer au moins une application des LLM dans le domaine de la santé.",
+                  "Je peux citer certaines limites des LLM dans des contextes cliniques.",
+                ],
+                c: [
+                  "Je sais ce qu'est un prompt et comment il influence la réponse d'un modèle.",
+                  "Je connais au moins une technique d'ingénierie de prompt (ex. few-shot, role prompting).",
+                  "Je peux structurer un prompt efficace pour obtenir une réponse utile d'un LLM.",
+                ],
+                d: [
+                  "Je comprends pourquoi les hallucinations sont un risque particulier en santé.",
+                  "Je comprends certaines techniques pour réduire les hallucinations.",
+                ],
+                e: [
+                  "J'utilise des outils d'IA générative (ChatGPT, Gemini, Copilot...)",
+                  "J'utilise des outils d'IA générative pour le travail.",
+                  "Je me considère comme ayant un niveau de base.",
+                  "Je me considère comme ayant un niveau intermédiaire.",
+                  "Je me considère comme ayant un niveau avancé.",
+                ],
+              },
+            },
+          };
+
+          function renderLikertSection(containerId, prefix, questions) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = "";
+            questions.forEach((qText, index) => {
+              const qName = `${prefix}_${index + 1}`;
+              let row = `<tr class="hover:bg-slate-50 border-b border-gray-100">
+            <td class="p-3 text-gray-800 font-medium">${qText}</td>`;
+              for (let i = 1; i <= 5; i++) {
+                row += `<td class="p-2 text-center">
+              <input type="radio" name="${qName}" value="${i}" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 cursor-pointer" />
+            </td>`;
+              }
+              row += `</tr>`;
+              container.innerHTML += row;
+            });
+          }
+
+          function updateSurveyUI(lang) {
+            document
+              .querySelectorAll(
+                "#encuesta [data-i18n], #confirmModal [data-i18n]",
+              )
+              .forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                if (surveyTranslations[lang] && surveyTranslations[lang][key]) {
+                  el.innerText = surveyTranslations[lang][key];
+                }
+              });
+
+            // Rebuild Q4 (Interest in usage types)
+            const q4Container = document.getElementById("q4_options");
+            q4Container.innerHTML = "";
+            const usageKeys = [
+              "search",
+              "review",
+              "generate_text",
+              "summarize",
+              "protocolize",
+              "coding",
+              "generate_images",
+            ];
+            usageKeys.forEach((key) => {
+              q4Container.innerHTML += `<label class="flex items-center space-x-3"><input type="checkbox" name="interest_usage" value="${key}" class="w-4 h-4"> <span>${surveyTranslations[lang][key]}</span></label>`;
+            });
+            q4Container.innerHTML += `<div class="flex items-center space-x-3"><input type="checkbox" name="interest_usage" value="Other" class="w-4 h-4"> <span>${surveyTranslations[lang].other}</span><input type="text" name="other_interest_details" class="border-b border-gray-300 w-24 outline-none px-1"></div>`;
+            q4Container.innerHTML += `<label class="flex items-center space-x-3 text-gray-500 italic"><input type="checkbox" name="interest_usage" value="N/A" class="w-4 h-4"> <span>${surveyTranslations[lang].prefer_not}</span></label>`;
+
+            // Render Likert Diagnostic Sections
+            const qData = surveyTranslations[lang].diag_questions;
+            renderLikertSection("likert_sec_a", "diag_a", qData.a);
+            renderLikertSection("likert_sec_b", "diag_b", qData.b);
+            renderLikertSection("likert_sec_c", "diag_c", qData.c);
+            renderLikertSection("likert_sec_d", "diag_d", qData.d);
+            renderLikertSection("likert_sec_e", "diag_e", qData.e);
+          }
+
+          document
+            .getElementById("surveyLangSelect")
+            .addEventListener("change", (e) => updateSurveyUI(e.target.value));
+
+          // Sincronizar el idioma inicial del cuestionario con el idioma activo de la página principal
+          const savedMainLang = localStorage.getItem("preferredLang");
+          const initialSurveyLang = ["es", "de", "en"].includes(savedMainLang)
+            ? savedMainLang
+            : "en";
+          document.getElementById("surveyLangSelect").value = initialSurveyLang;
+          updateSurveyUI(initialSurveyLang);
+
+          const scriptURL =
+            "https://script.google.com/macros/s/AKfycbyqZBuxJO8zAfmSfdRDTvTsz9RSuEF4iEsoYYi8jKmuZPezGbkyGOzcJi9PCDC4o0EC/exec";
+
+          document.getElementById("openModalBtn").onclick = () => {
+            const lang = document.getElementById("surveyLangSelect").value;
+            const result = calculateDiagnosticResult();
+            const resultBox = document.getElementById("diagnosticResult");
+            if (result) {
+              showDiagnosticResult(result, lang);
+            } else if (resultBox) {
+              resultBox.classList.add("hidden");
+            }
+            document.getElementById("confirmModal").classList.remove("hidden");
+          };
+          document.getElementById("closeModalBtn").onclick = () =>
+            document.getElementById("confirmModal").classList.add("hidden");
+
+          function calculateDiagnosticResult() {
+            const form = document.getElementById("surveyForm");
+            const fd = new FormData(form);
+            const prefixes = [
+              ["diag_a", 4],
+              ["diag_b", 5],
+              ["diag_c", 3],
+              ["diag_d", 2],
+            ];
+
+            let total = 0;
+            let answered = 0;
+
+            prefixes.forEach(([prefix, count]) => {
+              for (let i = 1; i <= count; i++) {
+                const value = Number(fd.get(`${prefix}_${i}`));
+                if (Number.isInteger(value) && value >= 1 && value <= 5) {
+                  total += value;
+                  answered++;
+                }
+              }
+            });
+
+            // El resultado solo se muestra cuando las 14 preguntas puntuables tienen respuesta.
+            if (answered !== 14) return null;
+
+            let level;
+            if (total <= 32) {
+              level = {
+                es: "Básico",
+                en: "Basic",
+                de: "Grundlegend",
+                fr: "Débutant",
+              };
+            } else if (total <= 52) {
+              level = {
+                es: "Intermedio",
+                en: "Intermediate",
+                de: "Mittelstufe",
+                fr: "Intermédiaire",
+              };
+            } else {
+              level = {
+                es: "Avanzado",
+                en: "Advanced",
+                de: "Fortgeschritten",
+                fr: "Avancé",
+              };
+            }
+
+            return { total, percentage: (total / 70) * 100, level };
+          }
+
+          function showDiagnosticResult(result, lang) {
+            if (!result) return;
+
+            const box = document.getElementById("diagnosticResult");
+            const level = document.getElementById("diagnosticLevel");
+            const score = document.getElementById("diagnosticScore");
+            const percentage = document.getElementById("diagnosticPercentage");
+
+            const labels = {
+              es: { score: "Puntuación", percentage: "Porcentaje" },
+              en: { score: "Score", percentage: "Percentage" },
+              de: { score: "Punktzahl", percentage: "Prozentsatz" },
+              fr: { score: "Score", percentage: "Pourcentage" },
+            };
+
+            const t = labels[lang] || labels.en;
+            level.textContent = result.level[lang] || result.level.en;
+            score.textContent = `${t.score}: ${result.total} / 70`;
+            percentage.textContent = `${t.percentage}: ${result.percentage.toFixed(1)}%`;
+            box.classList.remove("hidden");
+          }
+
+          document.getElementById("confirmSendBtn").onclick = async () => {
+            const lang = document.getElementById("surveyLangSelect").value;
+            const btn = document.getElementById("confirmSendBtn");
+
+            btn.disabled = true;
+            btn.innerText = surveyTranslations[lang].sending;
+            btn.classList.remove("bg-indigo-600", "hover:bg-indigo-700");
+            btn.classList.add("bg-gray-400", "cursor-not-allowed");
+
+            const fd = new FormData(document.getElementById("surveyForm"));
+
+            let interestsList = [
+              ...fd.getAll("interest_usage"),
+              ...fd.getAll("interest_apps"),
+            ];
+            const otherInt = fd.get("other_interest_details");
+            if (otherInt && otherInt.trim() !== "")
+              interestsList.push("Other: " + otherInt.trim());
+
+            // Extract Diagnostic Responses
+            const collectLikert = (prefix, count) => {
+              let res = {};
+              for (let i = 1; i <= count; i++) {
+                res[`${prefix}_${i}`] = fd.get(`${prefix}_${i}`) || "N/A";
+              }
+              return res;
+            };
+
+            const data = {
+              ID: crypto.randomUUID(),
+              Date: new Date().toLocaleString(),
+              Services: fd.getAll("services").join(", "),
+              Other_Service: fd.get("other_service_details") || "",
+              Device: fd.get("device") || "",
+              Usage: fd.getAll("usage").join(", "),
+              Other_Usage: fd.get("other_usage_details") || "",
+              Interests: interestsList.join(", "),
+              Intent: fd.get("intent") || "",
+              Comments: fd.get("comments") || "",
+              lang: lang,
+
+              // Data Cuestionario Diagnóstico
+              Diagnostic_Section_A: collectLikert("diag_a", 4),
+              Diagnostic_Section_B: collectLikert("diag_b", 5),
+              Diagnostic_Section_C: collectLikert("diag_c", 3),
+              Diagnostic_Section_D: collectLikert("diag_d", 2),
+              Diagnostic_Section_E: collectLikert("diag_e", 5),
+            };
+
+            try {
+              await fetch(scriptURL, {
+                method: "POST",
+                mode: "no-cors",
+                body: JSON.stringify(data),
+              });
+              document
+                .getElementById("modalConfirmState")
+                .classList.add("hidden");
+              document
+                .getElementById("modalSuccessState")
+                .classList.remove("hidden");
+            } catch (e) {
+              console.error("Error:", e);
+              alert("Error sending survey.");
+              btn.disabled = false;
+              btn.innerText = surveyTranslations[lang].btn_send;
+              btn.classList.remove("bg-gray-400", "cursor-not-allowed");
+              btn.classList.add("bg-indigo-600", "hover:bg-indigo-700");
+            }
+          };
+        </script>
+
+        <!--Objeto Links -->
+        <article id="ressourcen" class="content-section max-w-4xl mx-auto">
+          <div class="mb-10">
+            <h2
+              data-i18n="resources_title"
+              class="text-3xl font-black text-indigo-900 uppercase tracking-tighter"
+            >
+              Ressourcen
+            </h2>
+            <div
+              class="mt-6 p-6 bg-slate-100 border-l-4 border-slate-400 text-slate-700 text-sm shadow-sm"
+            >
+              <p data-i18n="resources_note" class="leading-relaxed">
+                Die folgenden externen Quellen ergänzen den Kurs. Externe
+                Webseiten können sich ändern oder nicht dauerhaft erreichbar
+                sein.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <section
+              class="p-6 bg-indigo-50 rounded-2xl border-l-4 border-indigo-600 shadow-sm"
+            >
+              <h3
+                data-i18n="resources_platforms_title"
+                class="font-bold text-indigo-900 text-xl"
+              >
+                KI-Plattformen & Fachquellen
+              </h3>
+              <p
+                data-i18n="resources_platforms_description"
+                class="text-sm text-slate-600 mt-2 leading-relaxed"
+              >
+                Ausgewählte Quellen zur Vertiefung von KI-Kompetenzen,
+                Sicherheit, Forschung und praktischer Anwendung.
+              </p>
+
+              <div class="mt-6 space-y-4">
+                <div class="p-5 bg-white rounded-xl border border-indigo-100">
+                  <h4 class="font-bold text-indigo-900">KI-Campus</h4>
+                  <p class="text-sm text-slate-600 mt-2">
+                    Eine vom Bundesministerium für Bildung und Forschung (BMBF)
+                    geförderte Lernplattform für KI-Kompetenzen.
+                  </p>
+                  <a
+                    href="https://ki-campus.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+                    >ki-campus.org</a
+                  >
+                </div>
+                <div class="p-5 bg-white rounded-xl border border-indigo-100">
+                  <h4 class="font-bold text-indigo-900">
+                    Plattform Lernende Systeme
+                  </h4>
+                  <p class="text-sm text-slate-600 mt-2">
+                    Expertennetzwerk zu Potenzialen, Herausforderungen und
+                    Rahmenbedingungen künstlicher Intelligenz.
+                  </p>
+                  <a
+                    href="https://www.plattform-lernende-systeme.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+                    >plattform-lernende-systeme.de</a
+                  >
+                </div>
+                <div class="p-5 bg-white rounded-xl border border-indigo-100">
+                  <h4 class="font-bold text-indigo-900">
+                    BSI – Künstliche Intelligenz
+                  </h4>
+                  <p class="text-sm text-slate-600 mt-2">
+                    Informationen und Empfehlungen des Bundesamts für Sicherheit
+                    in der Informationstechnik.
+                  </p>
+                  <a
+                    href="https://www.bsi.bund.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+                    >bsi.bund.de</a
+                  >
+                </div>
+                <div class="p-5 bg-white rounded-xl border border-indigo-100">
+                  <h4 class="font-bold text-indigo-900">Bitkom</h4>
+                  <p class="text-sm text-slate-600 mt-2">
+                    Praxisorientierte Informationen und Leitfäden zu
+                    Digitalisierung und KI.
+                  </p>
+                  <a
+                    href="https://www.bitkom.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+                    >bitkom.org</a
+                  >
+                </div>
+                <div class="p-5 bg-white rounded-xl border border-indigo-100">
+                  <h4 class="font-bold text-indigo-900">Fraunhofer IAIS</h4>
+                  <p class="text-sm text-slate-600 mt-2">
+                    Angewandte Forschung und Arbeiten zu vertrauenswürdigen
+                    KI-Anwendungen.
+                  </p>
+                  <a
+                    href="https://www.iais.fraunhofer.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block mt-3 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline"
+                    >iais.fraunhofer.de</a
+                  >
+                </div>
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <!--Objeto Kursmatmaterial.Todo lo que di en todas las 9 horas de  clases y ejercicios-->
+        <article id="kursmaterialien" class="content-section max-w-4xl mx-auto">
+          <!--Titulo Kursmaterialen, este es texto suelto-->
+          <h2
+            class="text-3xl font-black text-indigo-900 uppercase tracking-tighter"
+          >
+            Kursmaterialien
+          </h2>
+
+          <!--Contenedor con parrafo introductorio-->
+          <div
+            class="mt-6 p-6 bg-slate-100 border-l-4 border-slate-400 text-slate-700 text-sm shadow-sm"
+          >
+            <p class="leading-relaxed">
+              Dieser Abschnitt enthält Materialien aus der Unterrichtseinheit
+              sowie Übungen...
+            </p>
+          </div>
+          <!--cierre del Contenedor con parrafo introductorio-->
+
+          <!--cada vez que hay material de estudio y ejercicios se abre un contenedor horizontal cada uno con dos columnas
+            la columna 1 lo que se presento en clase, esto es un pdf, y una segunda columna para ejercicios con soluciones
+            a continuación cada sesion, cada curso dado-->
+        </article>
+
+        <!--Objeto titulo de esta seccion: Sobre mi-->
+
+        <article id="sobre-mi" class="content-section w-full">
+          <!--contenedor para Linkedin-->
+          <div class="max-w-4xl mx-auto px-4 py-10">
+            <h2
+              data-i18n="sobre_mi_title"
+              class="text-3xl font-bold mb-10 text-center text-gray-800"
+            >
+              Über mich
+            </h2>
+
+            <!--contenedor grande para estilo propio de Linkedin-->
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+              "
+            >
+              <!--contenedor de mas estilos de Linkedin-->
+              <div
+                style="margin: 0 auto; display: inline-block; min-width: 250px"
+              >
+                <div
+                  class="badge-base LI-profile-badge"
+                  data-locale="de_DE"
+                  data-size="large"
+                  data-theme="light"
+                  data-type="VERTICAL"
+                  data-vanity="hectorupegui"
+                  data-version="v1"
+                >
+                  <a
+                    class="badge-base__link LI-simple-link"
+                    href="https://de.linkedin.com/in/hectorupegui?trk=profile-badge"
+                  ></a>
+                </div>
+                <!--cierra contenedor de mas estilos de Linkedin-->
+              </div>
+              <!--cierra contenedor para estilo propio de Linkedin-->
+
+              <!--otro contenedor de mas estilos de Linkedin-->
+              <div class="mt-8">
+                <a
+                  href="https://www.linkedin.com/in/hectorupegui"
+                  target="_blank"
+                  class="inline-flex items-center gap-3 bg-[#0077b5] hover:bg-[#005a87] text-white px-10 py-4 rounded-full font-bold transition-all shadow-xl hover:scale-105"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    />
+                  </svg>
+                  Mein LinkedIn Profil besuchen
+                </a>
+              </div>
+              <!--cierra otro contenedor de mas estilos de Linkedin-->
+            </div>
+            <!--cierra el contenedor grande para estilo propio de Linkedin-->
+          </div>
+          <!--cierra contenedor para Linkedin-->
+        </article>
+
+        <!-- Cierra MAIN de aqui empiezan los contenidos dentro del frame interno se ve en todos los devices-->
+      </main>
+    </div>
+    <!-- cierra aqui empiezan los contenidos dentro del frame interno : este framo toene header y main dentro del frame -->
+
+    <!-- aqui empiezan los scripts  -->
+
+    <script
+      src="https://platform.linkedin.com/badges/js/profile.js"
+      async
+      defer
+      type="text/javascript"
+    ></script>
+
+    <script>
+      // 1. INICIO: Esto "enciende" la sección principal al cargar la página
+      document.addEventListener("DOMContentLoaded", () => {
+        showSection("anuncio");
+      });
+
+      // 2. NAVEGACIÓN: Muestra secciones y oculta las demás
+      function showSection(id) {
+        // Quitar "active" de todas las secciones y ponerlo en la elegida
+        document
+          .querySelectorAll(".content-section")
+          .forEach((s) => s.classList.remove("active"));
+        const target = document.getElementById(id);
+        if (target) {
+          target.classList.add("active");
+        }
+
+        // En móviles: cerrar el menú lateral automáticamente al hacer click en una opción
+        if (window.innerWidth < 1024) {
+          const sidebar = document.getElementById("sidebar");
+          const overlay = document.getElementById("overlay");
+          if (sidebar) sidebar.classList.add("-translate-x-full");
+          if (overlay) overlay.classList.add("hidden");
+        }
+
+        // Volver arriba suavemente al cambiar de sección
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // 3. MENÚS LATERALES: Abrir/Cerrar submenús y Sidebar
+      function toggleSubmenu(id) {
+        const menu = document.getElementById(id);
+        const icon = document.getElementById("icon-" + id);
+        if (menu) {
+          menu.classList.toggle("open");
+          if (icon) {
+            icon.style.transform = menu.classList.contains("open")
+              ? "rotate(180deg)"
+              : "rotate(0deg)";
+          }
+        }
+      }
+
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        if (sidebar) sidebar.classList.toggle("-translate-x-full");
+        if (overlay) overlay.classList.toggle("hidden");
+      }
+
+      // --- CONTADOR DE VISITAS (OPCIONAL) ---
+      /*
+      async function updateVisitorCount() {
+        const googleScriptURL = "TU_URL_DE_GOOGLE_SCRIPT";
+        try {
+          fetch(googleScriptURL, { mode: 'no-cors' });
+        } catch (error) {
+          console.log("Error al registrar visita");
+        }
+      }
+      updateVisitorCount();
+      */
+      // Put this in your main JavaScript file or inside <script> tags before </body>
+      document.querySelectorAll("[data-view]").forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetViewId = button.getAttribute("data-view");
+
+          // Hide all article views
+          document.querySelectorAll("article.content-view").forEach((view) => {
+            view.classList.add("hidden");
+          });
+
+          // Show the target article view
+          const targetView = document.getElementById(targetViewId);
+          if (targetView) {
+            targetView.classList.remove("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
